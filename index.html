@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>ابزار سلامت صبا رسانه</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+body{
+
+font-family:tahoma,Arial;
+background:#eef7fb;
+margin:0;
+color:#333;
+
+}
+
+
+/* سربرگ */
+
+.header{
+
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+color:white;
+text-align:center;
+padding:25px 10px;
+
+}
+
+
+.header h1{
+
+margin:0;
+font-size:28px;
+
+}
+
+
+.header p{
+
+font-size:17px;
+
+}
+
+
+
+/* کارت اصلی */
+
+.container{
+
+width:90%;
+max-width:430px;
+
+background:white;
+
+margin:25px auto;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 8px 25px #b0bec5;
+
+text-align:center;
+
+animation:show .7s;
+
+}
+
+
+@keyframes show{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+input{
+
+width:90%;
+
+height:52px;
+
+font-size:18px;
+
+border:2px solid #ddd;
+
+border-radius:15px;
+
+padding:10px;
+
+margin:8px;
+
+text-align:center;
+
+}
+
+
+
+button{
+
+width:95%;
+
+height:55px;
+
+background:#1565c0;
+
+color:white;
+
+font-size:20px;
+
+border:none;
+
+border-radius:18px;
+
+cursor:pointer;
+
+margin-top:15px;
+
+box-shadow:0 5px 12px #aaa;
+
+transition:.2s;
+
+}
+
+
+
+button:active{
+
+transform:scale(.93);
+
+box-shadow:0 2px 5px #777;
+
+}
+
+
+
+/* آدمک */
+
+.person{
+
+font-size:100px;
+
+margin:20px;
+
+}
+
+
+
+/* دایره BMI */
+
+.circle{
+
+width:170px;
+
+height:170px;
+
+border-radius:50%;
+
+margin:20px auto;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+font-size:35px;
+
+font-weight:bold;
+
+color:white;
+
+background:#90caf9;
+
+box-shadow:0 5px 15px #aaa;
+
+}
+
+
+
+/* نتیجه */
+
+.info{
+
+background:#f8f9fa;
+
+border-radius:20px;
+
+padding:20px;
+
+font-size:18px;
+
+line-height:2;
+
+}
+
+
+
+/* لینک */
+
+.telegram a{
+
+display:block;
+
+background:#0088cc;
+
+color:white;
+
+text-decoration:none;
+
+padding:15px;
+
+border-radius:18px;
+
+font-size:19px;
+
+margin-top:25px;
+
+box-shadow:0 5px 15px #aaa;
+
+transition:.2s;
+
+}
+
+
+
+.telegram a:active{
+
+transform:scale(.93);
+
+}
+
+
+
+/* پنجره پیام */
+
+.message-box{
+
+position:fixed;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%) scale(0);
+
+background:white;
+
+width:300px;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 10px 35px #555;
+
+text-align:center;
+
+font-size:18px;
+
+z-index:100;
+
+transition:.3s;
+
+}
+
+
+
+.message-box.show{
+
+transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+
+.message-box button{
+
+height:45px;
+
+font-size:16px;
+
+}
+
+
+
+.footer{
+
+font-size:13px;
+
+color:#777;
+
+margin-top:20px;
+
+}
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<div id="message" class="message-box">
+
+<div id="messageText"></div>
+
+<button onclick="closeMessage()">
+
+باشه
+
+</button>
+
+</div>
+
+
+
+<div class="header">
+
+<h1>
+ابزار سلامت صبا رسانه
+</h1>
+
+<p>
+همراه بازنشستگان برای سنجش وزن و سلامتی
+</p>
+
+</div>
+
+
+
+
+<div class="container">
+
+
+<h2>
+محاسبه سلامت وزن
+</h2>
+
+
+
+<input id="weight" type="number"
+placeholder="وزن به کیلوگرم">
+
+
+
+<input id="height" type="number"
+placeholder="قد به سانتی متر">
+
+
+
+<button onclick="calculate()">
+
+محاسبه وضعیت وزن
+
+</button>
+
+
+
+
+<div id="person" class="person">
+
+🙂
+
+</div>
+
+
+
+
+<div id="circle" class="circle">
+
+BMI
+
+</div>
+
+
+
+
+<div id="result" class="info">
+
+قد و وزن خود را وارد کنید
+
+</div>
+
+
+
+
+<div class="telegram">
+
+<a href="https://t.me/saba_rasanehh"
+onclick="showMessage('در حال انتقال به کانال صبا رسانه هستید')"
+target="_blank">
+
+عضویت در کانال صبا رسانه
+
+</a>
+
+</div>
+
+
+
+
+<div class="footer">
+
+این ابزار برای آگاهی اولیه است و جایگزین نظر پزشک نیست
+
+</div>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+function showMessage(text){
+
+document.getElementById("messageText").innerHTML=text;
+
+document.getElementById("message").classList.add("show");
+
+}
+
+
+
+function closeMessage(){
+
+document.getElementById("message").classList.remove("show");
+
+}
+
+
+
+
+
+function calculate(){
+
+
+
+let weight =
+Number(document.getElementById("weight").value);
+
+
+
+let height =
+Number(document.getElementById("height").value)/100;
+
+
+
+if(!weight || !height){
+
+showMessage("لطفاً قد و وزن خود را وارد کنید");
+
+return;
+
+}
+
+
+
+let bmi =
+weight/(height*height);
+
+
+
+let status;
+
+let emoji;
+
+let color;
+
+
+
+let min =
+(18.5*height*height).toFixed(1);
+
+
+
+let max =
+(24.9*height*height).toFixed(1);
+
+
+
+if(bmi < 18.5){
+
+status="کمبود وزن";
+
+emoji="😟";
+
+color="#2196f3";
+
+}
+
+else if(bmi < 25){
+
+status="وزن مناسب";
+
+emoji="🙂";
+
+color="#4caf50";
+
+}
+
+else if(bmi < 30){
+
+status="اضافه وزن";
+
+emoji="😐";
+
+color="#ff9800";
+
+}
+
+else{
+
+status="چاقی";
+
+emoji="⚠️";
+
+color="#f44336";
+
+}
+
+
+
+
+document.getElementById("person").innerHTML=emoji;
+
+
+
+document.getElementById("circle").style.background=color;
+
+
+
+document.getElementById("circle").innerHTML=
+bmi.toFixed(1);
+
+
+
+
+document.getElementById("result").innerHTML=
+
+`
+وضعیت شما:
+
+<b>${status}</b>
+
+<br>
+
+شاخص توده بدنی:
+
+<b>${bmi.toFixed(1)}</b>
+
+<br>
+
+وزن مناسب برای قد شما:
+
+<br>
+
+<b>${min} تا ${max} کیلوگرم</b>
+
+`;
+
+
+
+showMessage("محاسبه با موفقیت انجام شد");
+
+
+
+localStorage.setItem(
+"نتیجه سلامت",
+document.getElementById("result").innerHTML
+);
+
+
+
+}
+
+
+
+window.onload=function(){
+
+let old=
+localStorage.getItem("نتیجه سلامت");
+
+if(old){
+
+document.getElementById("result").innerHTML=old;
+
+}
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

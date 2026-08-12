@@ -329,7 +329,59 @@ target="_blank">
 
 <script src="data/tools.js"></script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const toolsList =
+        document.getElementById("toolsList");
+
+    if (!toolsList || typeof tools === "undefined") {
+        return;
+    }
+
+    toolsList.innerHTML = "";
+
+    tools.forEach(function (tool) {
+
+        const card =
+            document.createElement("a");
+
+        card.className = "tool";
+
+        card.href = tool.url;
+
+        card.innerHTML = `
+
+            <div class="tool-icon">
+                ${tool.icon}
+            </div>
+
+            <div class="tool-content">
+
+                <div class="tool-title">
+                    ${tool.title}
+                </div>
+
+                <div class="tool-description">
+                    ${tool.description}
+                </div>
+
+            </div>
+
+            <div class="arrow">
+                ‹
+            </div>
+
+        `;
+
+        toolsList.appendChild(card);
+
+    });
+
+});
+
+</script>
 
 </body>
-
 </html>

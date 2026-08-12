@@ -101,13 +101,78 @@ body{
 
 /* دسته‌بندی ابزارها */
 
+/* دسته‌بندی ابزارها */
+
 .categories{
     display:flex;
+
     gap:8px;
+
     overflow-x:auto;
-    padding:4px 2px 12px;
-    margin-bottom:4px;
+
+    padding:5px 2px 13px;
+
+    margin-bottom:5px;
+
     scrollbar-width:none;
+
+    -webkit-overflow-scrolling:touch;
+
+    scroll-behavior:smooth;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category-button{
+    flex:0 0 auto;
+
+    min-height:43px;
+
+    border:1px solid #dce7e3;
+
+    background:#fff;
+
+    color:#53615c;
+
+    padding:8px 17px;
+
+    border-radius:15px;
+
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:
+        background .18s,
+        color .18s,
+        transform .12s;
+
+    white-space:nowrap;
+}
+
+.category-button:active{
+    transform:scale(.96);
+}
+
+.category-button.active{
+    background:#176b5b;
+
+    color:#fff;
+
+    border-color:#176b5b;
+
+    box-shadow:
+        0 4px 10px
+        rgba(23,107,91,.16);
 }
 
 .categories::-webkit-scrollbar{

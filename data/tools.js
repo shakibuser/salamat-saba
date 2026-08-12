@@ -4,6 +4,7 @@ const tools = [
         title: "محاسبه شاخص توده بدنی",
         icon: "⚖️",
         description: "قد و وزن خود را وارد کنید و وضعیت وزن خود را ببینید.",
+        category: "سلامت",
         url: "tools/bmi.html"
     },
 
@@ -11,6 +12,7 @@ const tools = [
         title: "بازنشسته‌سنج صبا",
         icon: "🧓",
         description: "ببین سبک زندگی‌ات چند ساله است، نه فقط شناسنامه‌ات!",
+        category: "بازنشستگی",
         url: "tools/retiree-age.html"
     },
 
@@ -18,9 +20,8 @@ const tools = [
         title: "یادآور",
         icon: "🧠",
         description: "یک بازی سرگرم‌کننده برای به چالش کشیدن حافظه.",
+        category: "سرگرمی",
         url: "tools/memory.html"
     }
-   
-    ];
 
-
+];

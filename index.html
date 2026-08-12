@@ -99,6 +99,39 @@ body{
     gap:13px;
 }
 
+/* دسته‌بندی ابزارها */
+
+.categories{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:4px 2px 12px;
+    margin-bottom:4px;
+    scrollbar-width:none;
+}
+
+.categories::-webkit-scrollbar{
+    display:none;
+}
+
+.category-button{
+    flex:0 0 auto;
+    border:1px solid #dce7e3;
+    background:#fff;
+    color:#53615c;
+    padding:9px 15px;
+    border-radius:14px;
+    font-family:Tahoma,Arial,sans-serif;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+.category-button.active{
+    background:#176b5b;
+    color:#fff;
+    border-color:#176b5b;
+}    
 
 /* کارت ابزار */
 

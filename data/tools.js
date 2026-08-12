@@ -1,15 +1,24 @@
 const tools = [
+
     {
-        title: "محاسبه BMI",
+        title: "محاسبه شاخص توده بدنی",
         icon: "⚖️",
-        description: "محاسبه شاخص توده بدنی و محدوده وزن مناسب",
+        description: "قد و وزن خود را وارد کنید و وضعیت وزن خود را ببینید.",
         url: "tools/bmi.html"
+    },
+
+    {
+        title: "بازنشسته‌سنج صبا",
+        icon: "🧓",
+        description: "ببین سبک زندگی‌ات چند ساله است، نه فقط شناسنامه‌ات!",
+        url: "tools/retiree-age.html"
     },
 
     {
         title: "یادآور",
         icon: "🧠",
-        description: "یک بازی ساده و سرگرم‌کننده برای تقویت حافظه",
+        description: "یک بازی سرگرم‌کننده برای به چالش کشیدن حافظه.",
         url: "tools/memory.html"
     }
+
 ];

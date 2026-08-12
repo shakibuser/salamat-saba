@@ -333,41 +333,9 @@ body{
 </head>
 
 
-<body>
-<div id="tools-container"></div>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-    const container = document.getElementById("tools-container");
 
-    if (!container || typeof tools === "undefined") {
-        return;
-    }
-
-    tools.forEach(function (tool) {
-
-        const card = document.createElement("a");
-
-        card.href = tool.url;
-        card.className = "tool-card";
-
-        card.innerHTML = `
-            <div class="tool-icon">${tool.icon}</div>
-
-            <div class="tool-content">
-                <div class="tool-title">${tool.title}</div>
-                <div class="tool-description">${tool.description}</div>
-            </div>
-
-            <div class="tool-arrow">←</div>
-        `;
-
-        container.appendChild(card);
-
-    });
-
-});
-</script>
+t>
 <div class="container">
 
 

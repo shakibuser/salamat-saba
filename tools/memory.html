@@ -1,14 +1,16 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>یادآور | بازی ذهنی صبا رسانه</title>
+<title>یادآور | بازی صبا رسانه</title>
 
 <meta name="description"
-content="بازی یادآور صبا رسانه؛ یک بازی ساده و سرگرم‌کننده برای حافظه و ذهن">
+content="بازی سرگرم‌کننده حافظه و خاطرات صبا رسانه">
 
 <style>
 
@@ -33,7 +35,7 @@ button{
     width:100%;
     max-width:680px;
     margin:auto;
-    padding:12px 10px 35px;
+    padding:10px 10px 35px;
 }
 
 
@@ -42,7 +44,7 @@ button{
 .back-button{
     display:block;
     width:100%;
-    margin-bottom:12px;
+    margin-bottom:10px;
     padding:12px;
     background:#fff;
     color:#176b5b;
@@ -52,23 +54,23 @@ button{
     text-decoration:none;
     font-size:16px;
     font-weight:900;
-    box-shadow:0 3px 12px rgba(0,0,0,.06);
+    box-shadow:0 3px 12px rgba(0,0,0,.05);
 }
 
 
-/* هدر */
+/* سربرگ */
 
 .header{
     background:linear-gradient(145deg,#176b5b,#0f5145);
     color:#fff;
     text-align:center;
-    padding:24px 15px;
+    padding:22px 15px;
     border-radius:23px;
     box-shadow:0 8px 30px rgba(20,60,50,.12);
 }
 
 .logo{
-    font-size:48px;
+    font-size:46px;
 }
 
 .header h1{
@@ -77,7 +79,7 @@ button{
 }
 
 .header p{
-    margin:4px 0 0;
+    margin:3px 0 0;
     font-size:14px;
 }
 
@@ -86,14 +88,14 @@ button{
 
 .card{
     background:#fff;
-    margin-top:13px;
-    padding:17px 14px;
+    margin-top:12px;
+    padding:16px 13px;
     border-radius:21px;
-    box-shadow:0 6px 25px rgba(20,60,50,.07);
+    box-shadow:0 6px 25px rgba(20,60,50,.06);
 }
 
 
-/* صفحه شروع */
+/* شروع */
 
 .intro{
     text-align:center;
@@ -107,7 +109,7 @@ button{
 
 .intro p{
     margin:0;
-    color:#66736e;
+    color:#69756f;
     font-size:14px;
 }
 
@@ -124,12 +126,6 @@ button{
     cursor:pointer;
 }
 
-.start-button:active,
-.answer-button:active,
-.control-button:active{
-    transform:scale(.97);
-}
-
 
 /* آمار */
 
@@ -137,13 +133,13 @@ button{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:8px;
-    margin-bottom:13px;
+    margin-bottom:12px;
 }
 
 .stat{
     background:#f1f6f4;
     border-radius:13px;
-    padding:8px 4px;
+    padding:7px 3px;
     text-align:center;
 }
 
@@ -173,7 +169,7 @@ button{
     background:#e7edeb;
     border-radius:20px;
     overflow:hidden;
-    margin:5px 0 17px;
+    margin:5px 0 16px;
 }
 
 .progress-bar{
@@ -196,19 +192,19 @@ button{
 }
 
 .question h2{
-    margin:3px 0 16px;
+    margin:4px 0 15px;
     font-size:21px;
     line-height:1.6;
 }
 
 
-/* تصویرها */
+/* تصاویر */
 
 .memory-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:10px;
-    margin-bottom:15px;
+    margin-bottom:13px;
 }
 
 .memory-item{
@@ -233,11 +229,11 @@ button{
 }
 
 
-/* شمارنده */
+/* زمان */
 
 .timer{
     text-align:center;
-    margin:8px auto 15px;
+    margin:6px auto 10px;
 }
 
 .timer-circle{
@@ -255,7 +251,7 @@ button{
 }
 
 
-/* گزینه‌ها */
+/* پاسخ‌ها */
 
 .answers{
     display:grid;
@@ -274,6 +270,10 @@ button{
     cursor:pointer;
 }
 
+.answer-button:active{
+    transform:scale(.97);
+}
+
 .answer-button.correct{
     background:#e8f5ef;
     border-color:#26956f;
@@ -290,8 +290,8 @@ button{
 /* پیام */
 
 .feedback{
-    min-height:30px;
-    margin-top:13px;
+    min-height:31px;
+    margin-top:12px;
     text-align:center;
     font-size:15px;
     font-weight:900;
@@ -325,7 +325,7 @@ button{
 .score-circle{
     width:180px;
     height:180px;
-    margin:20px auto;
+    margin:18px auto;
     border-radius:50%;
     background:#e8f5f1;
     border:10px solid #cce7df;
@@ -345,6 +345,13 @@ button{
 .score-label{
     font-size:13px;
     color:#65736e;
+}
+
+.new-record{
+    color:#b17b00;
+    font-weight:900;
+    margin-top:-8px;
+    min-height:25px;
 }
 
 .result-message{
@@ -377,7 +384,7 @@ button{
 }
 
 
-/* دکمه‌ها */
+/* کنترل‌ها */
 
 .controls{
     display:grid;
@@ -413,6 +420,11 @@ button{
 
 /* سابقه */
 
+.history{
+    margin-top:15px;
+    text-align:right;
+}
+
 .history-title{
     color:#176b5b;
     font-size:18px;
@@ -427,10 +439,6 @@ button{
     border-bottom:1px solid #edf0ef;
     padding:8px 0;
     font-size:13px;
-}
-
-.history-item:last-child{
-    border-bottom:0;
 }
 
 .history-score{
@@ -451,19 +459,26 @@ button{
 }
 
 
-/* واکنش */
-
-@keyframes pop{
-    0%{transform:scale(.9);opacity:.4}
-    100%{transform:scale(1);opacity:1}
-}
+/* انیمیشن */
 
 .pop{
     animation:pop .25s ease;
 }
 
+@keyframes pop{
+    0%{
+        transform:scale(.96);
+        opacity:.5;
+    }
 
-/* موبایل */
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+
+/* موبایل کوچک */
 
 @media(max-width:380px){
 
@@ -521,7 +536,7 @@ class="back-button">
 </header>
 
 
-<!-- شروع -->
+<!-- صفحه شروع -->
 
 <section
 id="startScreen"
@@ -532,22 +547,21 @@ class="card intro">
 </h2>
 
 <p>
-چند تصویر را به خاطر بسپار،
-بعد ببین چقدر خوب یادت مانده!
+چند تصویر را به خاطر بسپار و ببین چند مرحله می‌توانی دوام بیاوری.
 </p>
 
 <button
 class="start-button"
 onclick="startGame()">
 
-شروع بازی
+🎮 شروع بازی
 
 </button>
 
 </section>
 
 
-<!-- بازی -->
+<!-- صفحه بازی -->
 
 <section
 id="gameScreen"
@@ -609,7 +623,7 @@ class="stat-value">
 مرحله ۱
 </span>
 
-<span id="levelType">
+<span>
 حافظه تصویری
 </span>
 
@@ -629,7 +643,6 @@ class="progress-bar">
 <div
 id="question"
 class="question">
-
 </div>
 
 
@@ -638,11 +651,10 @@ id="feedback"
 class="feedback">
 </div>
 
-
 </section>
 
 
-<!-- نتیجه -->
+<!-- صفحه نتیجه -->
 
 <section
 id="resultScreen"
@@ -655,7 +667,7 @@ class="result-icon">
 </div>
 
 <h2>
-بازی تمام شد!
+این دور تمام شد!
 </h2>
 
 
@@ -668,9 +680,15 @@ class="score-number">
 </div>
 
 <div class="score-label">
-امتیاز شما
+امتیاز این دور
 </div>
 
+</div>
+
+
+<div
+id="recordMessage"
+class="new-record">
 </div>
 
 
@@ -684,7 +702,7 @@ class="result-message">
 
 <div class="result-stat">
 
-بالاترین امتیاز
+رکورد شما
 
 <strong
 id="finalBest">
@@ -712,7 +730,7 @@ id="gamesPlayed">
 
 <button
 class="control-button primary"
-onclick="startGame()">
+onclick="playAgain()">
 
 🔄 بازی دوباره
 
@@ -730,9 +748,9 @@ onclick="shareResult()">
 
 <button
 class="control-button secondary"
-onclick="showHistory()">
+onclick="toggleHistory()">
 
-📊 سابقه بازی‌ها
+📊 مشاهده سابقه
 
 </button>
 
@@ -741,8 +759,7 @@ onclick="showHistory()">
 
 <div
 id="history"
-class="hidden"
-style="margin-top:15px;text-align:right;">
+class="history hidden">
 
 <div class="history-title">
 بازی‌های اخیر
@@ -761,77 +778,32 @@ style="margin-top:15px;text-align:right;">
 
 <script>
 
-/* -----------------------------
-   داده‌های بازی
------------------------------ */
+/* =========================
+   اطلاعات بازی
+========================= */
 
 const items = [
 
-{
-icon:"📻",
-name:"رادیو"
-},
-
-{
-icon:"📼",
-name:"نوار کاست"
-},
-
-{
-icon:"☎️",
-name:"تلفن قدیمی"
-},
-
-{
-icon:"📺",
-name:"تلویزیون"
-},
-
-{
-icon:"🕰️",
-name:"ساعت"
-},
-
-{
-icon:"📷",
-name:"دوربین"
-},
-
-{
-icon:"🚲",
-name:"دوچرخه"
-},
-
-{
-icon:"💡",
-name:"چراغ"
-},
-
-{
-icon:"📚",
-name:"کتاب"
-},
-
-{
-icon:"✏️",
-name:"مداد"
-},
-
-{
-icon:"🎒",
-name:"کیف"
-},
-
-{
-icon:"☕",
-name:"فنجان"
-}
+{icon:"📻",name:"رادیو"},
+{icon:"📼",name:"نوار کاست"},
+{icon:"☎️",name:"تلفن قدیمی"},
+{icon:"📺",name:"تلویزیون"},
+{icon:"🕰️",name:"ساعت"},
+{icon:"📷",name:"دوربین"},
+{icon:"🚲",name:"دوچرخه"},
+{icon:"💡",name:"چراغ"},
+{icon:"📚",name:"کتاب"},
+{icon:"✏️",name:"مداد"},
+{icon:"🎒",name:"کیف"},
+{icon:"☕",name:"فنجان"}
 
 ];
 
 
 let level = 1;
+
 let score = 0;
+
 let bestScore = Number(
 localStorage.getItem("yadavare_best") || 0
 );
@@ -845,18 +817,23 @@ localStorage.getItem("yadavare_history") || "[]"
 );
 
 let currentAnswer = null;
+
 let acceptingAnswer = false;
+
 let timer = null;
 
 
-/* -----------------------------
+/* =========================
    شروع بازی
------------------------------ */
+========================= */
 
 function startGame(){
 
 level = 1;
+
 score = 0;
+
+clearInterval(timer);
 
 document
 .getElementById("startScreen")
@@ -885,9 +862,49 @@ behavior:"smooth"
 }
 
 
-/* -----------------------------
+/* =========================
+   بازی دوباره
+========================= */
+
+function playAgain(){
+
+/*
+   مهم:
+   هیچ بازگشتی به صفحه اصلی نداریم.
+   بازی مستقیماً از همین صفحه شروع می‌شود.
+*/
+
+document
+.getElementById("resultScreen")
+.classList
+.add("hidden");
+
+document
+.getElementById("gameScreen")
+.classList
+.remove("hidden");
+
+level = 1;
+
+score = 0;
+
+clearInterval(timer);
+
+updateStats();
+
+startLevel();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* =========================
    شروع مرحله
------------------------------ */
+========================= */
 
 function startLevel(){
 
@@ -895,12 +912,39 @@ acceptingAnswer = false;
 
 clearInterval(timer);
 
+
+/*
+   تعداد تصاویر با افزایش مرحله بیشتر می‌شود.
+   حداقل 5 و حداکثر 9 تصویر.
+*/
+
 const levelSize =
-Math.min(4 + level, 8);
+Math.min(5 + Math.floor((level-1)/2),9);
+
+
+/*
+   زمان مشاهده:
+   مراحل اول کمی راحت‌تر.
+*/
+
+const memorySeconds =
+level <= 2 ? 4 :
+level <= 5 ? 3 :
+2;
+
+
+/*
+   انتخاب تصاویر
+*/
 
 const selected =
 shuffle([...items])
 .slice(0,levelSize);
+
+
+/*
+   انتخاب تصویر حذف‌شونده
+*/
 
 const missingIndex =
 Math.floor(
@@ -910,24 +954,26 @@ Math.random()*selected.length
 currentAnswer =
 selected[missingIndex];
 
-renderMemory(selected);
+
+renderMemory(
+selected,
+memorySeconds
+);
 
 }
 
 
-/* -----------------------------
+/* =========================
    نمایش تصاویر
------------------------------ */
+========================= */
 
-function renderMemory(selected){
+function renderMemory(
+selected,
+seconds
+){
 
 const question =
 document.getElementById("question");
-
-document.getElementById(
-"levelType"
-).textContent =
-"حافظه تصویری";
 
 
 document.getElementById(
@@ -940,20 +986,23 @@ persian(level);
 document.getElementById(
 "progressBar"
 ).style.width =
-Math.min(level*12.5,100)+"%";
+Math.min(
+level*10,
+100
+)+"%";
 
 
 let html = `
 
 <div class="question-type">
 
-این تصاویر را به خاطر بسپار
+این تصاویر را خوب به خاطر بسپار
 
 </div>
 
 <h2>
 
-⏱️ چند ثانیه وقت داری...
+⏱️ آماده‌ای؟
 
 </h2>
 
@@ -997,7 +1046,7 @@ html += `
 id="timerCircle"
 class="timer-circle">
 
-۳
+${persian(seconds)}
 
 </div>
 
@@ -1005,8 +1054,9 @@ class="timer-circle">
 
 `;
 
-question.innerHTML =
-html;
+
+question.innerHTML = html;
+
 
 question.classList
 .remove("pop");
@@ -1017,11 +1067,16 @@ question.classList
 .add("pop");
 
 
-let seconds = 3;
+let remaining = seconds;
+
+
+/*
+   بلافاصله تایمر را شروع می‌کنیم.
+*/
 
 timer = setInterval(()=>{
 
-seconds--;
+remaining--;
 
 const timerCircle =
 document.getElementById(
@@ -1031,15 +1086,18 @@ document.getElementById(
 if(timerCircle){
 
 timerCircle.textContent =
-persian(seconds);
+persian(
+Math.max(remaining,0)
+);
 
 }
 
-if(seconds <= 0){
+
+if(remaining <= 0){
 
 clearInterval(timer);
 
-showQuestion(selected);
+showQuestion();
 
 }
 
@@ -1048,29 +1106,40 @@ showQuestion(selected);
 }
 
 
-/* -----------------------------
-   سؤال
------------------------------ */
+/* =========================
+   نمایش سؤال
+========================= */
 
-function showQuestion(selected){
+function showQuestion(){
 
 acceptingAnswer = true;
 
+
 const question =
-document.getElementById("question");
+document.getElementById(
+"question"
+);
+
+
+/*
+   سه گزینه اشتباه + جواب درست
+*/
+
+const wrongOptions =
+shuffle(
+items.filter(
+item =>
+item.name !==
+currentAnswer.name
+)
+).slice(0,3);
+
 
 const options =
-shuffle(
-[
+shuffle([
 currentAnswer,
-...shuffle(
-items.filter(
-x =>
-x.name !== currentAnswer.name
-)
-).slice(0,3)
-]
-);
+...wrongOptions
+]);
 
 
 question.innerHTML = `
@@ -1094,10 +1163,13 @@ ${options.map(
 
 <button
 class="answer-button"
-onclick="answer(${index},'${escapeText(item.name)}')">
+data-name="${item.name}"
+onclick="answer(this,'${escapeText(item.name)}')">
 
 ${item.icon}
+
 &nbsp;
+
 ${item.name}
 
 </button>
@@ -1109,26 +1181,17 @@ ${item.name}
 
 `;
 
-
-/* ذخیره گزینه درست */
-
-question.dataset.correct =
-currentAnswer.name;
-
-
-/* نگه داشتن ترتیب گزینه‌ها */
-
-window.answerOptions =
-options;
-
 }
 
 
-/* -----------------------------
+/* =========================
    پاسخ
------------------------------ */
+========================= */
 
-function answer(index,name){
+function answer(
+button,
+name
+){
 
 if(!acceptingAnswer){
 
@@ -1138,36 +1201,42 @@ return;
 
 acceptingAnswer = false;
 
+
 const buttons =
 document.querySelectorAll(
 ".answer-button"
 );
 
-const correct =
-currentAnswer.name;
-
 
 buttons.forEach(
-button=>{
-
-button.disabled=true;
-
-}
+btn =>
+btn.disabled = true
 );
 
 
-if(name === correct){
+if(name === currentAnswer.name){
 
-buttons[index]
-.classList
+button.classList
 .add("correct");
 
-score += level * 10;
+
+/*
+   امتیاز مرحله:
+   مرحله‌های بالاتر امتیاز بیشتری دارند.
+*/
+
+const earned =
+level * 10;
+
+
+score += earned;
+
 
 showFeedback(
 "آفرین! حافظه‌ات هنوز بازنشسته نشده 👏",
 true
 );
+
 
 setTimeout(()=>{
 
@@ -1177,25 +1246,24 @@ updateStats();
 
 startLevel();
 
-},1100);
+},1000);
 
-}
 
-else{
-
-buttons[index]
-.classList
-.add("wrong");
-
-buttons.forEach(
-button=>{
-
-if(
-button.textContent
-.includes(correct)
-){
+}else{
 
 button.classList
+.add("wrong");
+
+
+buttons.forEach(
+btn=>{
+
+if(
+btn.dataset.name ===
+currentAnswer.name
+){
+
+btn.classList
 .add("correct");
 
 }
@@ -1203,14 +1271,16 @@ button.classList
 }
 );
 
+
 showFeedback(
-"این یکی یادت رفت، ولی اشکالی ندارد. دوباره امتحان کن 🙂",
+"این یکی یادت رفت. دوباره امتحانش می‌کنیم 🙂",
 false
 );
 
+
 setTimeout(
 endGame,
-1400
+1200
 );
 
 }
@@ -1218,9 +1288,9 @@ endGame,
 }
 
 
-/* -----------------------------
+/* =========================
    پیام
------------------------------ */
+========================= */
 
 function showFeedback(
 text,
@@ -1237,14 +1307,20 @@ text;
 
 feedback.className =
 "feedback " +
-(good ? "good" : "bad");
+(
+good
+?
+"good"
+:
+"bad"
+);
 
 }
 
 
-/* -----------------------------
-   پایان
------------------------------ */
+/* =========================
+   پایان بازی
+========================= */
 
 function endGame(){
 
@@ -1258,9 +1334,18 @@ gamesPlayed
 );
 
 
+const oldBest =
+bestScore;
+
+
+let newRecord = false;
+
+
 if(score > bestScore){
 
 bestScore = score;
+
+newRecord = true;
 
 localStorage.setItem(
 "yadavare_best",
@@ -1270,7 +1355,9 @@ bestScore
 }
 
 
-/* سابقه */
+/*
+   ذخیره سابقه
+*/
 
 historyData.unshift({
 
@@ -1287,11 +1374,16 @@ date:new Date()
 historyData =
 historyData.slice(0,10);
 
+
 localStorage.setItem(
 "yadavare_history",
 JSON.stringify(historyData)
 );
 
+
+/*
+   نمایش نتیجه
+*/
 
 document
 .getElementById("gameScreen")
@@ -1304,34 +1396,44 @@ document
 .remove("hidden");
 
 
-document
-.getElementById("finalScore")
-.textContent =
+document.getElementById(
+"finalScore"
+).textContent =
 persian(score);
 
 
-document
-.getElementById("finalBest")
-.textContent =
+document.getElementById(
+"finalBest"
+).textContent =
 persian(bestScore);
 
 
-document
-.getElementById("gamesPlayed")
-.textContent =
+document.getElementById(
+"gamesPlayed"
+).textContent =
 persian(gamesPlayed);
 
 
-document
-.getElementById("resultIcon")
-.textContent =
+document.getElementById(
+"resultIcon"
+).textContent =
 getResultIcon(score);
 
 
-document
-.getElementById("resultMessage")
-.textContent =
+document.getElementById(
+"resultMessage"
+).textContent =
 getResultMessage(score);
+
+
+document.getElementById(
+"recordMessage"
+).textContent =
+newRecord
+?
+"🎉 رکورد جدید زدی!"
+:
+"";
 
 
 window.scrollTo({
@@ -1342,9 +1444,9 @@ behavior:"smooth"
 }
 
 
-/* -----------------------------
-   نتیجه
------------------------------ */
+/* =========================
+   پیام نتیجه
+========================= */
 
 function getResultIcon(score){
 
@@ -1366,41 +1468,48 @@ function getResultMessage(score){
 
 if(score >= 300){
 
-return "حافظه‌ات واقعاً سرحاله! انگار هنوز هیچ‌کس نتوانسته فایل‌های ذهنت را پاک کند.";
+return "حافظه‌ات واقعاً سرحاله! معلوم است مغزت هنوز تصمیم نگرفته بازنشسته شود.";
 
 }
 
 if(score >= 150){
 
-return "خیلی خوب بود! معلوم است مغزت هنوز اهل بازی و رقابت است.";
+return "خیلی خوب بود! چند مرحله دیگر بازی کن و ببین رکوردت کجا می‌ایستد.";
 
 }
 
 if(score >= 70){
 
-return "بد نبود! یک بار دیگر بازی کن. این بار شاید رکوردت را جابه‌جا کنی.";
+return "خوب شروع کردی. یک دور دیگر برو، شاید رکوردت را جابه‌جا کنی.";
 
 }
 
-return "اولین بازی بود. تازه گرم شدیم! دوباره امتحان کن.";
+return "این فقط گرم‌کردن بود. یک دور دیگر بازی کن.";
 
 }
 
 
-/* -----------------------------
-   سابقه
------------------------------ */
+/* =========================
+   سابقه بازی
+========================= */
 
-function showHistory(){
+function toggleHistory(){
 
-const box =
+const history =
 document.getElementById(
 "history"
 );
 
-box.classList
+history.classList
 .toggle("hidden");
 
+
+renderHistory();
+
+}
+
+
+function renderHistory(){
 
 const list =
 document.getElementById(
@@ -1414,7 +1523,7 @@ list.innerHTML = `
 
 <div class="empty-history">
 
-هنوز سابقه‌ای ثبت نشده است.
+هنوز بازی‌ای ثبت نشده است.
 
 </div>
 
@@ -1426,8 +1535,7 @@ return;
 
 
 list.innerHTML =
-historyData
-.map(
+historyData.map(
 (item,index)=>`
 
 <div class="history-item">
@@ -1435,7 +1543,9 @@ historyData
 <span>
 
 بازی ${persian(index+1)}
+
 <br>
+
 ${item.date}
 
 </span>
@@ -1443,6 +1553,7 @@ ${item.date}
 <span class="history-score">
 
 ${persian(item.score)}
+
 امتیاز
 
 </span>
@@ -1450,15 +1561,14 @@ ${persian(item.score)}
 </div>
 
 `
-)
-.join("");
+).join("");
 
 }
 
 
-/* -----------------------------
-   اشتراک
------------------------------ */
+/* =========================
+   اشتراک نتیجه
+========================= */
 
 async function shareResult(){
 
@@ -1467,12 +1577,12 @@ const text =
 `🧠 بازی «یادآور» صبا رسانه
 
 من در بازی حافظه
-${persian(score)} امتیاز گرفتم!
+${persian(score)} امتیاز گرفتم.
 
 رکورد من:
 ${persian(bestScore)}
 
-حالا نوبت توست!
+حالا نوبت شماست!
 
 https://shakibuser.github.io/salamat-saba/tools/memory.html
 
@@ -1505,7 +1615,7 @@ await navigator.clipboard
 .writeText(text);
 
 alert(
-"نتیجه کپی شد. می‌توانی آن را برای دوستانت بفرستی."
+"نتیجه کپی شد؛ حالا می‌توانی برای دوستانت بفرستی."
 );
 
 }catch(e){
@@ -1520,9 +1630,9 @@ text
 }
 
 
-/* -----------------------------
-   ابزارها
------------------------------ */
+/* =========================
+   ابزارهای کمکی
+========================= */
 
 function shuffle(array){
 
@@ -1569,10 +1679,12 @@ document.getElementById(
 ).textContent =
 persian(score);
 
+
 document.getElementById(
 "level"
 ).textContent =
 persian(level);
+
 
 document.getElementById(
 "bestScore"
@@ -1597,3 +1709,4 @@ d=>"۰۱۲۳۴۵۶۷۸۹"[d]
 </body>
 
 </html>
+```

@@ -1,1 +1,1599 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>یادآور | بازی ذهنی صبا رسانه</title>
+
+<meta name="description"
+content="بازی یادآور صبا رسانه؛ یک بازی ساده و سرگرم‌کننده برای حافظه و ذهن">
+
+<style>
+
+*{
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    margin:0;
+    background:#f4f7f6;
+    color:#263238;
+    font-family:Tahoma,Arial,sans-serif;
+    line-height:1.8;
+}
+
+button{
+    font-family:inherit;
+}
+
+.container{
+    width:100%;
+    max-width:680px;
+    margin:auto;
+    padding:12px 10px 35px;
+}
+
+
+/* بازگشت */
+
+.back-button{
+    display:block;
+    width:100%;
+    margin-bottom:12px;
+    padding:12px;
+    background:#fff;
+    color:#176b5b;
+    border:1px solid #dce7e3;
+    border-radius:15px;
+    text-align:center;
+    text-decoration:none;
+    font-size:16px;
+    font-weight:900;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+
+/* هدر */
+
+.header{
+    background:linear-gradient(145deg,#176b5b,#0f5145);
+    color:#fff;
+    text-align:center;
+    padding:24px 15px;
+    border-radius:23px;
+    box-shadow:0 8px 30px rgba(20,60,50,.12);
+}
+
+.logo{
+    font-size:48px;
+}
+
+.header h1{
+    margin:0;
+    font-size:28px;
+}
+
+.header p{
+    margin:4px 0 0;
+    font-size:14px;
+}
+
+
+/* کارت */
+
+.card{
+    background:#fff;
+    margin-top:13px;
+    padding:17px 14px;
+    border-radius:21px;
+    box-shadow:0 6px 25px rgba(20,60,50,.07);
+}
+
+
+/* صفحه شروع */
+
+.intro{
+    text-align:center;
+}
+
+.intro h2{
+    margin:0 0 5px;
+    color:#176b5b;
+    font-size:21px;
+}
+
+.intro p{
+    margin:0;
+    color:#66736e;
+    font-size:14px;
+}
+
+.start-button{
+    width:100%;
+    min-height:60px;
+    margin-top:18px;
+    border:0;
+    border-radius:16px;
+    background:#176b5b;
+    color:#fff;
+    font-size:19px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.start-button:active,
+.answer-button:active,
+.control-button:active{
+    transform:scale(.97);
+}
+
+
+/* آمار */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-bottom:13px;
+}
+
+.stat{
+    background:#f1f6f4;
+    border-radius:13px;
+    padding:8px 4px;
+    text-align:center;
+}
+
+.stat-label{
+    color:#75817d;
+    font-size:11px;
+}
+
+.stat-value{
+    color:#176b5b;
+    font-size:19px;
+    font-weight:900;
+}
+
+
+/* پیشرفت */
+
+.progress-info{
+    display:flex;
+    justify-content:space-between;
+    font-size:13px;
+    color:#6e7975;
+}
+
+.progress{
+    height:9px;
+    background:#e7edeb;
+    border-radius:20px;
+    overflow:hidden;
+    margin:5px 0 17px;
+}
+
+.progress-bar{
+    height:100%;
+    width:0;
+    background:#176b5b;
+    transition:.35s;
+}
+
+
+/* سؤال */
+
+.question{
+    text-align:center;
+}
+
+.question-type{
+    color:#8a9691;
+    font-size:13px;
+}
+
+.question h2{
+    margin:3px 0 16px;
+    font-size:21px;
+    line-height:1.6;
+}
+
+
+/* تصویرها */
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.memory-item{
+    min-height:105px;
+    background:#f7f9f8;
+    border:2px solid #e3e9e6;
+    border-radius:16px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+
+.memory-icon{
+    font-size:48px;
+    line-height:1.2;
+}
+
+.memory-name{
+    font-size:13px;
+    color:#596660;
+}
+
+
+/* شمارنده */
+
+.timer{
+    text-align:center;
+    margin:8px auto 15px;
+}
+
+.timer-circle{
+    width:62px;
+    height:62px;
+    margin:auto;
+    border-radius:50%;
+    background:#eef5f2;
+    color:#176b5b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:900;
+}
+
+
+/* گزینه‌ها */
+
+.answers{
+    display:grid;
+    gap:10px;
+}
+
+.answer-button{
+    width:100%;
+    min-height:58px;
+    background:#fff;
+    border:2px solid #dfe7e3;
+    border-radius:15px;
+    font-size:17px;
+    font-weight:800;
+    color:#263238;
+    cursor:pointer;
+}
+
+.answer-button.correct{
+    background:#e8f5ef;
+    border-color:#26956f;
+    color:#126247;
+}
+
+.answer-button.wrong{
+    background:#fff0ee;
+    border-color:#dc6d62;
+    color:#a53c32;
+}
+
+
+/* پیام */
+
+.feedback{
+    min-height:30px;
+    margin-top:13px;
+    text-align:center;
+    font-size:15px;
+    font-weight:900;
+}
+
+.feedback.good{
+    color:#167255;
+}
+
+.feedback.bad{
+    color:#b3453b;
+}
+
+
+/* نتیجه */
+
+.result{
+    text-align:center;
+}
+
+.result-icon{
+    font-size:62px;
+}
+
+.result h2{
+    color:#176b5b;
+    margin:0;
+    font-size:25px;
+}
+
+.score-circle{
+    width:180px;
+    height:180px;
+    margin:20px auto;
+    border-radius:50%;
+    background:#e8f5f1;
+    border:10px solid #cce7df;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+.score-number{
+    color:#176b5b;
+    font-size:48px;
+    font-weight:900;
+    line-height:1.2;
+}
+
+.score-label{
+    font-size:13px;
+    color:#65736e;
+}
+
+.result-message{
+    background:#fff6dd;
+    border:1px solid #efdfae;
+    color:#6d571e;
+    border-radius:16px;
+    padding:14px;
+    font-size:15px;
+    font-weight:700;
+}
+
+.result-stats{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+    margin-top:12px;
+}
+
+.result-stat{
+    background:#f5f7f6;
+    border-radius:14px;
+    padding:10px;
+}
+
+.result-stat strong{
+    display:block;
+    color:#176b5b;
+    font-size:20px;
+}
+
+
+/* دکمه‌ها */
+
+.controls{
+    display:grid;
+    gap:9px;
+    margin-top:15px;
+}
+
+.control-button{
+    width:100%;
+    min-height:55px;
+    border:0;
+    border-radius:15px;
+    font-size:16px;
+    font-weight:900;
+    cursor:pointer;
+}
+
+.primary{
+    background:#176b5b;
+    color:#fff;
+}
+
+.secondary{
+    background:#edf2f0;
+    color:#35433e;
+}
+
+.share{
+    background:#fff1cf;
+    color:#765b17;
+}
+
+
+/* سابقه */
+
+.history-title{
+    color:#176b5b;
+    font-size:18px;
+    font-weight:900;
+    margin-bottom:7px;
+}
+
+.history-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #edf0ef;
+    padding:8px 0;
+    font-size:13px;
+}
+
+.history-item:last-child{
+    border-bottom:0;
+}
+
+.history-score{
+    color:#176b5b;
+    font-weight:900;
+}
+
+.empty-history{
+    color:#7b8581;
+    font-size:13px;
+}
+
+
+/* مخفی */
+
+.hidden{
+    display:none!important;
+}
+
+
+/* واکنش */
+
+@keyframes pop{
+    0%{transform:scale(.9);opacity:.4}
+    100%{transform:scale(1);opacity:1}
+}
+
+.pop{
+    animation:pop .25s ease;
+}
+
+
+/* موبایل */
+
+@media(max-width:380px){
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .memory-item{
+        min-height:92px;
+    }
+
+    .memory-icon{
+        font-size:40px;
+    }
+
+    .question h2{
+        font-size:19px;
+    }
+
+    .answer-button{
+        font-size:16px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+
+<a
+href="../index.html"
+class="back-button">
+
+← بازگشت به جعبه‌ابزار صبا
+
+</a>
+
+
+<header class="header">
+
+<div class="logo">🧠</div>
+
+<h1>یادآور</h1>
+
+<p>
+بازی حافظه و خاطرات برای ذهن‌های بازنشسته
+</p>
+
+</header>
+
+
+<!-- شروع -->
+
+<section
+id="startScreen"
+class="card intro">
+
+<h2>
+حافظه‌ات هنوز سرحاله؟
+</h2>
+
+<p>
+چند تصویر را به خاطر بسپار،
+بعد ببین چقدر خوب یادت مانده!
+</p>
+
+<button
+class="start-button"
+onclick="startGame()">
+
+شروع بازی
+
+</button>
+
+</section>
+
+
+<!-- بازی -->
+
+<section
+id="gameScreen"
+class="card hidden">
+
+
+<div class="stats">
+
+<div class="stat">
+
+<div class="stat-label">
+امتیاز
+</div>
+
+<div
+id="score"
+class="stat-value">
+۰
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-label">
+مرحله
+</div>
+
+<div
+id="level"
+class="stat-value">
+۱
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-label">
+رکورد
+</div>
+
+<div
+id="bestScore"
+class="stat-value">
+۰
+</div>
+
+</div>
+
+</div>
+
+
+<div class="progress-info">
+
+<span id="progressText">
+مرحله ۱
+</span>
+
+<span id="levelType">
+حافظه تصویری
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<div
+id="progressBar"
+class="progress-bar">
+</div>
+
+</div>
+
+
+<div
+id="question"
+class="question">
+
+</div>
+
+
+<div
+id="feedback"
+class="feedback">
+</div>
+
+
+</section>
+
+
+<!-- نتیجه -->
+
+<section
+id="resultScreen"
+class="card result hidden">
+
+<div
+id="resultIcon"
+class="result-icon">
+🏆
+</div>
+
+<h2>
+بازی تمام شد!
+</h2>
+
+
+<div class="score-circle">
+
+<div
+id="finalScore"
+class="score-number">
+۰
+</div>
+
+<div class="score-label">
+امتیاز شما
+</div>
+
+</div>
+
+
+<div
+id="resultMessage"
+class="result-message">
+</div>
+
+
+<div class="result-stats">
+
+<div class="result-stat">
+
+بالاترین امتیاز
+
+<strong
+id="finalBest">
+۰
+</strong>
+
+</div>
+
+
+<div class="result-stat">
+
+تعداد بازی‌ها
+
+<strong
+id="gamesPlayed">
+۰
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="controls">
+
+<button
+class="control-button primary"
+onclick="startGame()">
+
+🔄 بازی دوباره
+
+</button>
+
+
+<button
+class="control-button share"
+onclick="shareResult()">
+
+📤 اشتراک نتیجه
+
+</button>
+
+
+<button
+class="control-button secondary"
+onclick="showHistory()">
+
+📊 سابقه بازی‌ها
+
+</button>
+
+</div>
+
+
+<div
+id="history"
+class="hidden"
+style="margin-top:15px;text-align:right;">
+
+<div class="history-title">
+بازی‌های اخیر
+</div>
+
+<div id="historyList"></div>
+
+</div>
+
+
+</section>
+
+
+</div>
+
+
+<script>
+
+/* -----------------------------
+   داده‌های بازی
+----------------------------- */
+
+const items = [
+
+{
+icon:"📻",
+name:"رادیو"
+},
+
+{
+icon:"📼",
+name:"نوار کاست"
+},
+
+{
+icon:"☎️",
+name:"تلفن قدیمی"
+},
+
+{
+icon:"📺",
+name:"تلویزیون"
+},
+
+{
+icon:"🕰️",
+name:"ساعت"
+},
+
+{
+icon:"📷",
+name:"دوربین"
+},
+
+{
+icon:"🚲",
+name:"دوچرخه"
+},
+
+{
+icon:"💡",
+name:"چراغ"
+},
+
+{
+icon:"📚",
+name:"کتاب"
+},
+
+{
+icon:"✏️",
+name:"مداد"
+},
+
+{
+icon:"🎒",
+name:"کیف"
+},
+
+{
+icon:"☕",
+name:"فنجان"
+}
+
+];
+
+
+let level = 1;
+let score = 0;
+let bestScore = Number(
+localStorage.getItem("yadavare_best") || 0
+);
+
+let gamesPlayed = Number(
+localStorage.getItem("yadavare_games") || 0
+);
+
+let historyData = JSON.parse(
+localStorage.getItem("yadavare_history") || "[]"
+);
+
+let currentAnswer = null;
+let acceptingAnswer = false;
+let timer = null;
+
+
+/* -----------------------------
+   شروع بازی
+----------------------------- */
+
+function startGame(){
+
+level = 1;
+score = 0;
+
+document
+.getElementById("startScreen")
+.classList
+.add("hidden");
+
+document
+.getElementById("resultScreen")
+.classList
+.add("hidden");
+
+document
+.getElementById("gameScreen")
+.classList
+.remove("hidden");
+
+updateStats();
+
+startLevel();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* -----------------------------
+   شروع مرحله
+----------------------------- */
+
+function startLevel(){
+
+acceptingAnswer = false;
+
+clearInterval(timer);
+
+const levelSize =
+Math.min(4 + level, 8);
+
+const selected =
+shuffle([...items])
+.slice(0,levelSize);
+
+const missingIndex =
+Math.floor(
+Math.random()*selected.length
+);
+
+currentAnswer =
+selected[missingIndex];
+
+renderMemory(selected);
+
+}
+
+
+/* -----------------------------
+   نمایش تصاویر
+----------------------------- */
+
+function renderMemory(selected){
+
+const question =
+document.getElementById("question");
+
+document.getElementById(
+"levelType"
+).textContent =
+"حافظه تصویری";
+
+
+document.getElementById(
+"progressText"
+).textContent =
+"مرحله " +
+persian(level);
+
+
+document.getElementById(
+"progressBar"
+).style.width =
+Math.min(level*12.5,100)+"%";
+
+
+let html = `
+
+<div class="question-type">
+
+این تصاویر را به خاطر بسپار
+
+</div>
+
+<h2>
+
+⏱️ چند ثانیه وقت داری...
+
+</h2>
+
+<div class="memory-grid">
+
+`;
+
+
+selected.forEach(item=>{
+
+html += `
+
+<div class="memory-item">
+
+<div class="memory-icon">
+
+${item.icon}
+
+</div>
+
+<div class="memory-name">
+
+${item.name}
+
+</div>
+
+</div>
+
+`;
+
+});
+
+
+html += `
+
+</div>
+
+<div class="timer">
+
+<div
+id="timerCircle"
+class="timer-circle">
+
+۳
+
+</div>
+
+</div>
+
+`;
+
+question.innerHTML =
+html;
+
+question.classList
+.remove("pop");
+
+void question.offsetWidth;
+
+question.classList
+.add("pop");
+
+
+let seconds = 3;
+
+timer = setInterval(()=>{
+
+seconds--;
+
+const timerCircle =
+document.getElementById(
+"timerCircle"
+);
+
+if(timerCircle){
+
+timerCircle.textContent =
+persian(seconds);
+
+}
+
+if(seconds <= 0){
+
+clearInterval(timer);
+
+showQuestion(selected);
+
+}
+
+},1000);
+
+}
+
+
+/* -----------------------------
+   سؤال
+----------------------------- */
+
+function showQuestion(selected){
+
+acceptingAnswer = true;
+
+const question =
+document.getElementById("question");
+
+const options =
+shuffle(
+[
+currentAnswer,
+...shuffle(
+items.filter(
+x =>
+x.name !== currentAnswer.name
+)
+).slice(0,3)
+]
+);
+
+
+question.innerHTML = `
+
+<div class="question-type">
+
+حافظه تصویری
+
+</div>
+
+<h2>
+
+کدام تصویر حذف شده بود؟
+
+</h2>
+
+<div class="answers">
+
+${options.map(
+(item,index)=>`
+
+<button
+class="answer-button"
+onclick="answer(${index},'${escapeText(item.name)}')">
+
+${item.icon}
+&nbsp;
+${item.name}
+
+</button>
+
+`
+).join("")}
+
+</div>
+
+`;
+
+
+/* ذخیره گزینه درست */
+
+question.dataset.correct =
+currentAnswer.name;
+
+
+/* نگه داشتن ترتیب گزینه‌ها */
+
+window.answerOptions =
+options;
+
+}
+
+
+/* -----------------------------
+   پاسخ
+----------------------------- */
+
+function answer(index,name){
+
+if(!acceptingAnswer){
+
+return;
+
+}
+
+acceptingAnswer = false;
+
+const buttons =
+document.querySelectorAll(
+".answer-button"
+);
+
+const correct =
+currentAnswer.name;
+
+
+buttons.forEach(
+button=>{
+
+button.disabled=true;
+
+}
+);
+
+
+if(name === correct){
+
+buttons[index]
+.classList
+.add("correct");
+
+score += level * 10;
+
+showFeedback(
+"آفرین! حافظه‌ات هنوز بازنشسته نشده 👏",
+true
+);
+
+setTimeout(()=>{
+
+level++;
+
+updateStats();
+
+startLevel();
+
+},1100);
+
+}
+
+else{
+
+buttons[index]
+.classList
+.add("wrong");
+
+buttons.forEach(
+button=>{
+
+if(
+button.textContent
+.includes(correct)
+){
+
+button.classList
+.add("correct");
+
+}
+
+}
+);
+
+showFeedback(
+"این یکی یادت رفت، ولی اشکالی ندارد. دوباره امتحان کن 🙂",
+false
+);
+
+setTimeout(
+endGame,
+1400
+);
+
+}
+
+}
+
+
+/* -----------------------------
+   پیام
+----------------------------- */
+
+function showFeedback(
+text,
+good
+){
+
+const feedback =
+document.getElementById(
+"feedback"
+);
+
+feedback.textContent =
+text;
+
+feedback.className =
+"feedback " +
+(good ? "good" : "bad");
+
+}
+
+
+/* -----------------------------
+   پایان
+----------------------------- */
+
+function endGame(){
+
+clearInterval(timer);
+
+gamesPlayed++;
+
+localStorage.setItem(
+"yadavare_games",
+gamesPlayed
+);
+
+
+if(score > bestScore){
+
+bestScore = score;
+
+localStorage.setItem(
+"yadavare_best",
+bestScore
+);
+
+}
+
+
+/* سابقه */
+
+historyData.unshift({
+
+score:score,
+
+level:level,
+
+date:new Date()
+.toLocaleDateString("fa-IR")
+
+});
+
+
+historyData =
+historyData.slice(0,10);
+
+localStorage.setItem(
+"yadavare_history",
+JSON.stringify(historyData)
+);
+
+
+document
+.getElementById("gameScreen")
+.classList
+.add("hidden");
+
+document
+.getElementById("resultScreen")
+.classList
+.remove("hidden");
+
+
+document
+.getElementById("finalScore")
+.textContent =
+persian(score);
+
+
+document
+.getElementById("finalBest")
+.textContent =
+persian(bestScore);
+
+
+document
+.getElementById("gamesPlayed")
+.textContent =
+persian(gamesPlayed);
+
+
+document
+.getElementById("resultIcon")
+.textContent =
+getResultIcon(score);
+
+
+document
+.getElementById("resultMessage")
+.textContent =
+getResultMessage(score);
+
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+
+/* -----------------------------
+   نتیجه
+----------------------------- */
+
+function getResultIcon(score){
+
+if(score >= 300)
+return "🧠";
+
+if(score >= 150)
+return "🏆";
+
+if(score >= 70)
+return "👏";
+
+return "🙂";
+
+}
+
+
+function getResultMessage(score){
+
+if(score >= 300){
+
+return "حافظه‌ات واقعاً سرحاله! انگار هنوز هیچ‌کس نتوانسته فایل‌های ذهنت را پاک کند.";
+
+}
+
+if(score >= 150){
+
+return "خیلی خوب بود! معلوم است مغزت هنوز اهل بازی و رقابت است.";
+
+}
+
+if(score >= 70){
+
+return "بد نبود! یک بار دیگر بازی کن. این بار شاید رکوردت را جابه‌جا کنی.";
+
+}
+
+return "اولین بازی بود. تازه گرم شدیم! دوباره امتحان کن.";
+
+}
+
+
+/* -----------------------------
+   سابقه
+----------------------------- */
+
+function showHistory(){
+
+const box =
+document.getElementById(
+"history"
+);
+
+box.classList
+.toggle("hidden");
+
+
+const list =
+document.getElementById(
+"historyList"
+);
+
+
+if(historyData.length === 0){
+
+list.innerHTML = `
+
+<div class="empty-history">
+
+هنوز سابقه‌ای ثبت نشده است.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+list.innerHTML =
+historyData
+.map(
+(item,index)=>`
+
+<div class="history-item">
+
+<span>
+
+بازی ${persian(index+1)}
+<br>
+${item.date}
+
+</span>
+
+<span class="history-score">
+
+${persian(item.score)}
+امتیاز
+
+</span>
+
+</div>
+
+`
+)
+.join("");
+
+}
+
+
+/* -----------------------------
+   اشتراک
+----------------------------- */
+
+async function shareResult(){
+
+const text =
+
+`🧠 بازی «یادآور» صبا رسانه
+
+من در بازی حافظه
+${persian(score)} امتیاز گرفتم!
+
+رکورد من:
+${persian(bestScore)}
+
+حالا نوبت توست!
+
+https://shakibuser.github.io/salamat-saba/tools/memory.html
+
+صبا رسانه
+https://t.me/saba_rasanehh`;
+
+
+if(navigator.share){
+
+try{
+
+await navigator.share({
+
+title:"یادآور صبا رسانه",
+
+text:text
+
+});
+
+return;
+
+}catch(e){}
+
+}
+
+
+try{
+
+await navigator.clipboard
+.writeText(text);
+
+alert(
+"نتیجه کپی شد. می‌توانی آن را برای دوستانت بفرستی."
+);
+
+}catch(e){
+
+prompt(
+"متن نتیجه:",
+text
+);
+
+}
+
+}
+
+
+/* -----------------------------
+   ابزارها
+----------------------------- */
+
+function shuffle(array){
+
+for(
+let i=array.length-1;
+i>0;
+i--
+){
+
+const j =
+Math.floor(
+Math.random()*(i+1)
+);
+
+[
+array[i],
+array[j]
+] =
+[
+array[j],
+array[i]
+];
+
+}
+
+return array;
+
+}
+
+
+function escapeText(text){
+
+return text
+.replace(/'/g,"\\'")
+.replace(/"/g,"&quot;");
+
+}
+
+
+function updateStats(){
+
+document.getElementById(
+"score"
+).textContent =
+persian(score);
+
+document.getElementById(
+"level"
+).textContent =
+persian(level);
+
+document.getElementById(
+"bestScore"
+).textContent =
+persian(bestScore);
+
+}
+
+
+function persian(number){
+
+return String(number)
+.replace(
+/\d/g,
+d=>"۰۱۲۳۴۵۶۷۸۹"[d]
+);
+
+}
+
+</script>
+
+</body>
+
+</html>

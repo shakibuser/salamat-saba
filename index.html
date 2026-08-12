@@ -605,17 +605,29 @@ function getIranDate(){
     const jd = jalali[2];
 
 
-    document
-        .getElementById("todayDate")
-        .textContent =
-        "امروز، " +
-        weekDays[iranDate.getDay()] +
-        " " +
-        jd +
-        " " +
-        persianMonths[jm - 1] +
-        " " +
-        jy;
+    const persianNumbers = function(value){
+
+    return String(value).replace(
+        /\d/g,
+        function(d){
+            return "۰۱۲۳۴۵۶۷۸۹"[d];
+        }
+    );
+
+};
+
+
+document
+    .getElementById("todayDate")
+    .textContent =
+    "امروز، " +
+    weekDays[iranDate.getDay()] +
+    " " +
+    persianNumbers(jd) +
+    " " +
+    persianMonths[jm - 1] +
+    " " +
+    persianNumbers(jy);
 
 }
 

@@ -21,50 +21,32 @@ content="ابزارهای کاربردی صبا رسانه برای بازنشس
 }
 
 body{
-
     margin:0;
-
     background:#f4f7f6;
-
     color:#263238;
-
-    font-family:
-        Tahoma,
-        Arial,
-        sans-serif;
-
+    font-family:Tahoma,Arial,sans-serif;
     line-height:1.8;
-
 }
 
 .container{
-
     width:100%;
-
     max-width:700px;
-
     margin:auto;
-
     padding:15px 12px 35px;
-
 }
 
 
 /* سربرگ */
 
 .header{
-
-    background:
-        linear-gradient(
-            145deg,
-            #176b5b,
-            #0f5145
-        );
+    background:linear-gradient(
+        145deg,
+        #176b5b,
+        #0f5145
+    );
 
     color:white;
-
     text-align:center;
-
     padding:28px 18px;
 
     border-radius:25px;
@@ -72,88 +54,60 @@ body{
     box-shadow:
         0 8px 30px
         rgba(20,60,50,.12);
-
 }
 
 .logo{
-
     font-size:48px;
-
 }
 
 .header h1{
-
     margin:4px 0;
-
     font-size:27px;
-
 }
 
 .header p{
-
     margin:5px 0 0;
-
     font-size:14px;
-
     opacity:.95;
-
 }
 
 
 /* معرفی */
 
 .intro{
-
     text-align:center;
-
     margin:20px 5px;
-
 }
 
 .intro h2{
-
     margin:0;
-
     font-size:21px;
-
     color:#176b5b;
-
 }
 
 .intro p{
-
     margin:5px 0;
-
     color:#6b7280;
-
     font-size:14px;
-
 }
 
 
 /* ابزارها */
 
 .tools{
-
     display:grid;
-
     gap:13px;
-
 }
 
 
 /* کارت ابزار */
 
 .tool{
-
     display:flex;
-
     align-items:center;
-
     gap:14px;
 
     background:white;
-
     color:#263238;
 
     text-decoration:none;
@@ -169,30 +123,23 @@ body{
         rgba(20,60,50,.06);
 
     transition:.15s;
-
 }
 
 .tool:active{
-
     transform:scale(.98);
-
 }
 
 
 /* آیکون */
 
 .tool-icon{
-
     width:60px;
-
     height:60px;
 
     flex-shrink:0;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:17px;
@@ -200,64 +147,46 @@ body{
     background:#e8f5f1;
 
     font-size:31px;
-
 }
 
 
 /* متن */
 
 .tool-content{
-
     flex:1;
-
 }
 
 .tool-title{
-
     font-size:18px;
-
     font-weight:900;
-
     color:#176b5b;
-
 }
 
 .tool-description{
-
     color:#6b7280;
-
     font-size:13px;
-
     line-height:1.7;
-
     margin-top:2px;
-
 }
 
 
 /* فلش */
 
 .arrow{
-
     color:#9aa7a3;
-
     font-size:24px;
-
     font-weight:bold;
-
 }
 
 
-/* بخش کانال */
+/* کانال */
 
 .channel{
-
     display:block;
 
     margin-top:18px;
 
     background:#fff4d8;
-
     color:#725711;
 
     border:1px solid #efdfae;
@@ -271,16 +200,13 @@ body{
     text-decoration:none;
 
     font-size:15px;
-
     font-weight:900;
-
 }
 
 
 /* پاورقی */
 
 .footer{
-
     text-align:center;
 
     margin-top:22px;
@@ -290,40 +216,29 @@ body{
     font-size:11px;
 
     line-height:1.7;
-
 }
 
 
-/* موبایل کوچک */
+/* موبایل */
 
 @media(max-width:380px){
 
     .header{
-
         padding:23px 14px;
-
     }
 
     .header h1{
-
         font-size:24px;
-
     }
 
     .tool{
-
         padding:14px;
-
     }
 
     .tool-icon{
-
         width:54px;
-
         height:54px;
-
         font-size:27px;
-
     }
 
 }
@@ -333,8 +248,7 @@ body{
 </head>
 
 
-
-
+<body>
 
 <div class="container">
 
@@ -344,21 +258,15 @@ body{
 <header class="header">
 
 <div class="logo">
-
 🧰
-
 </div>
 
 <h1>
-
 جعبه‌ابزار صبا رسانه
-
 </h1>
 
 <p>
-
 ابزارهای ساده و کاربردی برای زندگی بهتر
-
 </p>
 
 </header>
@@ -369,15 +277,11 @@ body{
 <section class="intro">
 
 <h2>
-
 ابزارهای کاربردی
-
 </h2>
 
 <p>
-
 برای استفاده، ابزار موردنظر خود را انتخاب کنید.
-
 </p>
 
 </section>
@@ -395,31 +299,23 @@ class="tool"
 href="tools/bmi.html">
 
 <div class="tool-icon">
-
 ⚖️
-
 </div>
 
 <div class="tool-content">
 
 <div class="tool-title">
-
 محاسبه شاخص توده بدنی
-
 </div>
 
 <div class="tool-description">
-
 قد و وزن خود را وارد کنید و وضعیت وزن خود را ببینید.
-
 </div>
 
 </div>
 
 <div class="arrow">
-
 ‹
-
 </div>
 
 </a>
@@ -432,31 +328,52 @@ class="tool"
 href="tools/retiree-age.html">
 
 <div class="tool-icon">
-
 🧓
-
 </div>
 
 <div class="tool-content">
 
 <div class="tool-title">
-
 بازنشسته‌سنج صبا
-
 </div>
 
 <div class="tool-description">
-
 ببین سبک زندگی‌ات چند ساله است، نه فقط شناسنامه‌ات!
-
 </div>
 
 </div>
 
 <div class="arrow">
-
 ‹
+</div>
 
+</a>
+
+
+<!-- یادآور -->
+
+<a
+class="tool"
+href="tools/memory.html">
+
+<div class="tool-icon">
+🧠
+</div>
+
+<div class="tool-content">
+
+<div class="tool-title">
+یادآور
+</div>
+
+<div class="tool-description">
+یک بازی سرگرم‌کننده برای به چالش کشیدن حافظه.
+</div>
+
+</div>
+
+<div class="arrow">
+‹
 </div>
 
 </a>
@@ -494,7 +411,12 @@ target="_blank">
 
 </div>
 
+
+<!-- فایل مرکزی ابزارها -->
+
 <script src="data/tools.js"></script>
+
+
 </body>
 
 </html>

@@ -1,1 +1,1979 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>بازنشسته‌سنج صبا | صبا رسانه</title>
+
+    <meta name="description"
+          content="بازنشسته‌سنج صبا؛ یک آزمون ساده و سرگرم‌کننده برای بررسی سبک زندگی">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f7f6;
+            color: #263238;
+
+            font-family:
+                Tahoma,
+                Arial,
+                sans-serif;
+
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 650px;
+            margin: auto;
+            padding: 15px 12px 35px;
+        }
+
+        .brand {
+            text-align: center;
+            margin-bottom: 14px;
+        }
+
+        .brand-name {
+            color: #176b5b;
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .brand-sub {
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .hero {
+            background:
+                linear-gradient(
+                    145deg,
+                    #176b5b,
+                    #0f5145
+                );
+
+            color: white;
+
+            border-radius: 23px;
+
+            padding: 25px 18px;
+
+            text-align: center;
+
+            box-shadow:
+                0 8px 30px
+                rgba(20, 60, 50, 0.10);
+
+            margin-bottom: 15px;
+        }
+
+        .hero-icon {
+            font-size: 47px;
+        }
+
+        h1 {
+            margin: 4px 0;
+
+            font-size: 28px;
+            line-height: 1.4;
+        }
+
+        .hero p {
+            margin: 8px 0 0;
+
+            font-size: 15px;
+
+            opacity: 0.95;
+        }
+
+        .start-button {
+            width: 100%;
+
+            min-height: 57px;
+
+            margin-top: 19px;
+
+            border: none;
+
+            border-radius: 15px;
+
+            background: white;
+
+            color: #176b5b;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+        .start-button:active {
+            transform: scale(.98);
+        }
+
+        .info {
+            background: #fff7df;
+
+            border: 1px solid #efdfae;
+
+            border-radius: 16px;
+
+            padding: 13px 15px;
+
+            color: #665329;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+        .quiz-card,
+        .result-card {
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 19px 16px;
+
+            box-shadow:
+                0 7px 28px
+                rgba(20, 60, 50, 0.07);
+        }
+
+        .quiz-top {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 9px;
+        }
+
+        .question-number {
+            color: #176b5b;
+
+            font-weight: 900;
+
+            font-size: 14px;
+        }
+
+        .progress-text {
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+        .progress {
+            width: 100%;
+
+            height: 9px;
+
+            background: #e8edeb;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-bottom: 23px;
+        }
+
+        .progress-bar {
+            height: 100%;
+
+            width: 0;
+
+            background: #176b5b;
+
+            border-radius: 20px;
+
+            transition: width .3s;
+        }
+
+        .question-title {
+            margin: 0 0 19px;
+
+            font-size: 22px;
+
+            line-height: 1.6;
+
+            font-weight: 900;
+        }
+
+        .question-help {
+            color: #6b7280;
+
+            font-size: 13px;
+
+            margin-top: -12px;
+
+            margin-bottom: 17px;
+        }
+
+        .options {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .option {
+            position: relative;
+        }
+
+        .option input {
+            position: absolute;
+
+            opacity: 0;
+        }
+
+        .option label {
+            display: flex;
+
+            align-items: center;
+
+            min-height: 58px;
+
+            padding: 11px 13px;
+
+            border:
+                2px solid #e2e8e5;
+
+            border-radius: 15px;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-size: 16px;
+
+            font-weight: 600;
+
+            transition: .15s;
+        }
+
+        .option label::before {
+            content: "";
+
+            width: 21px;
+
+            height: 21px;
+
+            border:
+                2px solid #aeb9b5;
+
+            border-radius: 50%;
+
+            margin-left: 11px;
+
+            flex-shrink: 0;
+        }
+
+        .option input:checked + label {
+            border-color: #176b5b;
+
+            background: #e8f5f1;
+
+            color: #0f5145;
+        }
+
+        .option input:checked + label::before {
+            border: 7px solid #176b5b;
+        }
+
+        .age-input {
+            width: 100%;
+
+            height: 65px;
+
+            border:
+                2px solid #e0e7e4;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            font-size: 25px;
+
+            outline: none;
+        }
+
+        .age-input:focus {
+            border-color: #176b5b;
+        }
+
+        .navigation {
+            display: flex;
+
+            gap: 9px;
+
+            margin-top: 21px;
+        }
+
+        .nav-button {
+            flex: 1;
+
+            min-height: 55px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+        .prev {
+            background: #edf1f0;
+
+            color: #263238;
+        }
+
+        .next {
+            background: #176b5b;
+
+            color: white;
+        }
+
+        .error {
+            display: none;
+
+            color: #c94b4b;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-top: 10px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .fade {
+            animation:
+                fade .25s ease;
+        }
+
+        @keyframes fade {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+
+        }
+
+        .result-title {
+            color: #176b5b;
+
+            font-size: 24px;
+
+            font-weight: 900;
+
+            text-align: center;
+        }
+
+        .result-sub {
+            text-align: center;
+
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+        .age-circle {
+            width: 180px;
+
+            height: 180px;
+
+            border-radius: 50%;
+
+            margin: 22px auto;
+
+            background: #e8f5f1;
+
+            border:
+                9px solid #cce8df;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+        .age-circle small {
+            color: #6b7280;
+
+            font-size: 13px;
+        }
+
+        .age-number {
+            color: #176b5b;
+
+            font-size: 46px;
+
+            font-weight: 900;
+
+            line-height: 1.2;
+        }
+
+        .age-year {
+            color: #0f5145;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        .score-box {
+            text-align: center;
+
+            background: #fff7df;
+
+            border:
+                1px solid #efdfae;
+
+            border-radius: 16px;
+
+            padding: 12px;
+
+            margin-bottom: 17px;
+        }
+
+        .score-number {
+            color: #936a13;
+
+            font-size: 31px;
+
+            font-weight: 900;
+        }
+
+        .score-label {
+            color: #75622f;
+
+            font-size: 13px;
+        }
+
+        .category {
+            border:
+                1px solid #e2e8e5;
+
+            border-radius: 14px;
+
+            padding: 10px 12px;
+
+            margin-bottom: 9px;
+        }
+
+        .category-head {
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 14px;
+
+            font-weight: 800;
+        }
+
+        .category-bar {
+            height: 8px;
+
+            background: #e9eeec;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            margin-top: 6px;
+        }
+
+        .category-fill {
+            height: 100%;
+
+            background: #176b5b;
+
+            border-radius: 20px;
+        }
+
+        .message {
+            background: #176b5b;
+
+            color: white;
+
+            border-radius: 18px;
+
+            padding: 17px;
+
+            margin-top: 17px;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            line-height: 1.9;
+
+            text-align: center;
+        }
+
+        .actions {
+            display: grid;
+
+            gap: 9px;
+
+            margin-top: 17px;
+        }
+
+        .share,
+        .restart {
+            width: 100%;
+
+            min-height: 55px;
+
+            border: none;
+
+            border-radius: 14px;
+
+            font-size: 16px;
+
+            font-weight: 900;
+
+            cursor: pointer;
+        }
+
+        .share {
+            background: #176b5b;
+
+            color: white;
+        }
+
+        .restart {
+            background: #edf1f0;
+
+            color: #263238;
+        }
+
+        .channel {
+            display: block;
+
+            margin-top: 10px;
+
+            padding: 13px;
+
+            text-align: center;
+
+            background: #fff4d8;
+
+            border:
+                1px solid #eedca8;
+
+            color: #795b13;
+
+            border-radius: 14px;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 900;
+        }
+
+        footer {
+            text-align: center;
+
+            color: #7b8581;
+
+            font-size: 11px;
+
+            padding-top: 18px;
+        }
+
+        @media (max-width: 480px) {
+
+            .container {
+                padding: 11px 9px 30px;
+            }
+
+            .hero {
+                padding: 22px 16px;
+                border-radius: 20px;
+            }
+
+            h1 {
+                font-size: 25px;
+            }
+
+            .question-title {
+                font-size: 20px;
+            }
+
+            .quiz-card,
+            .result-card {
+                padding: 17px 13px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- برند -->
+
+    <div class="brand">
+
+        <div class="brand-name">
+            صبا رسانه
+        </div>
+
+        <div class="brand-sub">
+            صدای حقیقت، مطالبه عدالت
+        </div>
+
+    </div>
+
+
+    <!-- صفحه شروع -->
+
+    <section id="startScreen">
+
+
+        <div class="hero">
+
+            <div class="hero-icon">
+                🧓
+            </div>
+
+            <h1>
+                بازنشسته‌سنج صبا
+            </h1>
+
+            <p>
+                ببین سبک زندگی‌ات چند ساله است،
+                نه فقط شناسنامه‌ات!
+            </p>
+
+            <button
+                class="start-button"
+                onclick="startQuiz()">
+
+                شروع آزمون
+
+            </button>
+
+        </div>
+
+
+        <div class="info">
+
+            این آزمون کوتاه و سرگرم‌کننده است
+            و فقط یک نگاه کلی به سبک زندگی شما دارد.
+            نتیجه آن تشخیص پزشکی نیست.
+
+        </div>
+
+
+    </section>
+
+
+    <!-- آزمون -->
+
+    <section
+        id="quizScreen"
+        class="hidden">
+
+
+        <div class="quiz-card">
+
+
+            <div class="quiz-top">
+
+                <span
+                    id="questionNumber"
+                    class="question-number">
+                    سؤال ۱
+                </span>
+
+                <span
+                    id="progressText"
+                    class="progress-text">
+                    ۱۰٪
+                </span>
+
+            </div>
+
+
+            <div class="progress">
+
+                <div
+                    id="progressBar"
+                    class="progress-bar">
+                </div>
+
+            </div>
+
+
+            <div
+                id="questionContainer"
+                class="fade">
+            </div>
+
+
+            <div
+                id="error"
+                class="error">
+                لطفاً یک گزینه را انتخاب کنید.
+            </div>
+
+
+            <div class="navigation">
+
+
+                <button
+                    id="prevButton"
+                    class="nav-button prev"
+                    onclick="previousQuestion()">
+
+                    قبلی
+
+                </button>
+
+
+                <button
+                    id="nextButton"
+                    class="nav-button next"
+                    onclick="nextQuestion()">
+
+                    بعدی
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- نتیجه -->
+
+    <section
+        id="resultScreen"
+        class="hidden">
+
+
+        <div class="result-card">
+
+
+            <div class="result-title">
+                نتیجه بازنشسته‌سنج
+            </div>
+
+
+            <div class="result-sub">
+                یک نگاه سرگرم‌کننده به سبک زندگی شما
+            </div>
+
+
+            <div class="age-circle">
+
+                <small>
+                    سن سبک زندگی
+                </small>
+
+                <div
+                    id="lifestyleAge"
+                    class="age-number">
+                    ۵۷
+                </div>
+
+                <div class="age-year">
+                    سال
+                </div>
+
+            </div>
+
+
+            <div class="score-box">
+
+                <div
+                    id="scoreNumber"
+                    class="score-number">
+                    ۷۵
+                </div>
+
+                <div class="score-label">
+                    امتیاز سبک زندگی از ۱۰۰
+                </div>
+
+            </div>
+
+
+            <div id="categories"></div>
+
+
+            <div
+                id="message"
+                class="message">
+            </div>
+
+
+            <div class="actions">
+
+
+                <button
+                    class="share"
+                    onclick="shareResult()">
+
+                    📤 اشتراک‌گذاری نتیجه
+
+                </button>
+
+
+                <button
+                    class="restart"
+                    onclick="restartQuiz()">
+
+                    🔄 دوباره امتحان می‌کنم
+
+                </button>
+
+
+            </div>
+
+
+            <a
+                class="channel"
+                href="https://t.me/saba_rasanehh"
+                target="_blank">
+
+                📢 مطالب و اخبار صبا رسانه
+
+            </a>
+
+
+        </div>
+
+
+        <footer>
+
+            این ابزار صرفاً برای سرگرمی و
+            خودارزیابی سبک زندگی است.
+            تشخیص پزشکی محسوب نمی‌شود.
+
+        </footer>
+
+
+    </section>
+
+
+</div>
+
+
+<script>
+
+
+const questions = [
+
+    {
+        id: "age",
+
+        title:
+            "چند سال داری؟",
+
+        help:
+            "سن واقعی خودت را وارد کن.",
+
+        type:
+            "age"
+    },
+
+
+    {
+        id: "activity",
+
+        title:
+            "در یک روز معمولی چقدر راه می‌روی یا فعالیت بدنی داری؟",
+
+        category:
+            "activity",
+
+        options: [
+
+            {
+                text:
+                    "تقریباً هیچ؛ بیشتر نشسته‌ام",
+                score: 0
+            },
+
+            {
+                text:
+                    "کمتر از ۲۰ دقیقه",
+                score: 1
+            },
+
+            {
+                text:
+                    "۲۰ تا ۴۰ دقیقه",
+                score: 3
+            },
+
+            {
+                text:
+                    "بیشتر از ۴۰ دقیقه",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "sleep",
+
+        title:
+            "معمولاً شب‌ها چند ساعت می‌خوابی؟",
+
+        category:
+            "sleep",
+
+        options: [
+
+            {
+                text:
+                    "کمتر از ۵ ساعت",
+                score: 0
+            },
+
+            {
+                text:
+                    "۵ تا ۶ ساعت",
+                score: 2
+            },
+
+            {
+                text:
+                    "۶ تا ۸ ساعت",
+                score: 5
+            },
+
+            {
+                text:
+                    "بیشتر از ۸ ساعت",
+                score: 3
+            }
+
+        ]
+    },
+
+
+    {
+        id: "food",
+
+        title:
+            "غذاهای سالم مثل سبزیجات، حبوبات و میوه چقدر در برنامه‌ات هستند؟",
+
+        category:
+            "food",
+
+        options: [
+
+            {
+                text:
+                    "خیلی کم",
+                score: 0
+            },
+
+            {
+                text:
+                    "گاهی",
+                score: 2
+            },
+
+            {
+                text:
+                    "تقریباً هر روز",
+                score: 4
+            },
+
+            {
+                text:
+                    "بخش مهمی از غذای من هستند",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "water",
+
+        title:
+            "در طول روز چقدر آب می‌نوشی؟",
+
+        category:
+            "food",
+
+        options: [
+
+            {
+                text:
+                    "خیلی کم",
+                score: 0
+            },
+
+            {
+                text:
+                    "حدود ۳ تا ۵ لیوان",
+                score: 2
+            },
+
+            {
+                text:
+                    "حدود ۶ تا ۸ لیوان",
+                score: 4
+            },
+
+            {
+                text:
+                    "به اندازه کافی و منظم",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "sitting",
+
+        title:
+            "چقدر از روز را پشت تلویزیون، موبایل یا روی صندلی می‌گذرانی؟",
+
+        category:
+            "activity",
+
+        options: [
+
+            {
+                text:
+                    "بیشتر روز",
+                score: 0
+            },
+
+            {
+                text:
+                    "چند ساعت",
+                score: 2
+            },
+
+            {
+                text:
+                    "حدود ۲ ساعت",
+                score: 4
+            },
+
+            {
+                text:
+                    "کم و همراه با تحرک",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "social",
+
+        title:
+            "چقدر با دوستان، خانواده یا آدم‌های مورد علاقه‌ات در ارتباطی؟",
+
+        category:
+            "mood",
+
+        options: [
+
+            {
+                text:
+                    "خیلی کم",
+                score: 0
+            },
+
+            {
+                text:
+                    "گاهی",
+                score: 2
+            },
+
+            {
+                text:
+                    "مرتب",
+                score: 4
+            },
+
+            {
+                text:
+                    "تقریباً هر روز",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "laugh",
+
+        title:
+            "در طول هفته چند بار از ته دل می‌خندی؟",
+
+        category:
+            "mood",
+
+        options: [
+
+            {
+                text:
+                    "یادم نمی‌آید!",
+                score: 0
+            },
+
+            {
+                text:
+                    "یکی دو بار",
+                score: 2
+            },
+
+            {
+                text:
+                    "چند بار",
+                score: 4
+            },
+
+            {
+                text:
+                    "تقریباً هر روز",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "travel",
+
+        title:
+            "برای تفریح و عوض کردن حال و هوا چقدر وقت می‌گذاری؟",
+
+        category:
+            "mood",
+
+        options: [
+
+            {
+                text:
+                    "تقریباً هیچ",
+                score: 0
+            },
+
+            {
+                text:
+                    "خیلی کم",
+                score: 2
+            },
+
+            {
+                text:
+                    "گاهی",
+                score: 4
+            },
+
+            {
+                text:
+                    "مرتب برای خودم وقت می‌گذارم",
+                score: 5
+            }
+
+        ]
+    },
+
+
+    {
+        id: "mind",
+
+        title:
+            "وقتی روز سختی داری، معمولاً چه کار می‌کنی؟",
+
+        category:
+            "mind",
+
+        options: [
+
+            {
+                text:
+                    "همه‌چیز را در خودم می‌ریزم",
+                score: 0
+            },
+
+            {
+                text:
+                    "سعی می‌کنم تحملش کنم",
+                score: 2
+            },
+
+            {
+                text:
+                    "با کسی صحبت می‌کنم",
+                score: 4
+            },
+
+            {
+                text:
+                    "راهی برای آرام کردن خودم پیدا می‌کنم",
+                score: 5
+            }
+
+        ]
+    }
+
+];
+
+
+let currentQuestion = 0;
+
+let answers = {};
+
+
+function startQuiz() {
+
+    currentQuestion = 0;
+
+    answers = {};
+
+    document
+        .getElementById("startScreen")
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById("resultScreen")
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById("quizScreen")
+        .classList
+        .remove("hidden");
+
+    renderQuestion();
+
+    window.scrollTo(0, 0);
+}
+
+
+function renderQuestion() {
+
+    const q =
+        questions[currentQuestion];
+
+    const container =
+        document.getElementById(
+            "questionContainer"
+        );
+
+    const number =
+        document.getElementById(
+            "questionNumber"
+        );
+
+    const progressText =
+        document.getElementById(
+            "progressText"
+        );
+
+    const progressBar =
+        document.getElementById(
+            "progressBar"
+        );
+
+    const prevButton =
+        document.getElementById(
+            "prevButton"
+        );
+
+    const nextButton =
+        document.getElementById(
+            "nextButton"
+        );
+
+
+    const percent =
+        Math.round(
+            ((currentQuestion + 1)
+            / questions.length) * 100
+        );
+
+
+    number.textContent =
+        "سؤال " +
+        persian(currentQuestion + 1) +
+        " از " +
+        persian(questions.length);
+
+
+    progressText.textContent =
+        persian(percent) + "٪";
+
+
+    progressBar.style.width =
+        percent + "%";
+
+
+    prevButton.style.visibility =
+        currentQuestion === 0
+        ? "hidden"
+        : "visible";
+
+
+    nextButton.textContent =
+        currentQuestion ===
+        questions.length - 1
+        ? "دیدن نتیجه"
+        : "بعدی";
+
+
+    if (q.type === "age") {
+
+        container.innerHTML = `
+
+            <h2 class="question-title">
+                ${q.title}
+            </h2>
+
+            <div class="question-help">
+                ${q.help}
+            </div>
+
+            <input
+                id="ageInput"
+                class="age-input"
+                type="number"
+                min="40"
+                max="100"
+                inputmode="numeric"
+                placeholder="مثلاً ۶۲"
+                value="${answers.age || ''}"
+            >
+
+        `;
+
+        return;
+    }
+
+
+    let html = `
+
+        <h2 class="question-title">
+            ${q.title}
+        </h2>
+
+    `;
+
+
+    if (q.help) {
+
+        html += `
+
+            <div class="question-help">
+                ${q.help}
+            </div>
+
+        `;
+
+    }
+
+
+    html += `<div class="options">`;
+
+
+    q.options.forEach(
+        (option, index) => {
+
+            const checked =
+                answers[q.id] === index
+                ? "checked"
+                : "";
+
+
+            html += `
+
+                <div class="option">
+
+                    <input
+                        type="radio"
+                        id="${q.id}_${index}"
+                        name="${q.id}"
+                        value="${index}"
+                        ${checked}
+                    >
+
+                    <label
+                        for="${q.id}_${index}">
+
+                        ${option.text}
+
+                    </label>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    html += `</div>`;
+
+
+    container.innerHTML =
+        html;
+}
+
+
+function saveAnswer() {
+
+    const q =
+        questions[currentQuestion];
+
+
+    if (q.type === "age") {
+
+        const input =
+            document.getElementById(
+                "ageInput"
+            );
+
+
+        const age =
+            parseInt(input.value);
+
+
+        if (
+            isNaN(age) ||
+            age < 40 ||
+            age > 100
+        ) {
+
+            showError(
+                "لطفاً سن را بین ۴۰ تا ۱۰۰ سال وارد کنید."
+            );
+
+            return false;
+        }
+
+
+        answers.age = age;
+
+        hideError();
+
+        return true;
+    }
+
+
+    const selected =
+        document.querySelector(
+            `input[name="${q.id}"]:checked`
+        );
+
+
+    if (!selected) {
+
+        showError(
+            "لطفاً یکی از گزینه‌ها را انتخاب کنید."
+        );
+
+        return false;
+    }
+
+
+    answers[q.id] =
+        parseInt(selected.value);
+
+
+    hideError();
+
+    return true;
+}
+
+
+function nextQuestion() {
+
+    if (!saveAnswer()) {
+        return;
+    }
+
+
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        currentQuestion++;
+
+        renderQuestion();
+
+        window.scrollTo(0, 0);
+
+    } else {
+
+        showResult();
+
+    }
+}
+
+
+function previousQuestion() {
+
+    if (currentQuestion <= 0) {
+        return;
+    }
+
+
+    saveAnswer();
+
+    currentQuestion--;
+
+    renderQuestion();
+
+    window.scrollTo(0, 0);
+}
+
+
+function showError(message) {
+
+    const error =
+        document.getElementById("error");
+
+    error.textContent =
+        message;
+
+    error.style.display =
+        "block";
+}
+
+
+function hideError() {
+
+    document
+        .getElementById("error")
+        .style
+        .display = "none";
+}
+
+
+function showResult() {
+
+    let total = 0;
+
+    let max = 0;
+
+
+    const categories = {
+
+        activity: 0,
+        sleep: 0,
+        food: 0,
+        mood: 0,
+        mind: 0
+
+    };
+
+
+    const categoryMax = {
+
+        activity: 10,
+        sleep: 5,
+        food: 10,
+        mood: 15,
+        mind: 5
+
+    };
+
+
+    questions.forEach(q => {
+
+        if (!q.options) {
+            return;
+        }
+
+
+        const answer =
+            answers[q.id];
+
+
+        if (answer === undefined) {
+            return;
+        }
+
+
+        const score =
+            q.options[answer].score;
+
+
+        total += score;
+
+        max += 5;
+
+
+        if (q.category) {
+
+            categories[q.category] +=
+                score;
+
+        }
+
+    });
+
+
+    const score =
+        Math.round(
+            (total / max) * 100
+        );
+
+
+    const realAge =
+        answers.age;
+
+
+    const adjustment =
+        Math.round(
+            ((score - 50) / 50) * 7
+        );
+
+
+    let lifestyleAge =
+        realAge - adjustment;
+
+
+    lifestyleAge =
+        Math.max(
+            35,
+            Math.min(
+                100,
+                lifestyleAge
+            )
+        );
+
+
+    document.getElementById(
+        "lifestyleAge"
+    ).textContent =
+        persian(lifestyleAge);
+
+
+    document.getElementById(
+        "scoreNumber"
+    ).textContent =
+        persian(score);
+
+
+    renderCategories(
+        categories,
+        categoryMax
+    );
+
+
+    document.getElementById(
+        "message"
+    ).textContent =
+        getMessage(score);
+
+
+    document
+        .getElementById("quizScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("resultScreen")
+        .classList
+        .remove("hidden");
+
+
+    window.scrollTo(0, 0);
+}
+
+
+function renderCategories(
+    scores,
+    maxScores
+) {
+
+    const names = {
+
+        activity: "🚶 تحرک",
+
+        sleep: "😴 خواب",
+
+        food: "🥗 تغذیه",
+
+        mood: "😊 حال خوب",
+
+        mind: "🧠 آرامش ذهن"
+
+    };
+
+
+    let html = "";
+
+
+    Object.keys(names).forEach(
+        category => {
+
+            const percent =
+                Math.round(
+                    (
+                        scores[category]
+                        /
+                        maxScores[category]
+                    ) * 100
+                );
+
+
+            html += `
+
+                <div class="category">
+
+                    <div class="category-head">
+
+                        <span>
+                            ${names[category]}
+                        </span>
+
+                        <span>
+                            ${persian(percent)}٪
+                        </span>
+
+                    </div>
+
+                    <div class="category-bar">
+
+                        <div
+                            class="category-fill"
+                            style="width:${percent}%">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+    );
+
+
+    document.getElementById(
+        "categories"
+    ).innerHTML =
+        html;
+}
+
+
+function getMessage(score) {
+
+    if (score >= 85) {
+
+        return "عمو صابر! تو هنوز برای بازنشستگی از زندگی درخواست ندادی. همین روحیه را نگه دار.";
+
+    }
+
+
+    if (score >= 70) {
+
+        return "وضعیتت بد نیست. هنوز موتور روشن است. فقط کمی بیشتر به خودت برس؛ بازنشستگی یعنی فراغت از کار، نه بازنشستگی از زندگی.";
+
+    }
+
+
+    if (score >= 55) {
+
+        return "زندگی دارد با تو چانه می‌زند! کمی پیاده‌روی، خواب بهتر و چند خنده واقعی می‌تواند اوضاع را بهتر کند.";
+
+    }
+
+
+    if (score >= 40) {
+
+        return "عمو صابر، انگار مبل خانه زیادی به تو وابسته شده! کمی از جا بلند شو و برای حال خوبت وقت بگذار.";
+
+    }
+
+
+    return "این عدد حکم نیست، فقط یک تلنگر است. بیشتر مراقب خودت باش و برای حال خوبت جا باز کن.";
+
+}
+
+
+async function shareResult() {
+
+    const age =
+        document.getElementById(
+            "lifestyleAge"
+        ).textContent;
+
+
+    const score =
+        document.getElementById(
+            "scoreNumber"
+        ).textContent;
+
+
+    const text =
+
+`🧓 بازنشسته‌سنج صبا
+
+سن شناسنامه‌ای من:
+${persian(answers.age)} سال
+
+سن سبک زندگی من:
+${age} سال
+
+امتیاز سبک زندگی:
+${score} از ۱۰۰
+
+تو چند ساله‌ای؟
+
+صبا رسانه
+https://t.me/saba_rasanehh`;
+
+
+    if (navigator.share) {
+
+        try {
+
+            await navigator.share({
+
+                title:
+                    "بازنشسته‌سنج صبا",
+
+                text:
+                    text
+
+            });
+
+            return;
+
+        } catch (e) {}
+
+    }
+
+
+    try {
+
+        await navigator
+            .clipboard
+            .writeText(text);
+
+
+        alert(
+            "نتیجه کپی شد. حالا می‌توانی آن را برای دوستانت بفرستی."
+        );
+
+    } catch (e) {
+
+        prompt(
+            "متن نتیجه:",
+            text
+        );
+
+    }
+}
+
+
+function restartQuiz() {
+
+    currentQuestion = 0;
+
+    answers = {};
+
+
+    document
+        .getElementById("resultScreen")
+        .classList
+        .add("hidden");
+
+
+    document
+        .getElementById("startScreen")
+        .classList
+        .remove("hidden");
+
+
+    window.scrollTo(0, 0);
+}
+
+
+function persian(number) {
+
+    return String(number).replace(
+        /\d/g,
+        d =>
+            "۰۱۲۳۴۵۶۷۸۹"[d]
+    );
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>

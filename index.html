@@ -361,7 +361,6 @@ target="_blank">
 <!-- فایل مرکزی ابزارها -->
 
 <script src="data/tools.js"></script>
-
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -369,52 +368,124 @@ document.addEventListener("DOMContentLoaded", function () {
     const toolsList =
         document.getElementById("toolsList");
 
-    if (!toolsList || typeof tools === "undefined") {
+    const categories =
+        document.getElementById("categories");
+
+    if (
+        !toolsList ||
+        !categories ||
+        typeof tools === "undefined"
+    ) {
         return;
     }
 
-    toolsList.innerHTML = "";
 
-    tools.forEach(function (tool) {
+    /* ساخت دسته‌ها */
 
-        const card =
-            document.createElement("a");
+    const categoryNames = [
+        "همه",
+        ...new Set(
+            tools.map(tool => tool.category)
+        )
+    ];
 
-        card.className = "tool";
 
-        card.href = tool.url;
+    categoryNames.forEach(function(category, index){
 
-        card.innerHTML = `
+        const button =
+            document.createElement("button");
 
-            <div class="tool-icon">
-                ${tool.icon}
-            </div>
+        button.className =
+            "category-button" +
+            (index === 0 ? " active" : "");
 
-            <div class="tool-content">
+        button.textContent =
+            category;
 
-                <div class="tool-title">
-                    ${tool.title}
-                </div>
+        button.onclick = function(){
 
-                <div class="tool-description">
-                    ${tool.description}
-                </div>
+            document
+                .querySelectorAll(".category-button")
+                .forEach(function(btn){
 
-            </div>
+                    btn.classList.remove("active");
 
-            <div class="arrow">
-                ‹
-            </div>
+                });
 
-        `;
+            button.classList.add("active");
 
-        toolsList.appendChild(card);
+            showTools(category);
+
+        };
+
+        categories.appendChild(button);
 
     });
+
+
+    /* نمایش ابزارها */
+
+    function showTools(category){
+
+        toolsList.innerHTML = "";
+
+        const filteredTools =
+            category === "همه"
+            ? tools
+            : tools.filter(
+                tool =>
+                tool.category === category
+            );
+
+
+        filteredTools.forEach(function(tool){
+
+            const card =
+                document.createElement("a");
+
+            card.className = "tool";
+
+            card.href = tool.url;
+
+            card.innerHTML = `
+
+                <div class="tool-icon">
+                    ${tool.icon}
+                </div>
+
+                <div class="tool-content">
+
+                    <div class="tool-title">
+                        ${tool.title}
+                    </div>
+
+                    <div class="tool-description">
+                        ${tool.description}
+                    </div>
+
+                </div>
+
+                <div class="arrow">
+                    ‹
+                </div>
+
+            `;
+
+            toolsList.appendChild(card);
+
+        });
+
+    }
+
+
+    /* نمایش اولیه */
+
+    showTools("همه");
 
 });
 
 </script>
+
 
 </body>
 </html>

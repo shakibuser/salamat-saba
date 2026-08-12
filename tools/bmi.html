@@ -4,7 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
 
 <title>ابزار سلامت صبا رسانه</title>
 
@@ -17,33 +19,82 @@ box-sizing:border-box;
 body{
 
 font-family:tahoma,Arial;
+
 background:#eef7fb;
+
 margin:0;
+
 color:#333;
 
 }
 
- 
+/* دکمه بازگشت */
+
+.back-button{
+
+display:block;
+
+width:90%;
+
+max-width:430px;
+
+margin:12px auto 0;
+
+padding:13px 15px;
+
+text-decoration:none;
+
+color:#1565c0;
+
+background:white;
+
+border:1px solid #d9e5ec;
+
+border-radius:15px;
+
+font-size:16px;
+
+font-weight:bold;
+
+text-align:center;
+
+box-shadow:0 3px 10px rgba(0,0,0,.06);
+
+}
+
+.back-button:active{
+
+transform:scale(.97);
+
+}
 
 /* سربرگ */
 
 .header{
 
-background:linear-gradient(135deg,#1565c0,#42a5f5);
+background:linear-gradient(
+135deg,
+#1565c0,
+#42a5f5
+);
+
 color:white;
+
 text-align:center;
+
 padding:25px 10px;
 
-}
+margin-top:12px;
 
+}
 
 .header h1{
 
 margin:0;
+
 font-size:28px;
 
 }
-
 
 .header p{
 
@@ -51,13 +102,12 @@ font-size:17px;
 
 }
 
-
-
 /* کارت اصلی */
 
 .container{
 
 width:90%;
+
 max-width:430px;
 
 background:white;
@@ -76,12 +126,12 @@ animation:show .7s;
 
 }
 
-
 @keyframes show{
 
 from{
 
 opacity:0;
+
 transform:translateY(30px);
 
 }
@@ -89,13 +139,14 @@ transform:translateY(30px);
 to{
 
 opacity:1;
+
 transform:translateY(0);
 
 }
 
 }
 
-
+/* ورودی */
 
 input{
 
@@ -117,7 +168,15 @@ text-align:center;
 
 }
 
+input:focus{
 
+outline:none;
+
+border-color:#1565c0;
+
+}
+
+/* دکمه */
 
 button{
 
@@ -145,8 +204,6 @@ transition:.2s;
 
 }
 
-
-
 button:active{
 
 transform:scale(.93);
@@ -154,8 +211,6 @@ transform:scale(.93);
 box-shadow:0 2px 5px #777;
 
 }
-
-
 
 /* آدمک */
 
@@ -166,8 +221,6 @@ font-size:100px;
 margin:20px;
 
 }
-
-
 
 /* دایره BMI */
 
@@ -199,8 +252,6 @@ box-shadow:0 5px 15px #aaa;
 
 }
 
-
-
 /* نتیجه */
 
 .info{
@@ -217,9 +268,7 @@ line-height:2;
 
 }
 
-
-
-/* لینک */
+/* لینک تلگرام */
 
 .telegram a{
 
@@ -245,15 +294,11 @@ transition:.2s;
 
 }
 
-
-
 .telegram a:active{
 
 transform:scale(.93);
 
 }
-
-
 
 /* پنجره پیام */
 
@@ -265,11 +310,15 @@ top:50%;
 
 left:50%;
 
-transform:translate(-50%,-50%) scale(0);
+transform:
+translate(-50%,-50%)
+scale(0);
 
 background:white;
 
 width:300px;
+
+max-width:90%;
 
 padding:25px;
 
@@ -287,15 +336,13 @@ transition:.3s;
 
 }
 
-
-
 .message-box.show{
 
-transform:translate(-50%,-50%) scale(1);
+transform:
+translate(-50%,-50%)
+scale(1);
 
 }
-
-
 
 .message-box button{
 
@@ -305,7 +352,7 @@ font-size:16px;
 
 }
 
-
+/* پایین صفحه */
 
 .footer{
 
@@ -317,45 +364,30 @@ margin-top:20px;
 
 }
 
-
 </style>
 
 </head>
 
 
-
 <body>
-</head>
 
-<body>
+
+<!-- بازگشت به صفحه اصلی -->
 
 <a
-    href="../index.html"
-    style="
-        display:block;
-        width:90%;
-        max-width:430px;
-        margin:12px auto 0;
-        padding:13px 15px;
-        text-decoration:none;
-        color:#1565c0;
-        background:white;
-        border:1px solid #d9e5ec;
-        border-radius:15px;
-        font-family:Tahoma,Arial,sans-serif;
-        font-size:16px;
-        font-weight:bold;
-        text-align:center;
-        box-shadow:0 3px 10px rgba(0,0,0,.06);
-    "
->
-    ← بازگشت به جعبه‌ابزار صبا
+href="../index.html"
+class="back-button">
+
+← بازگشت به جعبه‌ابزار صبا
+
 </a>
 
-<div id="message" class="message-box">
 
+<!-- پنجره پیام -->
 
-<div id="message" class="message-box">
+<div
+id="message"
+class="message-box">
 
 <div id="messageText"></div>
 
@@ -368,6 +400,7 @@ margin-top:20px;
 </div>
 
 
+<!-- سربرگ -->
 
 <div class="header">
 
@@ -382,25 +415,27 @@ margin-top:20px;
 </div>
 
 
-
+<!-- کارت اصلی -->
 
 <div class="container">
-
 
 <h2>
 محاسبه سلامت وزن
 </h2>
 
 
-
-<input id="weight" type="number"
+<input
+id="weight"
+type="number"
+inputmode="decimal"
 placeholder="وزن به کیلوگرم">
 
 
-
-<input id="height" type="number"
+<input
+id="height"
+type="number"
+inputmode="decimal"
 placeholder="قد به سانتی متر">
-
 
 
 <button onclick="calculate()">
@@ -410,38 +445,37 @@ placeholder="قد به سانتی متر">
 </button>
 
 
-
-
-<div id="person" class="person">
+<div
+id="person"
+class="person">
 
 🙂
 
 </div>
 
 
-
-
-<div id="circle" class="circle">
+<div
+id="circle"
+class="circle">
 
 BMI
 
 </div>
 
 
-
-
-<div id="result" class="info">
+<div
+id="result"
+class="info">
 
 قد و وزن خود را وارد کنید
 
 </div>
 
 
-
-
 <div class="telegram">
 
-<a href="https://t.me/saba_rasanehh"
+<a
+href="https://t.me/saba_rasanehh"
 onclick="showMessage('در حال انتقال به کانال صبا رسانه هستید')"
 target="_blank">
 
@@ -450,8 +484,6 @@ target="_blank">
 </a>
 
 </div>
-
-
 
 
 <div class="footer">
@@ -464,59 +496,61 @@ target="_blank">
 </div>
 
 
-
-
-
 <script>
 
 
 function showMessage(text){
 
-document.getElementById("messageText").innerHTML=text;
+document
+.getElementById("messageText")
+.innerHTML=text;
 
-document.getElementById("message").classList.add("show");
+document
+.getElementById("message")
+.classList
+.add("show");
 
 }
-
 
 
 function closeMessage(){
 
-document.getElementById("message").classList.remove("show");
+document
+.getElementById("message")
+.classList
+.remove("show");
 
 }
-
-
-
 
 
 function calculate(){
 
 
-
 let weight =
-Number(document.getElementById("weight").value);
-
+Number(
+document.getElementById("weight").value
+);
 
 
 let height =
-Number(document.getElementById("height").value)/100;
-
+Number(
+document.getElementById("height").value
+) / 100;
 
 
 if(!weight || !height){
 
-showMessage("لطفاً قد و وزن خود را وارد کنید");
+showMessage(
+"لطفاً قد و وزن خود را وارد کنید"
+);
 
 return;
 
 }
 
 
-
 let bmi =
-weight/(height*height);
-
+weight / (height * height);
 
 
 let status;
@@ -526,15 +560,20 @@ let emoji;
 let color;
 
 
-
 let min =
-(18.5*height*height).toFixed(1);
-
+(
+18.5 *
+height *
+height
+).toFixed(1);
 
 
 let max =
-(24.9*height*height).toFixed(1);
-
+(
+24.9 *
+height *
+height
+).toFixed(1);
 
 
 if(bmi < 18.5){
@@ -578,34 +617,42 @@ color="#f44336";
 }
 
 
+document
+.getElementById("person")
+.innerHTML=emoji;
 
 
-document.getElementById("person").innerHTML=emoji;
+document
+.getElementById("circle")
+.style
+.background=color;
 
 
-
-document.getElementById("circle").style.background=color;
-
-
-
-document.getElementById("circle").innerHTML=
+document
+.getElementById("circle")
+.innerHTML=
 bmi.toFixed(1);
 
 
-
-
-document.getElementById("result").innerHTML=
+document
+.getElementById("result")
+.innerHTML=
 
 `
+
 وضعیت شما:
 
-<b>${status}</b>
+<b>
+${status}
+</b>
 
 <br>
 
 شاخص توده بدنی:
 
-<b>${bmi.toFixed(1)}</b>
+<b>
+${bmi.toFixed(1)}
+</b>
 
 <br>
 
@@ -613,35 +660,41 @@ document.getElementById("result").innerHTML=
 
 <br>
 
-<b>${min} تا ${max} کیلوگرم</b>
+<b>
+${min} تا ${max} کیلوگرم
+</b>
 
 `;
 
 
-
-showMessage("محاسبه با موفقیت انجام شد");
-
+showMessage(
+"محاسبه با موفقیت انجام شد"
+);
 
 
 localStorage.setItem(
 "نتیجه سلامت",
-document.getElementById("result").innerHTML
+document
+.getElementById("result")
+.innerHTML
 );
-
-
 
 }
 
 
-
 window.onload=function(){
 
-let old=
-localStorage.getItem("نتیجه سلامت");
+let old =
+localStorage.getItem(
+"نتیجه سلامت"
+);
+
 
 if(old){
 
-document.getElementById("result").innerHTML=old;
+document
+.getElementById("result")
+.innerHTML=old;
 
 }
 

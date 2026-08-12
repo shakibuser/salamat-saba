@@ -3,650 +3,898 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <title>بازنشسته‌سنج صبا | صبا رسانه</title>
+<title>بازنشسته‌سنج صبا | صبا رسانه</title>
 
-    <meta name="description"
-          content="بازنشسته‌سنج صبا؛ یک آزمون ساده و سرگرم‌کننده برای بررسی سبک زندگی">
+<meta name="description"
+content="بازنشسته‌سنج صبا؛ یک آزمون ساده و سرگرم‌کننده برای بررسی سبک زندگی">
 
-    <style>
+<style>
 
-        * {
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
 
-        body {
-            margin: 0;
-            background: #f4f7f6;
-            color: #263238;
+body {
+    margin: 0;
+    background: #f4f7f6;
+    color: #263238;
 
-            font-family:
-                Tahoma,
-                Arial,
-                sans-serif;
+    font-family:
+        Tahoma,
+        Arial,
+        sans-serif;
 
-            font-size: 17px;
-            line-height: 1.8;
-        }
+    font-size: 17px;
+    line-height: 1.8;
+}
 
-        button,
-        input {
-            font-family: inherit;
-        }
+button,
+input {
+    font-family: inherit;
+}
 
-        .container {
-            width: 100%;
-            max-width: 650px;
-            margin: auto;
-            padding: 15px 12px 35px;
-        }
+/* دکمه بازگشت */
 
-        .brand {
-            text-align: center;
-            margin-bottom: 14px;
-        }
+.back-button {
 
-        .brand-name {
-            color: #176b5b;
-            font-size: 22px;
-            font-weight: 900;
-        }
+    display: block;
 
-        .brand-sub {
-            color: #6b7280;
-            font-size: 13px;
-        }
+    width: calc(100% - 24px);
 
-        .hero {
-            background:
-                linear-gradient(
-                    145deg,
-                    #176b5b,
-                    #0f5145
-                );
+    max-width: 650px;
 
-            color: white;
+    margin: 12px auto;
 
-            border-radius: 23px;
+    padding: 13px 15px;
 
-            padding: 25px 18px;
+    background: white;
 
-            text-align: center;
+    color: #176b5b;
 
-            box-shadow:
-                0 8px 30px
-                rgba(20, 60, 50, 0.10);
+    border: 1px solid #dce7e3;
 
-            margin-bottom: 15px;
-        }
+    border-radius: 15px;
 
-        .hero-icon {
-            font-size: 47px;
-        }
+    text-decoration: none;
 
-        h1 {
-            margin: 4px 0;
+    text-align: center;
 
-            font-size: 28px;
-            line-height: 1.4;
-        }
+    font-size: 16px;
 
-        .hero p {
-            margin: 8px 0 0;
+    font-weight: 900;
 
-            font-size: 15px;
+    box-shadow:
+        0 3px 12px
+        rgba(0,0,0,.06);
 
-            opacity: 0.95;
-        }
+}
 
-        .start-button {
-            width: 100%;
+.back-button:active {
 
-            min-height: 57px;
+    transform: scale(.98);
 
-            margin-top: 19px;
+}
 
-            border: none;
 
-            border-radius: 15px;
+/* محفظه */
 
-            background: white;
+.container {
 
-            color: #176b5b;
+    width: 100%;
 
-            font-size: 18px;
+    max-width: 650px;
 
-            font-weight: 900;
+    margin: auto;
 
-            cursor: pointer;
-        }
+    padding: 0 12px 35px;
 
-        .start-button:active {
-            transform: scale(.98);
-        }
+}
 
-        .info {
-            background: #fff7df;
 
-            border: 1px solid #efdfae;
+/* برند */
 
-            border-radius: 16px;
+.brand {
 
-            padding: 13px 15px;
+    text-align: center;
 
-            color: #665329;
+    margin-bottom: 14px;
 
-            font-size: 13px;
+}
 
-            margin-bottom: 15px;
-        }
+.brand-name {
 
-        .quiz-card,
-        .result-card {
-            background: white;
+    color: #176b5b;
 
-            border-radius: 22px;
+    font-size: 22px;
 
-            padding: 19px 16px;
+    font-weight: 900;
 
-            box-shadow:
-                0 7px 28px
-                rgba(20, 60, 50, 0.07);
-        }
+}
 
-        .quiz-top {
-            display: flex;
+.brand-sub {
 
-            justify-content: space-between;
+    color: #6b7280;
 
-            align-items: center;
+    font-size: 13px;
 
-            margin-bottom: 9px;
-        }
+}
 
-        .question-number {
-            color: #176b5b;
 
-            font-weight: 900;
+/* هدر */
 
-            font-size: 14px;
-        }
+.hero {
 
-        .progress-text {
-            color: #6b7280;
+    background:
+        linear-gradient(
+            145deg,
+            #176b5b,
+            #0f5145
+        );
 
-            font-size: 13px;
-        }
+    color: white;
 
-        .progress {
-            width: 100%;
+    border-radius: 23px;
 
-            height: 9px;
+    padding: 25px 18px;
 
-            background: #e8edeb;
+    text-align: center;
 
-            border-radius: 20px;
+    box-shadow:
+        0 8px 30px
+        rgba(20,60,50,.10);
 
-            overflow: hidden;
+    margin-bottom: 15px;
 
-            margin-bottom: 23px;
-        }
+}
 
-        .progress-bar {
-            height: 100%;
+.hero-icon {
 
-            width: 0;
+    font-size: 47px;
 
-            background: #176b5b;
+}
 
-            border-radius: 20px;
+h1 {
 
-            transition: width .3s;
-        }
+    margin: 4px 0;
 
-        .question-title {
-            margin: 0 0 19px;
+    font-size: 28px;
 
-            font-size: 22px;
+    line-height: 1.4;
 
-            line-height: 1.6;
+}
 
-            font-weight: 900;
-        }
+.hero p {
 
-        .question-help {
-            color: #6b7280;
+    margin: 8px 0 0;
 
-            font-size: 13px;
+    font-size: 15px;
 
-            margin-top: -12px;
+    opacity: .95;
 
-            margin-bottom: 17px;
-        }
+}
 
-        .options {
-            display: grid;
 
-            gap: 10px;
-        }
+/* دکمه شروع */
 
-        .option {
-            position: relative;
-        }
+.start-button {
 
-        .option input {
-            position: absolute;
+    width: 100%;
 
-            opacity: 0;
-        }
+    min-height: 57px;
 
-        .option label {
-            display: flex;
+    margin-top: 19px;
 
-            align-items: center;
+    border: none;
 
-            min-height: 58px;
+    border-radius: 15px;
 
-            padding: 11px 13px;
+    background: white;
 
-            border:
-                2px solid #e2e8e5;
+    color: #176b5b;
 
-            border-radius: 15px;
+    font-size: 18px;
 
-            background: white;
+    font-weight: 900;
 
-            cursor: pointer;
+    cursor: pointer;
 
-            font-size: 16px;
+}
 
-            font-weight: 600;
+.start-button:active {
 
-            transition: .15s;
-        }
+    transform: scale(.98);
 
-        .option label::before {
-            content: "";
+}
 
-            width: 21px;
 
-            height: 21px;
+/* توضیح */
 
-            border:
-                2px solid #aeb9b5;
+.info {
 
-            border-radius: 50%;
+    background: #fff7df;
 
-            margin-left: 11px;
+    border: 1px solid #efdfae;
 
-            flex-shrink: 0;
-        }
+    border-radius: 16px;
 
-        .option input:checked + label {
-            border-color: #176b5b;
+    padding: 13px 15px;
 
-            background: #e8f5f1;
+    color: #665329;
 
-            color: #0f5145;
-        }
+    font-size: 13px;
 
-        .option input:checked + label::before {
-            border: 7px solid #176b5b;
-        }
+    margin-bottom: 15px;
 
-        .age-input {
-            width: 100%;
+}
 
-            height: 65px;
 
-            border:
-                2px solid #e0e7e4;
+/* کارت آزمون */
 
-            border-radius: 15px;
+.quiz-card,
+.result-card {
 
-            text-align: center;
+    background: white;
 
-            font-size: 25px;
+    border-radius: 22px;
 
-            outline: none;
-        }
+    padding: 19px 16px;
 
-        .age-input:focus {
-            border-color: #176b5b;
-        }
+    box-shadow:
+        0 7px 28px
+        rgba(20,60,50,.07);
 
-        .navigation {
-            display: flex;
+}
 
-            gap: 9px;
 
-            margin-top: 21px;
-        }
+/* بالای سؤال */
 
-        .nav-button {
-            flex: 1;
+.quiz-top {
 
-            min-height: 55px;
+    display: flex;
 
-            border: none;
+    justify-content: space-between;
 
-            border-radius: 14px;
+    align-items: center;
 
-            font-size: 16px;
+    margin-bottom: 9px;
 
-            font-weight: 900;
+}
 
-            cursor: pointer;
-        }
+.question-number {
 
-        .prev {
-            background: #edf1f0;
+    color: #176b5b;
 
-            color: #263238;
-        }
+    font-weight: 900;
 
-        .next {
-            background: #176b5b;
+    font-size: 14px;
 
-            color: white;
-        }
+}
 
-        .error {
-            display: none;
+.progress-text {
 
-            color: #c94b4b;
+    color: #6b7280;
 
-            font-size: 13px;
+    font-size: 13px;
 
-            font-weight: 700;
+}
 
-            margin-top: 10px;
-        }
 
-        .hidden {
-            display: none !important;
-        }
+/* نوار پیشرفت */
 
-        .fade {
-            animation:
-                fade .25s ease;
-        }
+.progress {
 
-        @keyframes fade {
+    width: 100%;
 
-            from {
-                opacity: 0;
-                transform:
-                    translateY(5px);
-            }
+    height: 9px;
 
-            to {
-                opacity: 1;
-                transform:
-                    translateY(0);
-            }
+    background: #e8edeb;
 
-        }
+    border-radius: 20px;
 
-        .result-title {
-            color: #176b5b;
+    overflow: hidden;
 
-            font-size: 24px;
+    margin-bottom: 23px;
 
-            font-weight: 900;
+}
 
-            text-align: center;
-        }
+.progress-bar {
 
-        .result-sub {
-            text-align: center;
+    height: 100%;
 
-            color: #6b7280;
+    width: 0;
 
-            font-size: 13px;
-        }
+    background: #176b5b;
 
-        .age-circle {
-            width: 180px;
+    border-radius: 20px;
 
-            height: 180px;
+    transition: width .3s;
 
-            border-radius: 50%;
+}
 
-            margin: 22px auto;
 
-            background: #e8f5f1;
+/* سؤال */
 
-            border:
-                9px solid #cce8df;
+.question-title {
 
-            display: flex;
+    margin: 0 0 19px;
 
-            flex-direction: column;
+    font-size: 22px;
 
-            align-items: center;
+    line-height: 1.6;
 
-            justify-content: center;
-        }
+    font-weight: 900;
 
-        .age-circle small {
-            color: #6b7280;
+}
 
-            font-size: 13px;
-        }
+.question-help {
 
-        .age-number {
-            color: #176b5b;
+    color: #6b7280;
 
-            font-size: 46px;
+    font-size: 13px;
 
-            font-weight: 900;
+    margin-top: -12px;
 
-            line-height: 1.2;
-        }
+    margin-bottom: 17px;
 
-        .age-year {
-            color: #0f5145;
+}
 
-            font-size: 14px;
 
-            font-weight: 800;
-        }
+/* گزینه‌ها */
 
-        .score-box {
-            text-align: center;
+.options {
 
-            background: #fff7df;
+    display: grid;
 
-            border:
-                1px solid #efdfae;
+    gap: 10px;
 
-            border-radius: 16px;
+}
 
-            padding: 12px;
+.option {
 
-            margin-bottom: 17px;
-        }
+    position: relative;
 
-        .score-number {
-            color: #936a13;
+}
 
-            font-size: 31px;
+.option input {
 
-            font-weight: 900;
-        }
+    position: absolute;
 
-        .score-label {
-            color: #75622f;
+    opacity: 0;
 
-            font-size: 13px;
-        }
+}
 
-        .category {
-            border:
-                1px solid #e2e8e5;
+.option label {
 
-            border-radius: 14px;
+    display: flex;
 
-            padding: 10px 12px;
+    align-items: center;
 
-            margin-bottom: 9px;
-        }
+    min-height: 58px;
 
-        .category-head {
-            display: flex;
+    padding: 11px 13px;
 
-            justify-content: space-between;
+    border: 2px solid #e2e8e5;
 
-            font-size: 14px;
+    border-radius: 15px;
 
-            font-weight: 800;
-        }
+    background: white;
 
-        .category-bar {
-            height: 8px;
+    cursor: pointer;
 
-            background: #e9eeec;
+    font-size: 16px;
 
-            border-radius: 20px;
+    font-weight: 600;
 
-            overflow: hidden;
+    transition: .15s;
 
-            margin-top: 6px;
-        }
+}
 
-        .category-fill {
-            height: 100%;
+.option label::before {
 
-            background: #176b5b;
+    content: "";
 
-            border-radius: 20px;
-        }
+    width: 21px;
 
-        .message {
-            background: #176b5b;
+    height: 21px;
 
-            color: white;
+    border: 2px solid #aeb9b5;
 
-            border-radius: 18px;
+    border-radius: 50%;
 
-            padding: 17px;
+    margin-left: 11px;
 
-            margin-top: 17px;
+    flex-shrink: 0;
 
-            font-size: 16px;
+}
 
-            font-weight: 700;
+.option input:checked + label {
 
-            line-height: 1.9;
+    border-color: #176b5b;
 
-            text-align: center;
-        }
+    background: #e8f5f1;
 
-        .actions {
-            display: grid;
+    color: #0f5145;
 
-            gap: 9px;
+}
 
-            margin-top: 17px;
-        }
+.option input:checked + label::before {
 
-        .share,
-        .restart {
-            width: 100%;
+    border: 7px solid #176b5b;
 
-            min-height: 55px;
+}
 
-            border: none;
 
-            border-radius: 14px;
+/* ورود سن */
 
-            font-size: 16px;
+.age-input {
 
-            font-weight: 900;
+    width: 100%;
 
-            cursor: pointer;
-        }
+    height: 65px;
 
-        .share {
-            background: #176b5b;
+    border:
+        2px solid #e0e7e4;
 
-            color: white;
-        }
+    border-radius: 15px;
 
-        .restart {
-            background: #edf1f0;
+    text-align: center;
 
-            color: #263238;
-        }
+    font-size: 25px;
 
-        .channel {
-            display: block;
+    outline: none;
 
-            margin-top: 10px;
+}
 
-            padding: 13px;
+.age-input:focus {
 
-            text-align: center;
+    border-color: #176b5b;
 
-            background: #fff4d8;
+}
 
-            border:
-                1px solid #eedca8;
 
-            color: #795b13;
+/* دکمه‌های قبلی و بعدی */
 
-            border-radius: 14px;
+.navigation {
 
-            text-decoration: none;
+    display: flex;
 
-            font-size: 14px;
+    gap: 9px;
 
-            font-weight: 900;
-        }
+    margin-top: 21px;
 
-        footer {
-            text-align: center;
+}
 
-            color: #7b8581;
+.nav-button {
 
-            font-size: 11px;
+    flex: 1;
 
-            padding-top: 18px;
-        }
+    min-height: 55px;
 
-        @media (max-width: 480px) {
+    border: none;
 
-            .container {
-                padding: 11px 9px 30px;
-            }
+    border-radius: 14px;
 
-            .hero {
-                padding: 22px 16px;
-                border-radius: 20px;
-            }
+    font-size: 16px;
 
-            h1 {
-                font-size: 25px;
-            }
+    font-weight: 900;
 
-            .question-title {
-                font-size: 20px;
-            }
+    cursor: pointer;
 
-            .quiz-card,
-            .result-card {
-                padding: 17px 13px;
-            }
+}
 
-        }
+.prev {
 
-    </style>
+    background: #edf1f0;
+
+    color: #263238;
+
+}
+
+.next {
+
+    background: #176b5b;
+
+    color: white;
+
+}
+
+
+/* خطا */
+
+.error {
+
+    display: none;
+
+    color: #c94b4b;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+
+}
+
+
+/* مخفی */
+
+.hidden {
+
+    display: none !important;
+
+}
+
+
+/* انیمیشن */
+
+.fade {
+
+    animation:
+        fade .25s ease;
+
+}
+
+@keyframes fade {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* نتیجه */
+
+.result-title {
+
+    color: #176b5b;
+
+    font-size: 24px;
+
+    font-weight: 900;
+
+    text-align: center;
+
+}
+
+.result-sub {
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+}
+
+
+/* دایره سن */
+
+.age-circle {
+
+    width: 180px;
+
+    height: 180px;
+
+    border-radius: 50%;
+
+    margin: 22px auto;
+
+    background: #e8f5f1;
+
+    border:
+        9px solid #cce8df;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+.age-circle small {
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+}
+
+.age-number {
+
+    color: #176b5b;
+
+    font-size: 46px;
+
+    font-weight: 900;
+
+    line-height: 1.2;
+
+}
+
+.age-year {
+
+    color: #0f5145;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+}
+
+
+/* امتیاز */
+
+.score-box {
+
+    text-align: center;
+
+    background: #fff7df;
+
+    border:
+        1px solid #efdfae;
+
+    border-radius: 16px;
+
+    padding: 12px;
+
+    margin-bottom: 17px;
+
+}
+
+.score-number {
+
+    color: #936a13;
+
+    font-size: 31px;
+
+    font-weight: 900;
+
+}
+
+.score-label {
+
+    color: #75622f;
+
+    font-size: 13px;
+
+}
+
+
+/* دسته‌بندی */
+
+.category {
+
+    border:
+        1px solid #e2e8e5;
+
+    border-radius: 14px;
+
+    padding: 10px 12px;
+
+    margin-bottom: 9px;
+
+}
+
+.category-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+}
+
+.category-bar {
+
+    height: 8px;
+
+    background: #e9eeec;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    margin-top: 6px;
+
+}
+
+.category-fill {
+
+    height: 100%;
+
+    background: #176b5b;
+
+    border-radius: 20px;
+
+}
+
+
+/* پیام */
+
+.message {
+
+    background: #176b5b;
+
+    color: white;
+
+    border-radius: 18px;
+
+    padding: 17px;
+
+    margin-top: 17px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.9;
+
+    text-align: center;
+
+}
+
+
+/* دکمه‌ها */
+
+.actions {
+
+    display: grid;
+
+    gap: 9px;
+
+    margin-top: 17px;
+
+}
+
+.share,
+.restart {
+
+    width: 100%;
+
+    min-height: 55px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    font-size: 16px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+}
+
+.share {
+
+    background: #176b5b;
+
+    color: white;
+
+}
+
+.restart {
+
+    background: #edf1f0;
+
+    color: #263238;
+
+}
+
+
+/* کانال */
+
+.channel {
+
+    display: block;
+
+    margin-top: 10px;
+
+    padding: 13px;
+
+    text-align: center;
+
+    background: #fff4d8;
+
+    border:
+        1px solid #eedca8;
+
+    color: #795b13;
+
+    border-radius: 14px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 900;
+
+}
+
+
+/* پایین صفحه */
+
+footer {
+
+    text-align: center;
+
+    color: #7b8581;
+
+    font-size: 11px;
+
+    padding-top: 18px;
+
+}
+
+
+@media (max-width: 480px) {
+
+    .container {
+
+        padding:
+            0 9px 30px;
+
+    }
+
+    .hero {
+
+        padding:
+            22px 16px;
+
+        border-radius: 20px;
+
+    }
+
+    h1 {
+
+        font-size: 25px;
+
+    }
+
+    .question-title {
+
+        font-size: 20px;
+
+    }
+
+    .quiz-card,
+    .result-card {
+
+        padding:
+            17px 13px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -654,259 +902,303 @@
 <body>
 
 
+<!-- دکمه بازگشت -->
+
+<a
+href="../index.html"
+class="back-button">
+
+← بازگشت به جعبه‌ابزار صبا
+
+</a>
+
+
 <div class="container">
 
 
-    <!-- برند -->
+<!-- برند -->
 
-    <div class="brand">
+<div class="brand">
 
-        <div class="brand-name">
-            صبا رسانه
-        </div>
+<div class="brand-name">
 
-        <div class="brand-sub">
-            صدای حقیقت، مطالبه عدالت
-        </div>
+صبا رسانه
 
-    </div>
+</div>
 
+<div class="brand-sub">
 
-    <!-- صفحه شروع -->
+صدای حقیقت، مطالبه عدالت
 
-    <section id="startScreen">
+</div>
 
+</div>
 
-        <div class="hero">
 
-            <div class="hero-icon">
-                🧓
-            </div>
+<!-- صفحه شروع -->
 
-            <h1>
-                بازنشسته‌سنج صبا
-            </h1>
+<section id="startScreen">
 
-            <p>
-                ببین سبک زندگی‌ات چند ساله است،
-                نه فقط شناسنامه‌ات!
-            </p>
 
-            <button
-                class="start-button"
-                onclick="startQuiz()">
+<div class="hero">
 
-                شروع آزمون
+<div class="hero-icon">
 
-            </button>
+🧓
 
-        </div>
+</div>
 
+<h1>
 
-        <div class="info">
+بازنشسته‌سنج صبا
 
-            این آزمون کوتاه و سرگرم‌کننده است
-            و فقط یک نگاه کلی به سبک زندگی شما دارد.
-            نتیجه آن تشخیص پزشکی نیست.
+</h1>
 
-        </div>
+<p>
 
+ببین سبک زندگی‌ات چند ساله است،
+نه فقط شناسنامه‌ات!
 
-    </section>
+</p>
 
 
-    <!-- آزمون -->
+<button
+class="start-button"
+onclick="startQuiz()">
 
-    <section
-        id="quizScreen"
-        class="hidden">
+شروع آزمون
 
+</button>
 
-        <div class="quiz-card">
+</div>
 
 
-            <div class="quiz-top">
+<div class="info">
 
-                <span
-                    id="questionNumber"
-                    class="question-number">
-                    سؤال ۱
-                </span>
+این آزمون کوتاه و سرگرم‌کننده است
+و فقط یک نگاه کلی به سبک زندگی شما دارد.
+نتیجه آن تشخیص پزشکی نیست.
 
-                <span
-                    id="progressText"
-                    class="progress-text">
-                    ۱۰٪
-                </span>
+</div>
 
-            </div>
 
+</section>
 
-            <div class="progress">
 
-                <div
-                    id="progressBar"
-                    class="progress-bar">
-                </div>
+<!-- آزمون -->
 
-            </div>
+<section
+id="quizScreen"
+class="hidden">
 
 
-            <div
-                id="questionContainer"
-                class="fade">
-            </div>
+<div class="quiz-card">
 
 
-            <div
-                id="error"
-                class="error">
-                لطفاً یک گزینه را انتخاب کنید.
-            </div>
+<div class="quiz-top">
 
+<span
+id="questionNumber"
+class="question-number">
 
-            <div class="navigation">
+سؤال ۱
 
+</span>
 
-                <button
-                    id="prevButton"
-                    class="nav-button prev"
-                    onclick="previousQuestion()">
+<span
+id="progressText"
+class="progress-text">
 
-                    قبلی
+۱۰٪
 
-                </button>
+</span>
 
+</div>
 
-                <button
-                    id="nextButton"
-                    class="nav-button next"
-                    onclick="nextQuestion()">
 
-                    بعدی
+<div class="progress">
 
-                </button>
+<div
+id="progressBar"
+class="progress-bar">
+</div>
 
+</div>
 
-            </div>
 
+<div
+id="questionContainer"
+class="fade">
+</div>
 
-        </div>
 
+<div
+id="error"
+class="error">
 
-    </section>
+لطفاً یک گزینه را انتخاب کنید.
 
+</div>
 
-    <!-- نتیجه -->
 
-    <section
-        id="resultScreen"
-        class="hidden">
+<div class="navigation">
 
 
-        <div class="result-card">
+<button
+id="prevButton"
+class="nav-button prev"
+onclick="previousQuestion()">
 
+قبلی
 
-            <div class="result-title">
-                نتیجه بازنشسته‌سنج
-            </div>
+</button>
 
 
-            <div class="result-sub">
-                یک نگاه سرگرم‌کننده به سبک زندگی شما
-            </div>
+<button
+id="nextButton"
+class="nav-button next"
+onclick="nextQuestion()">
 
+بعدی
 
-            <div class="age-circle">
+</button>
 
-                <small>
-                    سن سبک زندگی
-                </small>
 
-                <div
-                    id="lifestyleAge"
-                    class="age-number">
-                    ۵۷
-                </div>
+</div>
 
-                <div class="age-year">
-                    سال
-                </div>
 
-            </div>
+</div>
 
 
-            <div class="score-box">
+</section>
 
-                <div
-                    id="scoreNumber"
-                    class="score-number">
-                    ۷۵
-                </div>
 
-                <div class="score-label">
-                    امتیاز سبک زندگی از ۱۰۰
-                </div>
+<!-- نتیجه -->
 
-            </div>
+<section
+id="resultScreen"
+class="hidden">
 
 
-            <div id="categories"></div>
+<div class="result-card">
 
 
-            <div
-                id="message"
-                class="message">
-            </div>
+<div class="result-title">
 
+نتیجه بازنشسته‌سنج
 
-            <div class="actions">
+</div>
 
 
-                <button
-                    class="share"
-                    onclick="shareResult()">
+<div class="result-sub">
 
-                    📤 اشتراک‌گذاری نتیجه
+یک نگاه سرگرم‌کننده به سبک زندگی شما
 
-                </button>
+</div>
 
 
-                <button
-                    class="restart"
-                    onclick="restartQuiz()">
+<div class="age-circle">
 
-                    🔄 دوباره امتحان می‌کنم
+<small>
 
-                </button>
+سن سبک زندگی
 
+</small>
 
-            </div>
 
+<div
+id="lifestyleAge"
+class="age-number">
 
-            <a
-                class="channel"
-                href="https://t.me/saba_rasanehh"
-                target="_blank">
+۵۷
 
-                📢 مطالب و اخبار صبا رسانه
+</div>
 
-            </a>
 
+<div class="age-year">
 
-        </div>
+سال
 
+</div>
 
-        <footer>
+</div>
 
-            این ابزار صرفاً برای سرگرمی و
-            خودارزیابی سبک زندگی است.
-            تشخیص پزشکی محسوب نمی‌شود.
 
-        </footer>
+<div class="score-box">
 
+<div
+id="scoreNumber"
+class="score-number">
 
-    </section>
+۷۵
+
+</div>
+
+<div class="score-label">
+
+امتیاز سبک زندگی از ۱۰۰
+
+</div>
+
+</div>
+
+
+<div id="categories"></div>
+
+
+<div
+id="message"
+class="message">
+</div>
+
+
+<div class="actions">
+
+
+<button
+class="share"
+onclick="shareResult()">
+
+📤 اشتراک‌گذاری نتیجه
+
+</button>
+
+
+<button
+class="restart"
+onclick="restartQuiz()">
+
+🔄 دوباره امتحان می‌کنم
+
+</button>
+
+
+</div>
+
+
+<a
+class="channel"
+href="https://t.me/saba_rasanehh"
+target="_blank">
+
+📢 مطالب و اخبار صبا رسانه
+
+</a>
+
+
+</div>
+
+
+<footer>
+
+این ابزار صرفاً برای سرگرمی و
+خودارزیابی سبک زندگی است.
+تشخیص پزشکی محسوب نمی‌شود.
+
+</footer>
+
+
+</section>
 
 
 </div>
@@ -917,369 +1209,389 @@
 
 const questions = [
 
-    {
-        id: "age",
+{
 
-        title:
-            "چند سال داری؟",
+id: "age",
 
-        help:
-            "سن واقعی خودت را وارد کن.",
+title:
+"چند سال داری؟",
 
-        type:
-            "age"
-    },
+help:
+"سن واقعی خودت را وارد کن.",
 
+type:
+"age"
 
-    {
-        id: "activity",
+},
 
-        title:
-            "در یک روز معمولی چقدر راه می‌روی یا فعالیت بدنی داری؟",
 
-        category:
-            "activity",
+{
 
-        options: [
+id: "activity",
 
-            {
-                text:
-                    "تقریباً هیچ؛ بیشتر نشسته‌ام",
-                score: 0
-            },
+title:
+"در یک روز معمولی چقدر راه می‌روی یا فعالیت بدنی داری؟",
 
-            {
-                text:
-                    "کمتر از ۲۰ دقیقه",
-                score: 1
-            },
+category:
+"activity",
 
-            {
-                text:
-                    "۲۰ تا ۴۰ دقیقه",
-                score: 3
-            },
+options: [
 
-            {
-                text:
-                    "بیشتر از ۴۰ دقیقه",
-                score: 5
-            }
+{
+text:
+"تقریباً هیچ؛ بیشتر نشسته‌ام",
+score: 0
+},
 
-        ]
-    },
+{
+text:
+"کمتر از ۲۰ دقیقه",
+score: 1
+},
 
+{
+text:
+"۲۰ تا ۴۰ دقیقه",
+score: 3
+},
 
-    {
-        id: "sleep",
+{
+text:
+"بیشتر از ۴۰ دقیقه",
+score: 5
+}
 
-        title:
-            "معمولاً شب‌ها چند ساعت می‌خوابی؟",
+]
 
-        category:
-            "sleep",
+},
 
-        options: [
 
-            {
-                text:
-                    "کمتر از ۵ ساعت",
-                score: 0
-            },
+{
 
-            {
-                text:
-                    "۵ تا ۶ ساعت",
-                score: 2
-            },
+id: "sleep",
 
-            {
-                text:
-                    "۶ تا ۸ ساعت",
-                score: 5
-            },
+title:
+"معمولاً شب‌ها چند ساعت می‌خوابی؟",
 
-            {
-                text:
-                    "بیشتر از ۸ ساعت",
-                score: 3
-            }
+category:
+"sleep",
 
-        ]
-    },
+options: [
 
+{
+text:
+"کمتر از ۵ ساعت",
+score: 0
+},
 
-    {
-        id: "food",
+{
+text:
+"۵ تا ۶ ساعت",
+score: 2
+},
 
-        title:
-            "غذاهای سالم مثل سبزیجات، حبوبات و میوه چقدر در برنامه‌ات هستند؟",
+{
+text:
+"۶ تا ۸ ساعت",
+score: 5
+},
 
-        category:
-            "food",
+{
+text:
+"بیشتر از ۸ ساعت",
+score: 3
+}
 
-        options: [
-
-            {
-                text:
-                    "خیلی کم",
-                score: 0
-            },
+]
 
-            {
-                text:
-                    "گاهی",
-                score: 2
-            },
+},
 
-            {
-                text:
-                    "تقریباً هر روز",
-                score: 4
-            },
 
-            {
-                text:
-                    "بخش مهمی از غذای من هستند",
-                score: 5
-            }
+{
 
-        ]
-    },
+id: "food",
 
+title:
+"غذاهای سالم مثل سبزیجات، حبوبات و میوه چقدر در برنامه‌ات هستند؟",
 
-    {
-        id: "water",
+category:
+"food",
 
-        title:
-            "در طول روز چقدر آب می‌نوشی؟",
+options: [
 
-        category:
-            "food",
+{
+text:
+"خیلی کم",
+score: 0
+},
 
-        options: [
-
-            {
-                text:
-                    "خیلی کم",
-                score: 0
-            },
+{
+text:
+"گاهی",
+score: 2
+},
 
-            {
-                text:
-                    "حدود ۳ تا ۵ لیوان",
-                score: 2
-            },
+{
+text:
+"تقریباً هر روز",
+score: 4
+},
 
-            {
-                text:
-                    "حدود ۶ تا ۸ لیوان",
-                score: 4
-            },
+{
+text:
+"بخش مهمی از غذای من هستند",
+score: 5
+}
 
-            {
-                text:
-                    "به اندازه کافی و منظم",
-                score: 5
-            }
+]
 
-        ]
-    },
+},
 
 
-    {
-        id: "sitting",
+{
 
-        title:
-            "چقدر از روز را پشت تلویزیون، موبایل یا روی صندلی می‌گذرانی؟",
+id: "water",
 
-        category:
-            "activity",
+title:
+"در طول روز چقدر آب می‌نوشی؟",
 
-        options: [
+category:
+"food",
 
-            {
-                text:
-                    "بیشتر روز",
-                score: 0
-            },
+options: [
 
-            {
-                text:
-                    "چند ساعت",
-                score: 2
-            },
+{
+text:
+"خیلی کم",
+score: 0
+},
 
-            {
-                text:
-                    "حدود ۲ ساعت",
-                score: 4
-            },
+{
+text:
+"حدود ۳ تا ۵ لیوان",
+score: 2
+},
 
-            {
-                text:
-                    "کم و همراه با تحرک",
-                score: 5
-            }
+{
+text:
+"حدود ۶ تا ۸ لیوان",
+score: 4
+},
 
-        ]
-    },
+{
+text:
+"به اندازه کافی و منظم",
+score: 5
+}
 
+]
 
-    {
-        id: "social",
+},
 
-        title:
-            "چقدر با دوستان، خانواده یا آدم‌های مورد علاقه‌ات در ارتباطی؟",
 
-        category:
-            "mood",
+{
 
-        options: [
+id: "sitting",
 
-            {
-                text:
-                    "خیلی کم",
-                score: 0
-            },
+title:
+"چقدر از روز را پشت تلویزیون، موبایل یا روی صندلی می‌گذرانی؟",
 
-            {
-                text:
-                    "گاهی",
-                score: 2
-            },
+category:
+"activity",
 
-            {
-                text:
-                    "مرتب",
-                score: 4
-            },
+options: [
 
-            {
-                text:
-                    "تقریباً هر روز",
-                score: 5
-            }
+{
+text:
+"بیشتر روز",
+score: 0
+},
 
-        ]
-    },
+{
+text:
+"چند ساعت",
+score: 2
+},
 
+{
+text:
+"حدود ۲ ساعت",
+score: 4
+},
 
-    {
-        id: "laugh",
+{
+text:
+"کم و همراه با تحرک",
+score: 5
+}
 
-        title:
-            "در طول هفته چند بار از ته دل می‌خندی؟",
+]
 
-        category:
-            "mood",
+},
 
-        options: [
 
-            {
-                text:
-                    "یادم نمی‌آید!",
-                score: 0
-            },
+{
 
-            {
-                text:
-                    "یکی دو بار",
-                score: 2
-            },
+id: "social",
 
-            {
-                text:
-                    "چند بار",
-                score: 4
-            },
+title:
+"چقدر با دوستان، خانواده یا آدم‌های مورد علاقه‌ات در ارتباطی؟",
 
-            {
-                text:
-                    "تقریباً هر روز",
-                score: 5
-            }
+category:
+"mood",
 
-        ]
-    },
+options: [
 
+{
+text:
+"خیلی کم",
+score: 0
+},
 
-    {
-        id: "travel",
+{
+text:
+"گاهی",
+score: 2
+},
 
-        title:
-            "برای تفریح و عوض کردن حال و هوا چقدر وقت می‌گذاری؟",
+{
+text:
+"مرتب",
+score: 4
+},
 
-        category:
-            "mood",
+{
+text:
+"تقریباً هر روز",
+score: 5
+}
 
-        options: [
+]
 
-            {
-                text:
-                    "تقریباً هیچ",
-                score: 0
-            },
+},
 
-            {
-                text:
-                    "خیلی کم",
-                score: 2
-            },
 
-            {
-                text:
-                    "گاهی",
-                score: 4
-            },
+{
 
-            {
-                text:
-                    "مرتب برای خودم وقت می‌گذارم",
-                score: 5
-            }
+id: "laugh",
 
-        ]
-    },
+title:
+"در طول هفته چند بار از ته دل می‌خندی؟",
 
+category:
+"mood",
 
-    {
-        id: "mind",
+options: [
 
-        title:
-            "وقتی روز سختی داری، معمولاً چه کار می‌کنی؟",
+{
+text:
+"یادم نمی‌آید!",
+score: 0
+},
 
-        category:
-            "mind",
+{
+text:
+"یکی دو بار",
+score: 2
+},
 
-        options: [
+{
+text:
+"چند بار",
+score: 4
+},
 
-            {
-                text:
-                    "همه‌چیز را در خودم می‌ریزم",
-                score: 0
-            },
+{
+text:
+"تقریباً هر روز",
+score: 5
+}
 
-            {
-                text:
-                    "سعی می‌کنم تحملش کنم",
-                score: 2
-            },
+]
 
-            {
-                text:
-                    "با کسی صحبت می‌کنم",
-                score: 4
-            },
+},
 
-            {
-                text:
-                    "راهی برای آرام کردن خودم پیدا می‌کنم",
-                score: 5
-            }
 
-        ]
-    }
+{
+
+id: "travel",
+
+title:
+"برای تفریح و عوض کردن حال و هوا چقدر وقت می‌گذاری؟",
+
+category:
+"mood",
+
+options: [
+
+{
+text:
+"تقریباً هیچ",
+score: 0
+},
+
+{
+text:
+"خیلی کم",
+score: 2
+},
+
+{
+text:
+"گاهی",
+score: 4
+},
+
+{
+text:
+"مرتب برای خودم وقت می‌گذارم",
+score: 5
+}
+
+]
+
+},
+
+
+{
+
+id: "mind",
+
+title:
+"وقتی روز سختی داری، معمولاً چه کار می‌کنی؟",
+
+category:
+"mind",
+
+options: [
+
+{
+text:
+"همه‌چیز را در خودم می‌ریزم",
+score: 0
+},
+
+{
+text:
+"سعی می‌کنم تحملش کنم",
+score: 2
+},
+
+{
+text:
+"با کسی صحبت می‌کنم",
+score: 4
+},
+
+{
+text:
+"راهی برای آرام کردن خودم پیدا می‌کنم",
+score: 5
+}
+
+]
+
+}
 
 ];
 
@@ -1291,591 +1603,640 @@ let answers = {};
 
 function startQuiz() {
 
-    currentQuestion = 0;
+currentQuestion = 0;
 
-    answers = {};
+answers = {};
 
-    document
-        .getElementById("startScreen")
-        .classList
-        .add("hidden");
+document
+.getElementById("startScreen")
+.classList
+.add("hidden");
 
-    document
-        .getElementById("resultScreen")
-        .classList
-        .add("hidden");
+document
+.getElementById("resultScreen")
+.classList
+.add("hidden");
 
-    document
-        .getElementById("quizScreen")
-        .classList
-        .remove("hidden");
+document
+.getElementById("quizScreen")
+.classList
+.remove("hidden");
 
-    renderQuestion();
+renderQuestion();
 
-    window.scrollTo(0, 0);
+window.scrollTo(0,0);
+
 }
 
 
 function renderQuestion() {
 
-    const q =
-        questions[currentQuestion];
+const q =
+questions[currentQuestion];
 
-    const container =
-        document.getElementById(
-            "questionContainer"
-        );
+const container =
+document.getElementById(
+"questionContainer"
+);
 
-    const number =
-        document.getElementById(
-            "questionNumber"
-        );
+const number =
+document.getElementById(
+"questionNumber"
+);
 
-    const progressText =
-        document.getElementById(
-            "progressText"
-        );
+const progressText =
+document.getElementById(
+"progressText"
+);
 
-    const progressBar =
-        document.getElementById(
-            "progressBar"
-        );
+const progressBar =
+document.getElementById(
+"progressBar"
+);
 
-    const prevButton =
-        document.getElementById(
-            "prevButton"
-        );
+const prevButton =
+document.getElementById(
+"prevButton"
+);
 
-    const nextButton =
-        document.getElementById(
-            "nextButton"
-        );
-
-
-    const percent =
-        Math.round(
-            ((currentQuestion + 1)
-            / questions.length) * 100
-        );
+const nextButton =
+document.getElementById(
+"nextButton"
+);
 
 
-    number.textContent =
-        "سؤال " +
-        persian(currentQuestion + 1) +
-        " از " +
-        persian(questions.length);
+const percent =
+Math.round(
+(
+(currentQuestion + 1)
+/
+questions.length
+) * 100
+);
 
 
-    progressText.textContent =
-        persian(percent) + "٪";
+number.textContent =
+"سؤال " +
+persian(currentQuestion + 1)
++
+" از "
++
+persian(questions.length);
 
 
-    progressBar.style.width =
-        percent + "%";
+progressText.textContent =
+persian(percent) + "٪";
 
 
-    prevButton.style.visibility =
-        currentQuestion === 0
-        ? "hidden"
-        : "visible";
+progressBar.style.width =
+percent + "%";
 
 
-    nextButton.textContent =
-        currentQuestion ===
-        questions.length - 1
-        ? "دیدن نتیجه"
-        : "بعدی";
+prevButton.style.visibility =
+currentQuestion === 0
+? "hidden"
+: "visible";
 
 
-    if (q.type === "age") {
-
-        container.innerHTML = `
-
-            <h2 class="question-title">
-                ${q.title}
-            </h2>
-
-            <div class="question-help">
-                ${q.help}
-            </div>
-
-            <input
-                id="ageInput"
-                class="age-input"
-                type="number"
-                min="40"
-                max="100"
-                inputmode="numeric"
-                placeholder="مثلاً ۶۲"
-                value="${answers.age || ''}"
-            >
-
-        `;
-
-        return;
-    }
+nextButton.textContent =
+currentQuestion ===
+questions.length - 1
+? "دیدن نتیجه"
+: "بعدی";
 
 
-    let html = `
+if(q.type === "age") {
 
-        <h2 class="question-title">
-            ${q.title}
-        </h2>
+container.innerHTML = `
 
-    `;
+<h2 class="question-title">
 
+${q.title}
 
-    if (q.help) {
+</h2>
 
-        html += `
+<div class="question-help">
 
-            <div class="question-help">
-                ${q.help}
-            </div>
+${q.help}
 
-        `;
+</div>
 
-    }
+<input
+id="ageInput"
+class="age-input"
+type="number"
+min="40"
+max="100"
+inputmode="numeric"
+placeholder="مثلاً ۶۲"
+value="${answers.age || ''}"
+>
 
+`;
 
-    html += `<div class="options">`;
+return;
 
-
-    q.options.forEach(
-        (option, index) => {
-
-            const checked =
-                answers[q.id] === index
-                ? "checked"
-                : "";
-
-
-            html += `
-
-                <div class="option">
-
-                    <input
-                        type="radio"
-                        id="${q.id}_${index}"
-                        name="${q.id}"
-                        value="${index}"
-                        ${checked}
-                    >
-
-                    <label
-                        for="${q.id}_${index}">
-
-                        ${option.text}
-
-                    </label>
-
-                </div>
-
-            `;
-
-        }
-    );
+}
 
 
-    html += `</div>`;
+let html = `
+
+<h2 class="question-title">
+
+${q.title}
+
+</h2>
+
+`;
 
 
-    container.innerHTML =
-        html;
+if(q.help) {
+
+html += `
+
+<div class="question-help">
+
+${q.help}
+
+</div>
+
+`;
+
+}
+
+
+html += `<div class="options">`;
+
+
+q.options.forEach(
+(option,index) => {
+
+const checked =
+answers[q.id] === index
+? "checked"
+: "";
+
+
+html += `
+
+<div class="option">
+
+<input
+type="radio"
+id="${q.id}_${index}"
+name="${q.id}"
+value="${index}"
+${checked}
+>
+
+<label
+for="${q.id}_${index}">
+
+${option.text}
+
+</label>
+
+</div>
+
+`;
+
+}
+);
+
+
+html += `</div>`;
+
+
+container.innerHTML =
+html;
+
 }
 
 
 function saveAnswer() {
 
-    const q =
-        questions[currentQuestion];
+const q =
+questions[currentQuestion];
 
 
-    if (q.type === "age") {
+if(q.type === "age") {
 
-        const input =
-            document.getElementById(
-                "ageInput"
-            );
+const input =
+document.getElementById(
+"ageInput"
+);
 
-
-        const age =
-            parseInt(input.value);
-
-
-        if (
-            isNaN(age) ||
-            age < 40 ||
-            age > 100
-        ) {
-
-            showError(
-                "لطفاً سن را بین ۴۰ تا ۱۰۰ سال وارد کنید."
-            );
-
-            return false;
-        }
+const age =
+parseInt(input.value);
 
 
-        answers.age = age;
+if(
+isNaN(age)
+||
+age < 40
+||
+age > 100
+) {
 
-        hideError();
+showError(
+"لطفاً سن را بین ۴۰ تا ۱۰۰ سال وارد کنید."
+);
 
-        return true;
-    }
+return false;
 
-
-    const selected =
-        document.querySelector(
-            `input[name="${q.id}"]:checked`
-        );
-
-
-    if (!selected) {
-
-        showError(
-            "لطفاً یکی از گزینه‌ها را انتخاب کنید."
-        );
-
-        return false;
-    }
+}
 
 
-    answers[q.id] =
-        parseInt(selected.value);
+answers.age = age;
+
+hideError();
+
+return true;
+
+}
 
 
-    hideError();
+const selected =
+document.querySelector(
+`input[name="${q.id}"]:checked`
+);
 
-    return true;
+
+if(!selected) {
+
+showError(
+"لطفاً یکی از گزینه‌ها را انتخاب کنید."
+);
+
+return false;
+
+}
+
+
+answers[q.id] =
+parseInt(selected.value);
+
+hideError();
+
+return true;
+
 }
 
 
 function nextQuestion() {
 
-    if (!saveAnswer()) {
-        return;
-    }
+if(!saveAnswer()) {
+
+return;
+
+}
 
 
-    if (
-        currentQuestion <
-        questions.length - 1
-    ) {
+if(
+currentQuestion
+<
+questions.length - 1
+) {
 
-        currentQuestion++;
+currentQuestion++;
 
-        renderQuestion();
+renderQuestion();
 
-        window.scrollTo(0, 0);
+window.scrollTo(0,0);
 
-    } else {
+}
 
-        showResult();
+else {
 
-    }
+showResult();
+
+}
+
 }
 
 
 function previousQuestion() {
 
-    if (currentQuestion <= 0) {
-        return;
-    }
+if(currentQuestion <= 0) {
+
+return;
+
+}
 
 
-    saveAnswer();
+saveAnswer();
 
-    currentQuestion--;
+currentQuestion--;
 
-    renderQuestion();
+renderQuestion();
 
-    window.scrollTo(0, 0);
+window.scrollTo(0,0);
+
 }
 
 
 function showError(message) {
 
-    const error =
-        document.getElementById("error");
+const error =
+document.getElementById("error");
 
-    error.textContent =
-        message;
+error.textContent =
+message;
 
-    error.style.display =
-        "block";
+error.style.display =
+"block";
+
 }
 
 
 function hideError() {
 
-    document
-        .getElementById("error")
-        .style
-        .display = "none";
+document
+.getElementById("error")
+.style
+.display =
+"none";
+
 }
 
 
 function showResult() {
 
-    let total = 0;
+let total = 0;
 
-    let max = 0;
-
-
-    const categories = {
-
-        activity: 0,
-        sleep: 0,
-        food: 0,
-        mood: 0,
-        mind: 0
-
-    };
+let max = 0;
 
 
-    const categoryMax = {
+const categories = {
 
-        activity: 10,
-        sleep: 5,
-        food: 10,
-        mood: 15,
-        mind: 5
+activity: 0,
 
-    };
+sleep: 0,
 
+food: 0,
 
-    questions.forEach(q => {
+mood: 0,
 
-        if (!q.options) {
-            return;
-        }
+mind: 0
+
+};
 
 
-        const answer =
-            answers[q.id];
+const categoryMax = {
+
+activity: 10,
+
+sleep: 5,
+
+food: 10,
+
+mood: 15,
+
+mind: 5
+
+};
 
 
-        if (answer === undefined) {
-            return;
-        }
+questions.forEach(q => {
+
+if(!q.options) {
+
+return;
+
+}
 
 
-        const score =
-            q.options[answer].score;
+const answer =
+answers[q.id];
 
 
-        total += score;
+if(answer === undefined) {
 
-        max += 5;
+return;
 
-
-        if (q.category) {
-
-            categories[q.category] +=
-                score;
-
-        }
-
-    });
+}
 
 
-    const score =
-        Math.round(
-            (total / max) * 100
-        );
+const score =
+q.options[answer].score;
 
 
-    const realAge =
-        answers.age;
+total += score;
+
+max += 5;
 
 
-    const adjustment =
-        Math.round(
-            ((score - 50) / 50) * 7
-        );
+if(q.category) {
+
+categories[q.category] += score;
+
+}
+
+});
 
 
-    let lifestyleAge =
-        realAge - adjustment;
+const score =
+Math.round(
+(total / max) * 100
+);
 
 
-    lifestyleAge =
-        Math.max(
-            35,
-            Math.min(
-                100,
-                lifestyleAge
-            )
-        );
+const realAge =
+answers.age;
 
 
-    document.getElementById(
-        "lifestyleAge"
-    ).textContent =
-        persian(lifestyleAge);
+const adjustment =
+Math.round(
+((score - 50) / 50) * 7
+);
 
 
-    document.getElementById(
-        "scoreNumber"
-    ).textContent =
-        persian(score);
+let lifestyleAge =
+realAge - adjustment;
 
 
-    renderCategories(
-        categories,
-        categoryMax
-    );
+lifestyleAge =
+Math.max(
+35,
+Math.min(
+100,
+lifestyleAge
+)
+);
 
 
-    document.getElementById(
-        "message"
-    ).textContent =
-        getMessage(score);
+document
+.getElementById("lifestyleAge")
+.textContent =
+persian(lifestyleAge);
 
 
-    document
-        .getElementById("quizScreen")
-        .classList
-        .add("hidden");
+document
+.getElementById("scoreNumber")
+.textContent =
+persian(score);
 
 
-    document
-        .getElementById("resultScreen")
-        .classList
-        .remove("hidden");
+renderCategories(
+categories,
+categoryMax
+);
 
 
-    window.scrollTo(0, 0);
+document
+.getElementById("message")
+.textContent =
+getMessage(score);
+
+
+document
+.getElementById("quizScreen")
+.classList
+.add("hidden");
+
+
+document
+.getElementById("resultScreen")
+.classList
+.remove("hidden");
+
+
+window.scrollTo(0,0);
+
 }
 
 
 function renderCategories(
-    scores,
-    maxScores
+scores,
+maxScores
 ) {
 
-    const names = {
+const names = {
 
-        activity: "🚶 تحرک",
+activity: "🚶 تحرک",
 
-        sleep: "😴 خواب",
+sleep: "😴 خواب",
 
-        food: "🥗 تغذیه",
+food: "🥗 تغذیه",
 
-        mood: "😊 حال خوب",
+mood: "😊 حال خوب",
 
-        mind: "🧠 آرامش ذهن"
+mind: "🧠 آرامش ذهن"
 
-    };
-
-
-    let html = "";
+};
 
 
-    Object.keys(names).forEach(
-        category => {
-
-            const percent =
-                Math.round(
-                    (
-                        scores[category]
-                        /
-                        maxScores[category]
-                    ) * 100
-                );
+let html = "";
 
 
-            html += `
+Object.keys(names).forEach(
+category => {
 
-                <div class="category">
-
-                    <div class="category-head">
-
-                        <span>
-                            ${names[category]}
-                        </span>
-
-                        <span>
-                            ${persian(percent)}٪
-                        </span>
-
-                    </div>
-
-                    <div class="category-bar">
-
-                        <div
-                            class="category-fill"
-                            style="width:${percent}%">
-                        </div>
-
-                    </div>
-
-                </div>
-
-            `;
-
-        }
-    );
+const percent =
+Math.round(
+(
+scores[category]
+/
+maxScores[category]
+) * 100
+);
 
 
-    document.getElementById(
-        "categories"
-    ).innerHTML =
-        html;
+html += `
+
+<div class="category">
+
+<div class="category-head">
+
+<span>
+
+${names[category]}
+
+</span>
+
+<span>
+
+${persian(percent)}٪
+
+</span>
+
+</div>
+
+<div class="category-bar">
+
+<div
+class="category-fill"
+style="width:${percent}%">
+</div>
+
+</div>
+
+</div>
+
+`;
+
+}
+);
+
+
+document
+.getElementById("categories")
+.innerHTML =
+html;
+
 }
 
 
 function getMessage(score) {
 
-    if (score >= 85) {
+if(score >= 85) {
 
-        return "عمو صابر! تو هنوز برای بازنشستگی از زندگی درخواست ندادی. همین روحیه را نگه دار.";
+return "عمو صابر! تو هنوز برای بازنشستگی از زندگی درخواست ندادی. همین روحیه را نگه دار.";
 
-    }
-
-
-    if (score >= 70) {
-
-        return "وضعیتت بد نیست. هنوز موتور روشن است. فقط کمی بیشتر به خودت برس؛ بازنشستگی یعنی فراغت از کار، نه بازنشستگی از زندگی.";
-
-    }
+}
 
 
-    if (score >= 55) {
+if(score >= 70) {
 
-        return "زندگی دارد با تو چانه می‌زند! کمی پیاده‌روی، خواب بهتر و چند خنده واقعی می‌تواند اوضاع را بهتر کند.";
+return "وضعیتت بد نیست. هنوز موتور روشن است. کمی بیشتر به خودت برس؛ بازنشستگی یعنی فراغت از کار، نه بازنشستگی از زندگی.";
 
-    }
-
-
-    if (score >= 40) {
-
-        return "عمو صابر، انگار مبل خانه زیادی به تو وابسته شده! کمی از جا بلند شو و برای حال خوبت وقت بگذار.";
-
-    }
+}
 
 
-    return "این عدد حکم نیست، فقط یک تلنگر است. بیشتر مراقب خودت باش و برای حال خوبت جا باز کن.";
+if(score >= 55) {
+
+return "زندگی دارد با تو چانه می‌زند! کمی پیاده‌روی، خواب بهتر و چند خنده واقعی می‌تواند اوضاع را بهتر کند.";
+
+}
+
+
+if(score >= 40) {
+
+return "عمو صابر، انگار مبل خانه زیادی به تو وابسته شده! کمی از جا بلند شو و برای حال خوبت وقت بگذار.";
+
+}
+
+
+return "این عدد حکم نیست، فقط یک تلنگر است. بیشتر مراقب خودت باش و برای حال خوبت جا باز کن.";
 
 }
 
 
 async function shareResult() {
 
-    const age =
-        document.getElementById(
-            "lifestyleAge"
-        ).textContent;
+const age =
+document
+.getElementById("lifestyleAge")
+.textContent;
 
 
-    const score =
-        document.getElementById(
-            "scoreNumber"
-        ).textContent;
+const score =
+document
+.getElementById("scoreNumber")
+.textContent;
 
 
-    const text =
+const text =
 
 `🧓 بازنشسته‌سنج صبا
 
@@ -1894,85 +2255,88 @@ ${score} از ۱۰۰
 https://t.me/saba_rasanehh`;
 
 
-    if (navigator.share) {
+if(navigator.share) {
 
-        try {
+try {
 
-            await navigator.share({
+await navigator.share({
 
-                title:
-                    "بازنشسته‌سنج صبا",
+title:
+"بازنشسته‌سنج صبا",
 
-                text:
-                    text
+text:
+text
 
-            });
+});
 
-            return;
+return;
 
-        } catch (e) {}
+}
+catch(e) {}
 
-    }
-
-
-    try {
-
-        await navigator
-            .clipboard
-            .writeText(text);
+}
 
 
-        alert(
-            "نتیجه کپی شد. حالا می‌توانی آن را برای دوستانت بفرستی."
-        );
+try {
 
-    } catch (e) {
+await navigator
+.clipboard
+.writeText(text);
 
-        prompt(
-            "متن نتیجه:",
-            text
-        );
 
-    }
+alert(
+"نتیجه کپی شد. حالا می‌توانی آن را برای دوستانت بفرستی."
+);
+
+}
+catch(e) {
+
+prompt(
+"متن نتیجه:",
+text
+);
+
+}
+
 }
 
 
 function restartQuiz() {
 
-    currentQuestion = 0;
+currentQuestion = 0;
 
-    answers = {};
-
-
-    document
-        .getElementById("resultScreen")
-        .classList
-        .add("hidden");
+answers = {};
 
 
-    document
-        .getElementById("startScreen")
-        .classList
-        .remove("hidden");
+document
+.getElementById("resultScreen")
+.classList
+.add("hidden");
 
 
-    window.scrollTo(0, 0);
+document
+.getElementById("startScreen")
+.classList
+.remove("hidden");
+
+
+window.scrollTo(0,0);
+
 }
 
 
 function persian(number) {
 
-    return String(number).replace(
-        /\d/g,
-        d =>
-            "۰۱۲۳۴۵۶۷۸۹"[d]
-    );
+return String(number).replace(
+/\d/g,
+d =>
+"۰۱۲۳۴۵۶۷۸۹"[d]
+);
 
 }
 
 
 </script>
-
 
 </body>
 

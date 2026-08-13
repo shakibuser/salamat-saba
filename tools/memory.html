@@ -4,9 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>یادآور | بازی صبا رسانه</title>
 
@@ -199,60 +197,12 @@ button{
 }
 
 
-/* نوار شمارش معکوس */
-
-.memory-timer{
-    margin:0 auto 15px;
-    padding:10px 14px;
-    background:#fff4d8;
-    border:2px solid #efd991;
-    border-radius:18px;
-    text-align:center;
-}
-
-.memory-timer-label{
-    display:block;
-    color:#80651c;
-    font-size:13px;
-    font-weight:900;
-    margin-bottom:2px;
-}
-
-.timer-circle{
-    width:72px;
-    height:72px;
-    margin:5px auto 0;
-    border-radius:50%;
-    background:#176b5b;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    font-weight:900;
-    box-shadow:0 4px 15px rgba(23,107,91,.25);
-}
-
-
-/* هشدار آخر زمان */
-
-.timer-circle.warning{
-    background:#d88900;
-    transform:scale(1.08);
-}
-
-.timer-circle.danger{
-    background:#c94b3e;
-    transform:scale(1.1);
-}
-
-
 /* تصاویر */
 
 .memory-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:8px;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
     margin-bottom:13px;
 }
 
@@ -265,18 +215,39 @@ button{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    padding:5px;
 }
 
 .memory-icon{
-    font-size:42px;
+    font-size:48px;
     line-height:1.2;
 }
 
 .memory-name{
-    font-size:12px;
+    font-size:13px;
     color:#596660;
-    margin-top:2px;
+}
+
+
+/* زمان */
+
+.timer{
+    text-align:center;
+    margin:8px auto 12px;
+}
+
+.timer-circle{
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:50%;
+    background:#176b5b;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:900;
+    box-shadow:0 4px 12px rgba(23,107,91,.25);
 }
 
 
@@ -284,13 +255,12 @@ button{
 
 .answers{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
 .answer-button{
     width:100%;
-    min-height:65px;
+    min-height:58px;
     background:#fff;
     border:2px solid #dfe7e3;
     border-radius:15px;
@@ -298,15 +268,10 @@ button{
     font-weight:800;
     color:#263238;
     cursor:pointer;
-    padding:8px;
 }
 
 .answer-button:active{
     transform:scale(.97);
-}
-
-.answer-button:disabled{
-    cursor:default;
 }
 
 .answer-button.correct{
@@ -515,35 +480,7 @@ button{
 }
 
 
-/* موبایل */
-
-@media(max-width:500px){
-
-    .memory-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:7px;
-    }
-
-    .memory-item{
-        min-height:96px;
-    }
-
-    .memory-icon{
-        font-size:37px;
-    }
-
-    .memory-name{
-        font-size:11px;
-    }
-
-    .timer-circle{
-        width:68px;
-        height:68px;
-        font-size:28px;
-    }
-
-}
-
+/* موبایل کوچک */
 
 @media(max-width:380px){
 
@@ -551,20 +488,12 @@ button{
         font-size:24px;
     }
 
-    .memory-grid{
-        gap:5px;
-    }
-
     .memory-item{
-        min-height:84px;
+        min-height:92px;
     }
 
     .memory-icon{
-        font-size:32px;
-    }
-
-    .memory-name{
-        font-size:10px;
+        font-size:40px;
     }
 
     .question h2{
@@ -572,8 +501,7 @@ button{
     }
 
     .answer-button{
-        font-size:15px;
-        min-height:60px;
+        font-size:16px;
     }
 
 }
@@ -858,77 +786,18 @@ class="history hidden">
 
 const items = [
 
-{
-    id:"radio",
-    icon:"📻",
-    name:"رادیو"
-},
-
-{
-    id:"cassette",
-    icon:"📼",
-    name:"نوار کاست"
-},
-
-{
-    id:"oldphone",
-    icon:"☎️",
-    name:"تلفن قدیمی"
-},
-
-{
-    id:"tv",
-    icon:"📺",
-    name:"تلویزیون"
-},
-
-{
-    id:"clock",
-    icon:"🕰️",
-    name:"ساعت"
-},
-
-{
-    id:"camera",
-    icon:"📷",
-    name:"دوربین"
-},
-
-{
-    id:"bicycle",
-    icon:"🚲",
-    name:"دوچرخه"
-},
-
-{
-    id:"lamp",
-    icon:"💡",
-    name:"چراغ"
-},
-
-{
-    id:"book",
-    icon:"📚",
-    name:"کتاب"
-},
-
-{
-    id:"pencil",
-    icon:"✏️",
-    name:"مداد"
-},
-
-{
-    id:"bag",
-    icon:"🎒",
-    name:"کیف"
-},
-
-{
-    id:"cup",
-    icon:"☕",
-    name:"فنجان"
-}
+{icon:"📻",name:"رادیو"},
+{icon:"📼",name:"نوار کاست"},
+{icon:"☎️",name:"تلفن قدیمی"},
+{icon:"📺",name:"تلویزیون"},
+{icon:"🕰️",name:"ساعت"},
+{icon:"📷",name:"دوربین"},
+{icon:"🚲",name:"دوچرخه"},
+{icon:"💡",name:"چراغ"},
+{icon:"📚",name:"کتاب"},
+{icon:"✏️",name:"مداد"},
+{icon:"🎒",name:"کیف"},
+{icon:"☕",name:"فنجان"}
 
 ];
 
@@ -937,24 +806,27 @@ let level = 1;
 
 let score = 0;
 
-let bestScore =
-Number(
+let bestScore = Number(
 localStorage.getItem("yadavare_best") || 0
 );
 
-let gamesPlayed =
-Number(
+let gamesPlayed = Number(
 localStorage.getItem("yadavare_games") || 0
 );
 
-let historyData =
-JSON.parse(
-localStorage.getItem(
-"yadavare_history"
-) || "[]"
+let historyData = JSON.parse(
+localStorage.getItem("yadavare_history") || "[]"
 );
 
 let currentAnswer = null;
+
+/*
+   تصاویر نمایش داده شده در مرحله.
+   از این آرایه برای جلوگیری از
+   ایجاد گزینه‌های مبهم استفاده می‌کنیم.
+*/
+
+let currentMemoryItems = [];
 
 let acceptingAnswer = false;
 
@@ -1052,24 +924,23 @@ clearInterval(timer);
 
 const levelSize =
 Math.min(
-5 + Math.floor((level - 1) / 2),
+5 + Math.floor((level-1)/2),
 9
 );
 
 
 /*
-   زمان نمایش تصاویر
+   زمان مشاهده تصاویر
 */
 
 const memorySeconds =
-level <= 2 ? 7 :
-level <= 4 ? 6 :
-level <= 6 ? 5 :
-4;
+level <= 2 ? 4 :
+level <= 5 ? 3 :
+2;
 
 
 /*
-   انتخاب تصاویر
+   انتخاب مجموعه تصاویر
 */
 
 const selected =
@@ -1078,19 +949,27 @@ shuffle([...items])
 
 
 /*
-   انتخاب تصویر حذف‌شونده
-
-   اینجا به جای نام،
-   خود شیء ذخیره می‌شود.
+   انتخاب تصویر حذف‌شده
 */
 
 const missingIndex =
 Math.floor(
-Math.random() * selected.length
+Math.random()*selected.length
 );
 
 currentAnswer =
 selected[missingIndex];
+
+
+/*
+   بسیار مهم:
+   کل مجموعه تصاویر این مرحله
+   را نگه می‌داریم تا بعداً گزینه‌های
+   غلط از همین مجموعه انتخاب نشوند.
+*/
+
+currentMemoryItems =
+[...selected];
 
 
 renderMemory(
@@ -1117,13 +996,17 @@ document.getElementById("question");
 document.getElementById(
 "progressText"
 ).textContent =
-"مرحله " + persian(level);
+"مرحله " +
+persian(level);
 
 
 document.getElementById(
 "progressBar"
 ).style.width =
-Math.min(level * 10,100) + "%";
+Math.min(
+level*10,
+100
+)+"%";
 
 
 let html = `
@@ -1136,27 +1019,9 @@ let html = `
 
 <h2>
 
-تصویر حذف‌شده را پیدا کن
+⏱️ چند ثانیه فرصت داری
 
 </h2>
-
-<div class="memory-timer">
-
-<span class="memory-timer-label">
-
-⏳ زمان باقی‌مانده
-
-</span>
-
-<div
-id="timerCircle"
-class="timer-circle">
-
-${persian(seconds)}
-
-</div>
-
-</div>
 
 <div class="memory-grid">
 
@@ -1192,42 +1057,53 @@ html += `
 
 </div>
 
+<div class="timer">
+
+<div
+id="timerCircle"
+class="timer-circle">
+
+${persian(seconds)}
+
+</div>
+
+</div>
+
 `;
 
 
 question.innerHTML = html;
 
 
-question.classList.remove("pop");
+question.classList
+.remove("pop");
 
 void question.offsetWidth;
 
-question.classList.add("pop");
+question.classList
+.add("pop");
 
 
 let remaining = seconds;
 
 
-/*
-   نمایش اولیه تایمر
-*/
-
-updateTimerDisplay(
-remaining
-);
-
-
-/*
-   شمارش دقیق ثانیه‌ها
-*/
-
 timer = setInterval(()=>{
 
 remaining--;
 
-updateTimerDisplay(
-remaining
+const timerCircle =
+document.getElementById(
+"timerCircle"
 );
+
+if(timerCircle){
+
+timerCircle.textContent =
+persian(
+Math.max(remaining,0)
+);
+
+}
 
 
 if(remaining <= 0){
@@ -1244,65 +1120,12 @@ showQuestion();
 
 
 /* =========================
-   نمایش تایمر
-========================= */
-
-function updateTimerDisplay(
-remaining
-){
-
-const timerCircle =
-document.getElementById(
-"timerCircle"
-);
-
-if(!timerCircle){
-
-return;
-
-}
-
-
-timerCircle.textContent =
-persian(
-Math.max(remaining,0)
-);
-
-
-timerCircle.classList.remove(
-"warning",
-"danger"
-);
-
-
-if(remaining <= 2){
-
-timerCircle.classList.add(
-"danger"
-);
-
-}
-
-else if(remaining <= 4){
-
-timerCircle.classList.add(
-"warning"
-);
-
-}
-
-}
-
-
-/* =========================
    نمایش سؤال
 ========================= */
 
 function showQuestion(){
 
 acceptingAnswer = true;
-
-clearInterval(timer);
 
 
 const question =
@@ -1312,21 +1135,51 @@ document.getElementById(
 
 
 /*
-   سه گزینه اشتباه
+   نکته مهم بازی:
+
+   پاسخ درست = تصویر حذف‌شده.
+
+   گزینه‌های غلط نباید هیچ‌کدام
+   در تصاویر مرحله قبلی وجود داشته باشند.
+
+   بنابراین ابتدا نام تمام تصاویر
+   نمایش داده‌شده را استخراج می‌کنیم.
+*/
+
+const displayedNames =
+new Set(
+currentMemoryItems.map(
+item => item.name
+)
+);
+
+
+/*
+   فقط تصاویری که اصلاً در مجموعه
+   قبلی نمایش داده نشده‌اند می‌توانند
+   گزینه غلط باشند.
+*/
+
+const availableWrongOptions =
+items.filter(
+item =>
+!displayedNames.has(item.name)
+);
+
+
+/*
+   از بین گزینه‌های کاملاً جدید،
+   سه گزینه غلط انتخاب می‌کنیم.
 */
 
 const wrongOptions =
 shuffle(
-items.filter(
-item =>
-item.id !== currentAnswer.id
-)
-)
-.slice(0,3);
+[...availableWrongOptions]
+).slice(0,3);
 
 
 /*
-   گزینه‌ها
+   پاسخ درست + سه پاسخ کاملاً جدید
 */
 
 const options =
@@ -1346,18 +1199,19 @@ question.innerHTML = `
 
 <h2>
 
-کدام تصویر حذف شده بود؟
+کدام تصویر در تصاویر قبلی نبود؟
 
 </h2>
 
 <div class="answers">
 
-${options.map(item=>`
+${options.map(
+(item,index)=>`
 
 <button
-type="button"
 class="answer-button"
-data-id="${item.id}">
+data-name="${item.name}"
+onclick="answer(this,'${escapeText(item.name)}')">
 
 ${item.icon}
 
@@ -1367,48 +1221,23 @@ ${item.name}
 
 </button>
 
-`).join("")}
+`
+).join("")}
 
 </div>
 
 `;
 
-
-/*
-   اتصال رویداد به دکمه‌ها
-
-   این بخش عمداً بدون onclick
-   نوشته شده است تا مشکل مقایسه
-   متن فارسی کاملاً حذف شود.
-*/
-
-document
-.querySelectorAll(".answer-button")
-.forEach(button=>{
-
-button.addEventListener(
-"click",
-function(){
-
-answer(
-this,
-this.dataset.id
-);
-
-});
-
-});
-
 }
 
 
 /* =========================
-   پاسخ کاربر
+   پاسخ
 ========================= */
 
 function answer(
 button,
-selectedId
+name
 ){
 
 if(!acceptingAnswer){
@@ -1416,7 +1245,6 @@ if(!acceptingAnswer){
 return;
 
 }
-
 
 acceptingAnswer = false;
 
@@ -1428,40 +1256,26 @@ document.querySelectorAll(
 
 
 buttons.forEach(
-btn=>{
-    btn.disabled = true;
-}
+btn =>
+btn.disabled = true
 );
 
 
-/*
-   تشخیص صحیح فقط بر اساس ID
-*/
+if(name === currentAnswer.name){
 
-const isCorrect =
-selectedId ===
-currentAnswer.id;
+button.classList
+.add("correct");
 
-
-if(isCorrect){
-
-button.classList.add(
-"correct"
-);
-
-
-/*
-   امتیاز مرحله
-*/
 
 const earned =
 level * 10;
+
 
 score += earned;
 
 
 showFeedback(
-"آفرین! درست یادت مانده بود 👏",
+"آفرین! درست یادت ماند 👏",
 true
 );
 
@@ -1477,30 +1291,22 @@ startLevel();
 },1000);
 
 
-}
+}else{
 
-else{
+button.classList
+.add("wrong");
 
-button.classList.add(
-"wrong"
-);
-
-
-/*
-   پیدا کردن پاسخ صحیح
-*/
 
 buttons.forEach(
 btn=>{
 
 if(
-btn.dataset.id ===
-currentAnswer.id
+btn.dataset.name ===
+currentAnswer.name
 ){
 
-btn.classList.add(
-"correct"
-);
+btn.classList
+.add("correct");
 
 }
 
@@ -1509,7 +1315,7 @@ btn.classList.add(
 
 
 showFeedback(
-"این یکی یادت رفت. دوباره امتحانش می‌کنیم 🙂",
+"این تصویر درست نبود. تصویر حذف‌شده را دوباره به خاطر بسپار 🙂",
 false
 );
 
@@ -1562,18 +1368,12 @@ function endGame(){
 
 clearInterval(timer);
 
-acceptingAnswer = false;
-
 gamesPlayed++;
 
 localStorage.setItem(
 "yadavare_games",
 gamesPlayed
 );
-
-
-const oldBest =
-bestScore;
 
 
 let newRecord = false;
@@ -1615,9 +1415,7 @@ historyData.slice(0,10);
 
 localStorage.setItem(
 "yadavare_history",
-JSON.stringify(
-historyData
-)
+JSON.stringify(historyData)
 );
 
 
@@ -1740,9 +1538,9 @@ document.getElementById(
 "history"
 );
 
-history.classList.toggle(
-"hidden"
-);
+history.classList
+.toggle("hidden");
+
 
 renderHistory();
 
@@ -1793,7 +1591,6 @@ ${item.date}
 <span class="history-score">
 
 ${persian(item.score)}
-
 امتیاز
 
 </span>
@@ -1899,6 +1696,15 @@ array[i]
 }
 
 return array;
+
+}
+
+
+function escapeText(text){
+
+return text
+.replace(/'/g,"\\'")
+.replace(/"/g,"&quot;");
 
 }
 

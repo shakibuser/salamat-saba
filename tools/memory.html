@@ -1,11 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>یادآور | بازی صبا رسانه</title>
 
@@ -169,7 +170,7 @@ button{
     background:#e7edeb;
     border-radius:20px;
     overflow:hidden;
-    margin:5px 0 16px;
+    margin:5px 0 14px;
 }
 
 .progress-bar{
@@ -189,65 +190,148 @@ button{
 .question-type{
     color:#8a9691;
     font-size:13px;
+    margin-bottom:2px;
 }
 
 .question h2{
-    margin:4px 0 15px;
+    margin:3px 0 10px;
     font-size:21px;
     line-height:1.6;
 }
 
 
-/* تصاویر */
+/* =========================
+   شمارشگر جدید
+========================= */
+
+.memory-timer{
+    margin:5px auto 13px;
+    text-align:center;
+}
+
+.timer-title{
+    font-size:14px;
+    color:#596660;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.timer-circle{
+    width:82px;
+    height:82px;
+    margin:auto;
+    border-radius:50%;
+
+    background:#176b5b;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:34px;
+    font-weight:900;
+
+    border:6px solid #d8ebe5;
+
+    box-shadow:
+        0 5px 16px rgba(23,107,91,.22);
+
+    transition:
+        transform .2s,
+        background .2s;
+}
+
+.timer-circle.warning{
+    background:#c98a00;
+    transform:scale(1.08);
+}
+
+.timer-circle.last{
+    background:#b94b3f;
+    transform:scale(1.12);
+}
+
+.timer-progress{
+    width:100%;
+    max-width:310px;
+    height:8px;
+    margin:8px auto 0;
+
+    background:#e7edeb;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.timer-progress-bar{
+    width:100%;
+    height:100%;
+    background:#176b5b;
+    transition:width 1s linear;
+}
+
+
+/* پیام شروع */
+
+.memory-hint{
+    background:#eef6f3;
+    color:#176b5b;
+    border-radius:13px;
+    padding:7px 10px;
+    margin-bottom:10px;
+    font-size:14px;
+    font-weight:900;
+}
+
+
+/* =========================
+   تصاویر حافظه
+========================= */
 
 .memory-grid{
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-bottom:13px;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:9px;
+
+    margin-bottom:10px;
+
 }
 
 .memory-item{
+
     min-height:105px;
+
     background:#f7f9f8;
+
     border:2px solid #e3e9e6;
+
     border-radius:16px;
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
+
+    padding:5px;
+
 }
 
 .memory-icon{
-    font-size:48px;
-    line-height:1.2;
+    font-size:45px;
+    line-height:1.15;
 }
 
 .memory-name{
     font-size:13px;
     color:#596660;
-}
-
-
-/* زمان */
-
-.timer{
-    text-align:center;
-    margin:6px auto 10px;
-}
-
-.timer-circle{
-    width:62px;
-    height:62px;
-    margin:auto;
-    border-radius:50%;
-    background:#eef5f2;
-    color:#176b5b;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-    font-weight:900;
+    margin-top:2px;
 }
 
 
@@ -291,7 +375,7 @@ button{
 
 .feedback{
     min-height:31px;
-    margin-top:12px;
+    margin-top:10px;
     text-align:center;
     font-size:15px;
     font-weight:900;
@@ -303,6 +387,33 @@ button{
 
 .feedback.bad{
     color:#b3453b;
+}
+
+
+/* پیام پایان حفظ */
+
+.memory-finished{
+
+    background:#e8f5ef;
+
+    color:#126247;
+
+    border:2px solid #bfe1d4;
+
+    border-radius:15px;
+
+    padding:11px;
+
+    margin:7px 0 12px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    font-weight:900;
+
+    animation:pop .25s ease;
+
 }
 
 
@@ -466,6 +577,7 @@ button{
 }
 
 @keyframes pop{
+
     0%{
         transform:scale(.96);
         opacity:.5;
@@ -475,31 +587,94 @@ button{
         transform:scale(1);
         opacity:1;
     }
+
 }
 
 
-/* موبایل کوچک */
+/* =========================
+   موبایل
+========================= */
 
-@media(max-width:380px){
+@media(max-width:480px){
 
-    .header h1{
-        font-size:24px;
+    .container{
+        padding:8px 8px 30px;
+    }
+
+    .card{
+        padding:14px 10px;
+    }
+
+    .memory-grid{
+        gap:7px;
     }
 
     .memory-item{
-        min-height:92px;
+        min-height:91px;
+        border-radius:14px;
     }
 
     .memory-icon{
-        font-size:40px;
+        font-size:38px;
+    }
+
+    .memory-name{
+        font-size:11px;
+    }
+
+    .timer-circle{
+        width:78px;
+        height:78px;
+        font-size:32px;
     }
 
     .question h2{
         font-size:19px;
     }
 
-    .answer-button{
-        font-size:16px;
+}
+
+
+/* =========================
+   موبایل خیلی کوچک
+========================= */
+
+@media(max-width:360px){
+
+    .header h1{
+        font-size:24px;
+    }
+
+    .header p{
+        font-size:13px;
+    }
+
+    .memory-grid{
+        gap:5px;
+    }
+
+    .memory-item{
+        min-height:82px;
+        padding:3px;
+    }
+
+    .memory-icon{
+        font-size:33px;
+    }
+
+    .memory-name{
+        font-size:10px;
+    }
+
+    .timer-circle{
+        width:72px;
+        height:72px;
+        font-size:30px;
+    }
+
+    .memory-hint{
+        font-size:13px;
+        padding:5px;
     }
 
 }
@@ -868,12 +1043,6 @@ behavior:"smooth"
 
 function playAgain(){
 
-/*
-   مهم:
-   هیچ بازگشتی به صفحه اصلی نداریم.
-   بازی مستقیماً از همین صفحه شروع می‌شود.
-*/
-
 document
 .getElementById("resultScreen")
 .classList
@@ -914,23 +1083,32 @@ clearInterval(timer);
 
 
 /*
-   تعداد تصاویر با افزایش مرحله بیشتر می‌شود.
-   حداقل 5 و حداکثر 9 تصویر.
+   تعداد تصاویر:
+   حداقل ۵ و حداکثر ۹
 */
 
 const levelSize =
-Math.min(5 + Math.floor((level-1)/2),9);
+Math.min(
+5 + Math.floor((level-1)/2),
+9
+);
 
 
 /*
-   زمان مشاهده:
-   مراحل اول کمی راحت‌تر.
+   زمان حفظ تصاویر:
+
+   مرحله ۱ و ۲ = ۷ ثانیه
+   مرحله ۳ تا ۵ = ۶ ثانیه
+   مراحل ۶ به بعد = ۵ ثانیه
+
+   این زمان عمداً برای کاربر
+   بزرگسال راحت‌تر شده است.
 */
 
 const memorySeconds =
-level <= 2 ? 4 :
-level <= 5 ? 3 :
-2;
+level <= 2 ? 7 :
+level <= 5 ? 6 :
+5;
 
 
 /*
@@ -996,15 +1174,42 @@ let html = `
 
 <div class="question-type">
 
+حافظه تصویری
+
+</div>
+
+<div class="memory-hint">
+
 این تصاویر را خوب به خاطر بسپار
 
 </div>
 
-<h2>
+<div class="memory-timer">
 
-⏱️ آماده‌ای؟
+<div class="timer-title">
 
-</h2>
+زمان باقی‌مانده
+
+</div>
+
+<div
+id="timerCircle"
+class="timer-circle">
+
+${persian(seconds)}
+
+</div>
+
+<div class="timer-progress">
+
+<div
+id="timerProgressBar"
+class="timer-progress-bar">
+</div>
+
+</div>
+
+</div>
 
 <div class="memory-grid">
 
@@ -1040,18 +1245,6 @@ html += `
 
 </div>
 
-<div class="timer">
-
-<div
-id="timerCircle"
-class="timer-circle">
-
-${persian(seconds)}
-
-</div>
-
-</div>
-
 `;
 
 
@@ -1071,7 +1264,17 @@ let remaining = seconds;
 
 
 /*
-   بلافاصله تایمر را شروع می‌کنیم.
+   نوار زمان
+*/
+
+const progressBar =
+document.getElementById(
+"timerProgressBar"
+);
+
+
+/*
+   شروع شمارشگر
 */
 
 timer = setInterval(()=>{
@@ -1083,15 +1286,55 @@ document.getElementById(
 "timerCircle"
 );
 
+
 if(timerCircle){
 
 timerCircle.textContent =
 persian(
-Math.max(remaining,0)
+Math.max(
+remaining,
+0
+)
 );
+
+
+/*
+   هشدار زمان کم
+*/
+
+if(remaining <= 2){
+
+timerCircle.classList
+.add("last");
+
+}else if(remaining <= 3){
+
+timerCircle.classList
+.add("warning");
 
 }
 
+}
+
+
+/*
+   کاهش نوار زمان
+*/
+
+if(progressBar){
+
+progressBar.style.width =
+Math.max(
+(remaining / seconds)*100,
+0
+)+"%";
+
+}
+
+
+/*
+   پایان زمان
+*/
 
 if(remaining <= 0){
 
@@ -1122,7 +1365,7 @@ document.getElementById(
 
 
 /*
-   سه گزینه اشتباه + جواب درست
+   پیام واضح برای کاربر
 */
 
 const wrongOptions =
@@ -1147,6 +1390,12 @@ question.innerHTML = `
 <div class="question-type">
 
 حافظه تصویری
+
+</div>
+
+<div class="memory-finished">
+
+حالا نوبت شماست! 🧠
 
 </div>
 
@@ -1219,11 +1468,6 @@ if(name === currentAnswer.name){
 button.classList
 .add("correct");
 
-
-/*
-   امتیاز مرحله:
-   مرحله‌های بالاتر امتیاز بیشتری دارند.
-*/
 
 const earned =
 level * 10;
@@ -1332,10 +1576,6 @@ localStorage.setItem(
 "yadavare_games",
 gamesPlayed
 );
-
-
-const oldBest =
-bestScore;
 
 
 let newRecord = false;
@@ -1709,4 +1949,3 @@ d=>"۰۱۲۳۴۵۶۷۸۹"[d]
 </body>
 
 </html>
-```

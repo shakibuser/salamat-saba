@@ -821,9 +821,12 @@ localStorage.getItem("yadavare_history") || "[]"
 let currentAnswer = null;
 
 /*
-   تصاویر نمایش داده شده در مرحله.
-   از این آرایه برای جلوگیری از
-   ایجاد گزینه‌های مبهم استفاده می‌کنیم.
+   تصاویری که در این مرحله واقعاً
+   به کاربر نشان داده شده‌اند (برای
+   حفظ کردن). گزینه‌های غلط سؤال
+   باید از همین آرایه انتخاب شوند،
+   چون کاربر باید تشخیص دهد که
+   این‌ها را قبلاً دیده است.
 */
 
 let currentMemoryItems = [];
@@ -918,8 +921,11 @@ clearInterval(timer);
 
 
 /*
-   تعداد تصاویر:
-   حداقل 5 و حداکثر 9
+   تعداد تصاویری که برای حفظ کردن
+   نشان داده می‌شود: حداقل 5 و حداکثر 9
+   (مجموع آیتم‌های بازی 12 تاست، پس
+   همیشه حداقل 3 آیتم برای انتخاب
+   «پاسخ درست» باقی می‌ماند)
 */
 
 const levelSize =
@@ -940,40 +946,48 @@ level <= 5 ? 3 :
 
 
 /*
-   انتخاب مجموعه تصاویر
+   تمام آیتم‌ها را به‌هم می‌ریزیم و
+   دو گروه جدا می‌سازیم:
+
+   1) memoryItems: چیزهایی که واقعاً
+      روی صفحه نشان داده می‌شوند.
+
+   2) notShown: چیزهایی که اصلاً
+      نشان داده نمی‌شوند؛ پاسخ درست
+      سؤال («کدام تصویر قبلاً نبود؟»)
+      باید از همین گروه انتخاب شود،
+      نه از تصاویری که کاربر دیده.
 */
 
-const selected =
-shuffle([...items])
-.slice(0,levelSize);
+const shuffledItems =
+shuffle([...items]);
+
+const memoryItems =
+shuffledItems.slice(0,levelSize);
+
+const notShown =
+shuffledItems.slice(levelSize);
 
 
 /*
-   انتخاب تصویر حذف‌شده
+   پاسخ درست: یک آیتم که اصلاً
+   نشان داده نشده است.
 */
-
-const missingIndex =
-Math.floor(
-Math.random()*selected.length
-);
 
 currentAnswer =
-selected[missingIndex];
+notShown[
+Math.floor(
+Math.random()*notShown.length
+)
+];
 
-
-/*
-   بسیار مهم:
-   کل مجموعه تصاویر این مرحله
-   را نگه می‌داریم تا بعداً گزینه‌های
-   غلط از همین مجموعه انتخاب نشوند.
-*/
 
 currentMemoryItems =
-[...selected];
+memoryItems;
 
 
 renderMemory(
-selected,
+memoryItems,
 memorySeconds
 );
 
@@ -1135,51 +1149,23 @@ document.getElementById(
 
 
 /*
-   نکته مهم بازی:
-
-   پاسخ درست = تصویر حذف‌شده.
-
-   گزینه‌های غلط نباید هیچ‌کدام
-   در تصاویر مرحله قبلی وجود داشته باشند.
-
-   بنابراین ابتدا نام تمام تصاویر
-   نمایش داده‌شده را استخراج می‌کنیم.
-*/
-
-const displayedNames =
-new Set(
-currentMemoryItems.map(
-item => item.name
-)
-);
-
-
-/*
-   فقط تصاویری که اصلاً در مجموعه
-   قبلی نمایش داده نشده‌اند می‌توانند
-   گزینه غلط باشند.
-*/
-
-const availableWrongOptions =
-items.filter(
-item =>
-!displayedNames.has(item.name)
-);
-
-
-/*
-   از بین گزینه‌های کاملاً جدید،
-   سه گزینه غلط انتخاب می‌کنیم.
+   گزینه‌های غلط: سه تصویر که واقعاً
+   در همین مرحله به کاربر نشان
+   داده شده بودند (currentMemoryItems).
+   کاربر باید این‌ها را به‌عنوان
+   «قبلاً دیده‌ام» تشخیص دهد و آن‌ها
+   را انتخاب نکند.
 */
 
 const wrongOptions =
 shuffle(
-[...availableWrongOptions]
+[...currentMemoryItems]
 ).slice(0,3);
 
 
 /*
-   پاسخ درست + سه پاسخ کاملاً جدید
+   پاسخ درست (تصویری که اصلاً نشان
+   داده نشده) + سه گزینه غلط
 */
 
 const options =
@@ -1206,12 +1192,11 @@ question.innerHTML = `
 <div class="answers">
 
 ${options.map(
-(item,index)=>`
+item=>`
 
 <button
 class="answer-button"
-data-name="${item.name}"
-onclick="answer(this,'${escapeText(item.name)}')">
+data-name="${item.name}">
 
 ${item.icon}
 
@@ -1227,6 +1212,35 @@ ${item.name}
 </div>
 
 `;
+
+
+question.classList
+.remove("pop");
+
+void question.offsetWidth;
+
+question.classList
+.add("pop");
+
+
+/*
+   اتصال رویداد کلیک به هر دکمه
+   به‌جای درج مستقیم نام در onclick؛
+   این کار از هر مشکل احتمالی در
+   escape کردن کاراکترها جلوگیری
+   می‌کند.
+*/
+
+question
+.querySelectorAll(".answer-button")
+.forEach(btn=>{
+
+btn.addEventListener(
+"click",
+()=>answer(btn,btn.dataset.name)
+);
+
+});
 
 }
 
@@ -1315,7 +1329,7 @@ btn.classList
 
 
 showFeedback(
-"این تصویر درست نبود. تصویر حذف‌شده را دوباره به خاطر بسپار 🙂",
+"این تصویر درست نبود. تصویر جدید را دوباره تشخیص بده 🙂",
 false
 );
 
@@ -1696,15 +1710,6 @@ array[i]
 }
 
 return array;
-
-}
-
-
-function escapeText(text){
-
-return text
-.replace(/'/g,"\\'")
-.replace(/"/g,"&quot;");
 
 }
 

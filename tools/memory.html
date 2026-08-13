@@ -170,7 +170,7 @@ button{
     background:#e7edeb;
     border-radius:20px;
     overflow:hidden;
-    margin:5px 0 14px;
+    margin:5px 0 16px;
 }
 
 .progress-bar{
@@ -190,146 +190,91 @@ button{
 .question-type{
     color:#8a9691;
     font-size:13px;
-    margin-bottom:2px;
 }
 
 .question h2{
-    margin:3px 0 10px;
+    margin:4px 0 15px;
     font-size:21px;
     line-height:1.6;
 }
 
 
-/* =========================
-   شمارشگر جدید
-========================= */
+/* نوار شمارش معکوس */
 
 .memory-timer{
-    margin:5px auto 13px;
+    margin:0 auto 15px;
+    padding:10px 14px;
+    background:#fff4d8;
+    border:2px solid #efd991;
+    border-radius:18px;
     text-align:center;
 }
 
-.timer-title{
-    font-size:14px;
-    color:#596660;
+.memory-timer-label{
+    display:block;
+    color:#80651c;
+    font-size:13px;
     font-weight:900;
-    margin-bottom:5px;
+    margin-bottom:2px;
 }
 
 .timer-circle{
-    width:82px;
-    height:82px;
-    margin:auto;
+    width:72px;
+    height:72px;
+    margin:5px auto 0;
     border-radius:50%;
-
     background:#176b5b;
     color:#fff;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
-    font-size:34px;
+    font-size:30px;
     font-weight:900;
-
-    border:6px solid #d8ebe5;
-
-    box-shadow:
-        0 5px 16px rgba(23,107,91,.22);
-
-    transition:
-        transform .2s,
-        background .2s;
+    box-shadow:0 4px 15px rgba(23,107,91,.25);
 }
 
+
+/* هشدار آخر زمان */
+
 .timer-circle.warning{
-    background:#c98a00;
+    background:#d88900;
     transform:scale(1.08);
 }
 
-.timer-circle.last{
-    background:#b94b3f;
-    transform:scale(1.12);
-}
-
-.timer-progress{
-    width:100%;
-    max-width:310px;
-    height:8px;
-    margin:8px auto 0;
-
-    background:#e7edeb;
-    border-radius:20px;
-    overflow:hidden;
-}
-
-.timer-progress-bar{
-    width:100%;
-    height:100%;
-    background:#176b5b;
-    transition:width 1s linear;
+.timer-circle.danger{
+    background:#c94b3e;
+    transform:scale(1.1);
 }
 
 
-/* پیام شروع */
-
-.memory-hint{
-    background:#eef6f3;
-    color:#176b5b;
-    border-radius:13px;
-    padding:7px 10px;
-    margin-bottom:10px;
-    font-size:14px;
-    font-weight:900;
-}
-
-
-/* =========================
-   تصاویر حافظه
-========================= */
+/* تصاویر */
 
 .memory-grid{
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,minmax(0,1fr));
-
-    gap:9px;
-
-    margin-bottom:10px;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin-bottom:13px;
 }
 
 .memory-item{
-
     min-height:105px;
-
     background:#f7f9f8;
-
     border:2px solid #e3e9e6;
-
     border-radius:16px;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
-
     padding:5px;
-
 }
 
 .memory-icon{
-    font-size:45px;
-    line-height:1.15;
+    font-size:42px;
+    line-height:1.2;
 }
 
 .memory-name{
-    font-size:13px;
+    font-size:12px;
     color:#596660;
     margin-top:2px;
 }
@@ -339,12 +284,13 @@ button{
 
 .answers{
     display:grid;
+    grid-template-columns:repeat(2,1fr);
     gap:10px;
 }
 
 .answer-button{
     width:100%;
-    min-height:58px;
+    min-height:65px;
     background:#fff;
     border:2px solid #dfe7e3;
     border-radius:15px;
@@ -352,10 +298,15 @@ button{
     font-weight:800;
     color:#263238;
     cursor:pointer;
+    padding:8px;
 }
 
 .answer-button:active{
     transform:scale(.97);
+}
+
+.answer-button:disabled{
+    cursor:default;
 }
 
 .answer-button.correct{
@@ -375,7 +326,7 @@ button{
 
 .feedback{
     min-height:31px;
-    margin-top:10px;
+    margin-top:12px;
     text-align:center;
     font-size:15px;
     font-weight:900;
@@ -387,33 +338,6 @@ button{
 
 .feedback.bad{
     color:#b3453b;
-}
-
-
-/* پیام پایان حفظ */
-
-.memory-finished{
-
-    background:#e8f5ef;
-
-    color:#126247;
-
-    border:2px solid #bfe1d4;
-
-    border-radius:15px;
-
-    padding:11px;
-
-    margin:7px 0 12px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    font-weight:900;
-
-    animation:pop .25s ease;
-
 }
 
 
@@ -591,31 +515,21 @@ button{
 }
 
 
-/* =========================
-   موبایل
-========================= */
+/* موبایل */
 
-@media(max-width:480px){
-
-    .container{
-        padding:8px 8px 30px;
-    }
-
-    .card{
-        padding:14px 10px;
-    }
+@media(max-width:500px){
 
     .memory-grid{
+        grid-template-columns:repeat(3,1fr);
         gap:7px;
     }
 
     .memory-item{
-        min-height:91px;
-        border-radius:14px;
+        min-height:96px;
     }
 
     .memory-icon{
-        font-size:38px;
+        font-size:37px;
     }
 
     .memory-name{
@@ -623,30 +537,18 @@ button{
     }
 
     .timer-circle{
-        width:78px;
-        height:78px;
-        font-size:32px;
-    }
-
-    .question h2{
-        font-size:19px;
+        width:68px;
+        height:68px;
+        font-size:28px;
     }
 
 }
 
 
-/* =========================
-   موبایل خیلی کوچک
-========================= */
-
-@media(max-width:360px){
+@media(max-width:380px){
 
     .header h1{
         font-size:24px;
-    }
-
-    .header p{
-        font-size:13px;
     }
 
     .memory-grid{
@@ -654,27 +556,24 @@ button{
     }
 
     .memory-item{
-        min-height:82px;
-        padding:3px;
+        min-height:84px;
     }
 
     .memory-icon{
-        font-size:33px;
+        font-size:32px;
     }
 
     .memory-name{
         font-size:10px;
     }
 
-    .timer-circle{
-        width:72px;
-        height:72px;
-        font-size:30px;
+    .question h2{
+        font-size:19px;
     }
 
-    .memory-hint{
-        font-size:13px;
-        padding:5px;
+    .answer-button{
+        font-size:15px;
+        min-height:60px;
     }
 
 }
@@ -959,18 +858,77 @@ class="history hidden">
 
 const items = [
 
-{icon:"📻",name:"رادیو"},
-{icon:"📼",name:"نوار کاست"},
-{icon:"☎️",name:"تلفن قدیمی"},
-{icon:"📺",name:"تلویزیون"},
-{icon:"🕰️",name:"ساعت"},
-{icon:"📷",name:"دوربین"},
-{icon:"🚲",name:"دوچرخه"},
-{icon:"💡",name:"چراغ"},
-{icon:"📚",name:"کتاب"},
-{icon:"✏️",name:"مداد"},
-{icon:"🎒",name:"کیف"},
-{icon:"☕",name:"فنجان"}
+{
+    id:"radio",
+    icon:"📻",
+    name:"رادیو"
+},
+
+{
+    id:"cassette",
+    icon:"📼",
+    name:"نوار کاست"
+},
+
+{
+    id:"oldphone",
+    icon:"☎️",
+    name:"تلفن قدیمی"
+},
+
+{
+    id:"tv",
+    icon:"📺",
+    name:"تلویزیون"
+},
+
+{
+    id:"clock",
+    icon:"🕰️",
+    name:"ساعت"
+},
+
+{
+    id:"camera",
+    icon:"📷",
+    name:"دوربین"
+},
+
+{
+    id:"bicycle",
+    icon:"🚲",
+    name:"دوچرخه"
+},
+
+{
+    id:"lamp",
+    icon:"💡",
+    name:"چراغ"
+},
+
+{
+    id:"book",
+    icon:"📚",
+    name:"کتاب"
+},
+
+{
+    id:"pencil",
+    icon:"✏️",
+    name:"مداد"
+},
+
+{
+    id:"bag",
+    icon:"🎒",
+    name:"کیف"
+},
+
+{
+    id:"cup",
+    icon:"☕",
+    name:"فنجان"
+}
 
 ];
 
@@ -979,16 +937,21 @@ let level = 1;
 
 let score = 0;
 
-let bestScore = Number(
+let bestScore =
+Number(
 localStorage.getItem("yadavare_best") || 0
 );
 
-let gamesPlayed = Number(
+let gamesPlayed =
+Number(
 localStorage.getItem("yadavare_games") || 0
 );
 
-let historyData = JSON.parse(
-localStorage.getItem("yadavare_history") || "[]"
+let historyData =
+JSON.parse(
+localStorage.getItem(
+"yadavare_history"
+) || "[]"
 );
 
 let currentAnswer = null;
@@ -1084,31 +1047,25 @@ clearInterval(timer);
 
 /*
    تعداد تصاویر:
-   حداقل ۵ و حداکثر ۹
+   حداقل 5 و حداکثر 9
 */
 
 const levelSize =
 Math.min(
-5 + Math.floor((level-1)/2),
+5 + Math.floor((level - 1) / 2),
 9
 );
 
 
 /*
-   زمان حفظ تصاویر:
-
-   مرحله ۱ و ۲ = ۷ ثانیه
-   مرحله ۳ تا ۵ = ۶ ثانیه
-   مراحل ۶ به بعد = ۵ ثانیه
-
-   این زمان عمداً برای کاربر
-   بزرگسال راحت‌تر شده است.
+   زمان نمایش تصاویر
 */
 
 const memorySeconds =
 level <= 2 ? 7 :
-level <= 5 ? 6 :
-5;
+level <= 4 ? 6 :
+level <= 6 ? 5 :
+4;
 
 
 /*
@@ -1122,11 +1079,14 @@ shuffle([...items])
 
 /*
    انتخاب تصویر حذف‌شونده
+
+   اینجا به جای نام،
+   خود شیء ذخیره می‌شود.
 */
 
 const missingIndex =
 Math.floor(
-Math.random()*selected.length
+Math.random() * selected.length
 );
 
 currentAnswer =
@@ -1157,55 +1117,42 @@ document.getElementById("question");
 document.getElementById(
 "progressText"
 ).textContent =
-"مرحله " +
-persian(level);
+"مرحله " + persian(level);
 
 
 document.getElementById(
 "progressBar"
 ).style.width =
-Math.min(
-level*10,
-100
-)+"%";
+Math.min(level * 10,100) + "%";
 
 
 let html = `
 
 <div class="question-type">
 
-حافظه تصویری
-
-</div>
-
-<div class="memory-hint">
-
 این تصاویر را خوب به خاطر بسپار
 
 </div>
 
+<h2>
+
+تصویر حذف‌شده را پیدا کن
+
+</h2>
+
 <div class="memory-timer">
 
-<div class="timer-title">
+<span class="memory-timer-label">
 
-زمان باقی‌مانده
+⏳ زمان باقی‌مانده
 
-</div>
+</span>
 
 <div
 id="timerCircle"
 class="timer-circle">
 
 ${persian(seconds)}
-
-</div>
-
-<div class="timer-progress">
-
-<div
-id="timerProgressBar"
-class="timer-progress-bar">
-</div>
 
 </div>
 
@@ -1251,90 +1198,37 @@ html += `
 question.innerHTML = html;
 
 
-question.classList
-.remove("pop");
+question.classList.remove("pop");
 
 void question.offsetWidth;
 
-question.classList
-.add("pop");
+question.classList.add("pop");
 
 
 let remaining = seconds;
 
 
 /*
-   نوار زمان
+   نمایش اولیه تایمر
 */
 
-const progressBar =
-document.getElementById(
-"timerProgressBar"
+updateTimerDisplay(
+remaining
 );
 
 
 /*
-   شروع شمارشگر
+   شمارش دقیق ثانیه‌ها
 */
 
 timer = setInterval(()=>{
 
 remaining--;
 
-const timerCircle =
-document.getElementById(
-"timerCircle"
+updateTimerDisplay(
+remaining
 );
 
-
-if(timerCircle){
-
-timerCircle.textContent =
-persian(
-Math.max(
-remaining,
-0
-)
-);
-
-
-/*
-   هشدار زمان کم
-*/
-
-if(remaining <= 2){
-
-timerCircle.classList
-.add("last");
-
-}else if(remaining <= 3){
-
-timerCircle.classList
-.add("warning");
-
-}
-
-}
-
-
-/*
-   کاهش نوار زمان
-*/
-
-if(progressBar){
-
-progressBar.style.width =
-Math.max(
-(remaining / seconds)*100,
-0
-)+"%";
-
-}
-
-
-/*
-   پایان زمان
-*/
 
 if(remaining <= 0){
 
@@ -1350,12 +1244,65 @@ showQuestion();
 
 
 /* =========================
+   نمایش تایمر
+========================= */
+
+function updateTimerDisplay(
+remaining
+){
+
+const timerCircle =
+document.getElementById(
+"timerCircle"
+);
+
+if(!timerCircle){
+
+return;
+
+}
+
+
+timerCircle.textContent =
+persian(
+Math.max(remaining,0)
+);
+
+
+timerCircle.classList.remove(
+"warning",
+"danger"
+);
+
+
+if(remaining <= 2){
+
+timerCircle.classList.add(
+"danger"
+);
+
+}
+
+else if(remaining <= 4){
+
+timerCircle.classList.add(
+"warning"
+);
+
+}
+
+}
+
+
+/* =========================
    نمایش سؤال
 ========================= */
 
 function showQuestion(){
 
 acceptingAnswer = true;
+
+clearInterval(timer);
 
 
 const question =
@@ -1365,18 +1312,22 @@ document.getElementById(
 
 
 /*
-   پیام واضح برای کاربر
+   سه گزینه اشتباه
 */
 
 const wrongOptions =
 shuffle(
 items.filter(
 item =>
-item.name !==
-currentAnswer.name
+item.id !== currentAnswer.id
 )
-).slice(0,3);
+)
+.slice(0,3);
 
+
+/*
+   گزینه‌ها
+*/
 
 const options =
 shuffle([
@@ -1393,12 +1344,6 @@ question.innerHTML = `
 
 </div>
 
-<div class="memory-finished">
-
-حالا نوبت شماست! 🧠
-
-</div>
-
 <h2>
 
 کدام تصویر حذف شده بود؟
@@ -1407,13 +1352,12 @@ question.innerHTML = `
 
 <div class="answers">
 
-${options.map(
-(item,index)=>`
+${options.map(item=>`
 
 <button
+type="button"
 class="answer-button"
-data-name="${item.name}"
-onclick="answer(this,'${escapeText(item.name)}')">
+data-id="${item.id}">
 
 ${item.icon}
 
@@ -1423,23 +1367,48 @@ ${item.name}
 
 </button>
 
-`
-).join("")}
+`).join("")}
 
 </div>
 
 `;
 
+
+/*
+   اتصال رویداد به دکمه‌ها
+
+   این بخش عمداً بدون onclick
+   نوشته شده است تا مشکل مقایسه
+   متن فارسی کاملاً حذف شود.
+*/
+
+document
+.querySelectorAll(".answer-button")
+.forEach(button=>{
+
+button.addEventListener(
+"click",
+function(){
+
+answer(
+this,
+this.dataset.id
+);
+
+});
+
+});
+
 }
 
 
 /* =========================
-   پاسخ
+   پاسخ کاربر
 ========================= */
 
 function answer(
 button,
-name
+selectedId
 ){
 
 if(!acceptingAnswer){
@@ -1447,6 +1416,7 @@ if(!acceptingAnswer){
 return;
 
 }
+
 
 acceptingAnswer = false;
 
@@ -1458,26 +1428,40 @@ document.querySelectorAll(
 
 
 buttons.forEach(
-btn =>
-btn.disabled = true
+btn=>{
+    btn.disabled = true;
+}
 );
 
 
-if(name === currentAnswer.name){
+/*
+   تشخیص صحیح فقط بر اساس ID
+*/
 
-button.classList
-.add("correct");
+const isCorrect =
+selectedId ===
+currentAnswer.id;
 
+
+if(isCorrect){
+
+button.classList.add(
+"correct"
+);
+
+
+/*
+   امتیاز مرحله
+*/
 
 const earned =
 level * 10;
-
 
 score += earned;
 
 
 showFeedback(
-"آفرین! حافظه‌ات هنوز بازنشسته نشده 👏",
+"آفرین! درست یادت مانده بود 👏",
 true
 );
 
@@ -1493,22 +1477,30 @@ startLevel();
 },1000);
 
 
-}else{
+}
 
-button.classList
-.add("wrong");
+else{
 
+button.classList.add(
+"wrong"
+);
+
+
+/*
+   پیدا کردن پاسخ صحیح
+*/
 
 buttons.forEach(
 btn=>{
 
 if(
-btn.dataset.name ===
-currentAnswer.name
+btn.dataset.id ===
+currentAnswer.id
 ){
 
-btn.classList
-.add("correct");
+btn.classList.add(
+"correct"
+);
 
 }
 
@@ -1570,12 +1562,18 @@ function endGame(){
 
 clearInterval(timer);
 
+acceptingAnswer = false;
+
 gamesPlayed++;
 
 localStorage.setItem(
 "yadavare_games",
 gamesPlayed
 );
+
+
+const oldBest =
+bestScore;
 
 
 let newRecord = false;
@@ -1617,7 +1615,9 @@ historyData.slice(0,10);
 
 localStorage.setItem(
 "yadavare_history",
-JSON.stringify(historyData)
+JSON.stringify(
+historyData
+)
 );
 
 
@@ -1740,9 +1740,9 @@ document.getElementById(
 "history"
 );
 
-history.classList
-.toggle("hidden");
-
+history.classList.toggle(
+"hidden"
+);
 
 renderHistory();
 
@@ -1899,15 +1899,6 @@ array[i]
 }
 
 return array;
-
-}
-
-
-function escapeText(text){
-
-return text
-.replace(/'/g,"\\'")
-.replace(/"/g,"&quot;");
 
 }
 
